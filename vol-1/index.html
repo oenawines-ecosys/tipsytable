@@ -148,6 +148,7 @@ h1, h2, h3 { color: var(--heading); }
 }
 .mast-word { grid-column: 1; grid-row: 1; margin: 0; line-height: 0; }
 .mast-word img { width: min(55vw, 222px); }
+.mast-word a { display: block; width: fit-content; }
 .stamp {
   grid-column: 1; grid-row: 2;
   justify-self: start;
@@ -350,6 +351,9 @@ h1, h2, h3 { color: var(--heading); }
 .signoff { width: 112px; }
 .signoff-meta { margin: 0; display: grid; gap: 4px; font-size: 15px; color: var(--muted); }
 .signoff-meta .sc-label { letter-spacing: 0.06em; }
+/* The footer line links home: a 44 px tap target that takes no more room than the line. */
+.home-link { display: inline-flex; align-items: center; min-height: 44px; margin-block: -12px; text-decoration: none; }
+@media (hover: hover) and (pointer: fine) { .home-link:hover { color: var(--accent); } }
 .signoff-meta [lang|="zh"] { font-size: 18px; }
 
 /* Wide screens: the menu is a sheet on the table. */
@@ -389,7 +393,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <nav class="jump" aria-label="Jump to a course"><a href="#course-1">I</a><a href="#course-2">II</a><a href="#course-3">III</a></nav>
 </div>
 <div class="mast">
-<h1 class="mast-word"><picture><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture></h1>
+<h1 class="mast-word"><a href="../" aria-label="Tipsy Table home"><picture><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture></a></h1>
 <p class="stamp">Volume I</p>
 <picture class="mast-host"><source srcset="./assets/mark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/mark.png" width="420" height="451" alt=""></picture>
 </div>
@@ -535,7 +539,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <div class="signoff-meta">
 <p>Your hosts tonight: Jocelyn and Bryan</p>
 <p>In the kitchen: Kam Tung Kitchen <span lang="zh-Hant-HK">金東大</span></p>
-<p class="sc-label">Tipsy Table · tipsytablehk.com</p>
+<p class="sc-label"><a class="home-link" href="../">Tipsy Table · tipsytablehk.com</a></p>
 </div>
 </footer>
 </main>
