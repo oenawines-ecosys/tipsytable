@@ -36,7 +36,7 @@ const S = {
 // What the keepsake prints, read from the page: the menu as shown, each wine's pick and note now.
 const read = () => {
   const q = (sel, el = document) => el.querySelector(sel);
-  const button = q('[data-export="pdf"]');
+  const button = q('#keep-pdf');
   const dishes = (el) => [...el.querySelectorAll('.dish-list li')].map((li) => [q('.dish-zh', li).textContent, q('.dish-en', li).textContent]);
   // The credit's English and Chinese, each in its own face as on the page (Chinese is never slanted).
   const runs = (el, latin, chinese) => [...el.childNodes].map((n) => [n.nodeType === 1 ? chinese : latin, n.textContent.trim()]).filter(([, t]) => t);
@@ -47,7 +47,7 @@ const read = () => {
     file: button.dataset.file,
     footer: button.dataset.footer,
     pageLine: button.dataset.page,
-    pairing: q('.export').dataset.pairing,
+    pairing: button.dataset.pairing,
     notes: button.dataset.notes,
     date,
     place,

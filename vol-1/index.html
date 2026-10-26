@@ -438,11 +438,7 @@ h1, h2, h3 { color: var(--heading); }
 .photo img { width: 100%; height: auto; background: var(--insert); }
 .photo figcaption { margin-top: 8px; max-width: 46ch; font-style: italic; font-size: 15.5px; line-height: 1.4; color: var(--muted); text-wrap: pretty; }
 
-/* Take your notes with you: only with JS, since only JS can draw the PDF or copy. */
-.export { display: none; margin-top: 76px; padding-top: 22px; border-top: 1px dashed var(--rule); }
-.js .export { display: block; }
-.export-intro { margin: 6px 0 0; max-width: 40ch; font-style: italic; font-size: 17px; color: var(--muted); text-wrap: pretty; }
-.export-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+/* Buttons: the quiet outline, and .btn-primary filled in the accent for the one action that leads. */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -464,10 +460,6 @@ h1, h2, h3 { color: var(--heading); }
 .btn:disabled { opacity: 0.45; cursor: default; }
 .btn[aria-busy="true"] { cursor: progress; }
 .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.export-status { min-height: 1.4em; margin: 10px 0 0; font-style: italic; font-size: 15px; color: var(--muted); }
-.export-text { display: block; width: 100%; margin-top: 10px; padding: 10px 12px; field-sizing: content; font: inherit; font-size: 16px; line-height: 1.45; color: var(--text); background: var(--insert); border: 1px solid var(--muted); border-radius: 3px; }
-.export-text:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
-.export-text[hidden] { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .btn { transition: none; }
   .btn:active:not(:disabled) { transform: none; }
@@ -547,9 +539,18 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 .consent input:checked::before { opacity: 1; }
 .consent input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .submit .btn { margin-top: 8px; }
-.submit-status { min-height: 1.4em; margin: 10px 0 0; font-style: italic; font-size: 15px; color: var(--muted); }
+.submit-status, .keep-status { min-height: 1.4em; margin: 10px 0 0; font-style: italic; font-size: 15px; color: var(--muted); }
 .submit-last { margin: 0; font-style: italic; font-size: 15px; color: var(--muted); }
 .submit-last:empty { display: none; }
+/* The PDF offer: shown by submit.js once something has been sent. It settles in once, fading up a few
+   pixels as the send's answer lands; with reduced motion it only fades. */
+.keep { margin-top: 22px; transition: opacity 220ms var(--ease-out), translate 220ms var(--ease-out); }
+@starting-style { .keep { opacity: 0; translate: 0 6px; } }
+.keep-offer { margin: 0; max-width: 40ch; font-style: italic; font-size: 17px; color: var(--muted); text-wrap: pretty; }
+@media (prefers-reduced-motion: reduce) {
+  .keep { transition: opacity 220ms var(--ease-out); }
+  @starting-style { .keep { translate: none; } }
+}
 </style>
 </head>
 <body>
@@ -628,7 +629,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Riesling 100%</dd><dt>Appellation</dt><dd>Mosel</dd><dt>Vineyard</dt><dd>Zeppwingert</dd><dt>Soils</dt><dd>Blue and grey slate</dd><dt>Picked</dt><dd>Harvesting began on September 28, 2022, and finished on October 15, 2022, after several breaks for optimal ripeness.</dd><dt>Made</dt><dd>Made using the traditional Champagne method, including a second fermentation in the bottle. The wine was left on its lees aged for over 24 months en tirage.</dd><dt>Alcohol</dt><dd>10%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
 <div class="notes"><div class="notes-head"><label class="label" for="notes-weiser-kunstler-zeppwingert-sekt-2022">Your notes<span class="vh"> on Enkircher Zeppwingert Sekt Brut Nature</span></label><span class="notes-status" aria-live="polite"></span></div>
 <textarea class="notes-field" id="notes-weiser-kunstler-zeppwingert-sekt-2022" rows="2" autocapitalize="sentences" aria-describedby="notes-hint" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:weiser-kunstler-zeppwingert-sekt-2022" data-line="I · Weiser-Künstler Enkircher Zeppwingert Sekt Brut Nature 2022"></textarea>
-<p class="notes-hint" id="notes-hint" data-unavailable="This phone can’t save notes right now. Copy them before you go."></p>
+<p class="notes-hint" id="notes-hint" data-saved="Saved" data-unavailable="This phone can’t save notes right now. Keep this page open and submit before you go."></p>
 <div class="pairing"><p class="label" id="pairing-weiser-kunstler-zeppwingert-sekt-2022">Your favourite pairing<span class="vh"> for Enkircher Zeppwingert Sekt Brut Nature</span></p>
 <div class="chips" role="group" aria-labelledby="pairing-weiser-kunstler-zeppwingert-sekt-2022" data-key="tipsytable:vol-1:pairing:weiser-kunstler-zeppwingert-sekt-2022"><button type="button" class="chip" aria-pressed="false" data-dish="1-1" data-zh="涼拌蓮藕片" data-en="Chilled lotus root, dressed">Lotus root</button><button type="button" class="chip" aria-pressed="false" data-dish="1-2" data-zh="韭菜鹽水豆腐" data-en="Brined tofu with Chinese chives">Brined tofu</button><button type="button" class="chip" aria-pressed="false" data-dish="1-3" data-zh="香煎手打西洋菜墨魚餅" data-en="Pan-fried hand-made cuttlefish and watercress cakes">Cuttlefish cakes</button></div></div>
 </div>
@@ -722,26 +723,20 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">蝦膏海蝦煲仔炒飯</span><span class="dish-en">Claypot fried rice with sea prawns and shrimp roe</span></li><li><span class="dish-zh" lang="zh-Hant-HK">蜑家叉燒燒鵝魚湯艇仔粉</span><span class="dish-en">Tanka boat noodles: char siu and roast goose in fish broth</span></li><li><span class="dish-zh" lang="zh-Hant-HK">蝦醬吊桶炒時蔬</span><span class="dish-en">Seasonal greens with baby squid and shrimp paste</span></li></ul></div>
 </section>
 
-<section class="export" aria-labelledby="export-title" data-title="Tipsy Table · Volume I · Friday 30 October 2026" data-saved="Saved" data-copied="Copied. Paste them anywhere you like." data-empty="Nothing to copy yet. Add a note or pick a pairing first." data-fallback="Press and hold the text below to copy it." data-pairing="Favourite pairing">
-<h2 class="sec-title" id="export-title">Take your notes with you</h2>
-<p class="export-intro">A PDF of tonight’s menu with your notes and favourite pairings, ready to keep or send.</p>
-<div class="export-actions">
-<button type="button" class="btn btn-primary" data-export="pdf" data-module="./assets/keepsake.js" data-title="Tipsy Table · Volume I · my notes" data-file="tipsy-table-vol-1-notes.pdf" data-footer="Tipsy Table · tipsytablehk.com/vol-1/" data-page="page {n} of {total}" data-notes="Your notes" data-busy="Making your PDF…" data-ready="Your PDF is ready." data-again="Your PDF is ready. Tap Save as PDF to keep it." data-failed="Couldn’t make the PDF. Check your connection and tap again, or copy your notes.">Save as PDF</button>
-<button type="button" class="btn" data-export="copy" disabled>Copy my notes</button>
-</div>
-<p class="export-status" aria-live="polite">Nothing to copy yet. Add a note or pick a pairing first.</p>
-<textarea class="export-text" readonly hidden aria-label="All your notes, ready to copy"></textarea>
-</section>
-
 <section class="submit" aria-labelledby="submit-title" data-rest="https://waltajfqeijtfrnoddgy.supabase.co/rest/v1/" data-table="submissions" data-apikey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndhbHRhamZxZWlqdGZybm9kZGd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMTczNDIsImV4cCI6MjEwODU5MzM0Mn0.QCJ3qDMC6__ynbmqKkhcIrgWIyJSynkJTe9hFE3PsYo" data-slug="vol-1" data-empty="Pick a pairing or write a note first." data-busy="Sending…" data-done="Received, thank you. Submit again any time to update." data-failed="Couldn’t send. Check your connection and try again." data-limit="That’s enough from this phone for today." data-last="Last sent {time}.">
 <h2 class="sec-title" id="submit-title">Tell us your favourites</h2>
 <p class="submit-intro" id="submit-intro">Send your favourite pairings and notes to Tipsy Table. They help us plan the next dinners. A random code goes with them so you can update what you sent.</p>
-<div class="submit-name"><label class="label" for="submit-name">First name (optional)</label>
+<div class="submit-name"><label class="label" for="submit-name">Put your name</label>
 <input class="submit-field" id="submit-name" type="text" autocomplete="given-name" autocapitalize="words" autocorrect="off" spellcheck="false" maxlength="40" enterkeyhint="done"></div>
 <label class="consent"><input type="checkbox" id="submit-share"><span>You may quote my notes on tipsytablehk.com</span></label>
 <button type="button" class="btn btn-primary" id="submit-send" aria-describedby="submit-intro" disabled>Submit</button>
 <p class="submit-status" aria-live="polite">Pick a pairing or write a note first.</p>
 <p class="submit-last"></p>
+<div class="keep" hidden>
+<p class="keep-offer" id="keep-offer">Would you like to keep your answers? Save tonight’s menu with your notes and favourite pairings as a PDF.</p>
+<button type="button" class="btn btn-primary" id="keep-pdf" aria-describedby="keep-offer" data-module="./assets/keepsake.js" data-title="Tipsy Table · Volume I · my notes" data-file="tipsy-table-vol-1-notes.pdf" data-footer="Tipsy Table · tipsytablehk.com/vol-1/" data-page="page {n} of {total}" data-notes="Your notes" data-pairing="Favourite pairing" data-busy="Making your PDF…" data-ready="Your PDF is ready." data-again="Your PDF is ready. Tap Save as PDF to keep it." data-failed="Couldn’t make the PDF. Check your connection and tap again.">Save as PDF</button>
+<p class="keep-status" aria-live="polite"></p>
+</div>
 </section>
 
 <footer class="closing">
@@ -778,17 +773,12 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 // Your notes and favourite pairings: each wine's note and pick are kept in this phone's localStorage
 // and nowhere else. A note is saved 300 ms after typing stops and when the field loses focus, a pick
 // when it is tapped; both are restored on load. If storage is blocked (private mode), both still work
-// on the page and the first field's hint says so. The export section saves tonight's menu with them
-// as a PDF (assets/keepsake.js, fetched on the first tap) or copies them as plain text.
+// on the page and the first field's hint says so. The hint also holds the word a field's status shows
+// once its note or pick is kept.
 (() => {
   const fields = [...document.querySelectorAll('.notes-field')];
-  const panel = document.querySelector('.export');
-  if (!fields.length || !panel) return;
+  if (!fields.length) return;
   const hint = document.querySelector('.notes-hint');
-  const copyButton = panel.querySelector('[data-export="copy"]');
-  const pdfButton = panel.querySelector('[data-export="pdf"]');
-  const status = panel.querySelector('.export-status');
-  const fallback = panel.querySelector('.export-text');
 
   const store = (() => {
     try {
@@ -820,40 +810,13 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     try {
       if (value) store.setItem(el.dataset.key, value);
       else store.removeItem(el.dataset.key);
-      setText(saved, panel.dataset.saved);
+      if (hint) setText(saved, hint.dataset.saved);
     } catch {
       if (hint) setText(saved, hint.dataset.unavailable);
       cannotSave();
     }
   };
   const saveNote = (field) => save(field, field.value.trim() ? field.value : '');
-
-  // Per wine: its line, its favourite pairing, its note. A wine with neither is left out.
-  const notesText = () => {
-    const wines = fields.map((field) => {
-      const chip = field.closest('.notes').querySelector('.chip[aria-pressed="true"]');
-      const kept = [chip && `${panel.dataset.pairing}: ${chip.dataset.zh} · ${chip.dataset.en}`, field.value.trim()].filter(Boolean);
-      return kept.length ? [field.dataset.line, ...kept].join('\n') : '';
-    }).filter(Boolean);
-    return wines.length ? `${panel.dataset.title}\n\n${wines.join('\n\n')}` : '';
-  };
-
-  const refresh = () => {
-    const empty = !notesText();
-    copyButton.disabled = empty;
-    setText(status, empty ? panel.dataset.empty : '');
-    fallback.hidden = true;
-  };
-
-  const showFallback = (text) => {
-    fallback.value = text;
-    fallback.hidden = false;
-    setText(status, panel.dataset.fallback);
-    fit(fallback);
-    fallback.focus();
-    fallback.select();
-    fallback.setSelectionRange(0, text.length);
-  };
 
   const timers = new Map();
   fields.forEach((field) => {
@@ -867,7 +830,6 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     fit(field);
     field.addEventListener('input', () => {
       fit(field);
-      refresh();
       clearTimeout(timers.get(field));
       timers.set(field, setTimeout(() => { timers.delete(field); saveNote(field); }, 300));
     });
@@ -904,71 +866,8 @@ h2.course-label { font-size: inherit; font-weight: 400; }
       const picked = chip.getAttribute('aria-pressed') === 'true' ? null : chip;
       press(picked);
       save(group, picked ? picked.dataset.dish : '');
-      refresh();
     });
   });
-
-  copyButton.addEventListener('click', async () => {
-    const text = notesText();
-    if (!text) return;
-    try {
-      await navigator.clipboard.writeText(text);
-      fallback.hidden = true;
-      setText(status, panel.dataset.copied);
-    } catch {
-      showFallback(text);
-    }
-  });
-
-  // Save as PDF: to the share sheet where the phone can share files, a download otherwise.
-  const deliver = async (file) => {
-    if (navigator.canShare && navigator.canShare({ files: [file] })) return navigator.share({ files: [file], title: pdfButton.dataset.title });
-    const link = Object.assign(document.createElement('a'), { href: URL.createObjectURL(file), download: file.name });
-    document.body.append(link);
-    link.click();
-    link.remove();
-    setTimeout(() => URL.revokeObjectURL(link.href), 60000); // long enough for a browser that asks first
-  };
-
-  // The last PDF and the picks and notes it shows: tapped again with nothing changed, it goes straight
-  // to delivery, inside the tap. A browser remembers a failed module fetch for the page's life, so a
-  // retry after a failure asks for the module under a new URL.
-  let made = null;
-  let busy = false;
-  let tries = 0;
-  pdfButton.addEventListener('click', async () => {
-    if (busy) return;
-    busy = true;
-    const key = notesText();
-    const fresh = !made || made.key !== key;
-    const before = status.textContent;
-    // Not `disabled`: that would drop a keyboard user's focus.
-    pdfButton.setAttribute('aria-disabled', 'true');
-    if (fresh) {
-      pdfButton.setAttribute('aria-busy', 'true');
-      setText(status, pdfButton.dataset.busy);
-    }
-    try {
-      if (fresh) made = { key, file: await (await import(`${pdfButton.dataset.module}${tries ? `?${tries}` : ''}`)).keepsake() };
-      await deliver(made.file);
-      setText(status, pdfButton.dataset.ready);
-    } catch (err) {
-      // AbortError: the guest closed the share sheet. NotAllowedError right after drawing: the tap went
-      // stale while the PDF was made, so it is kept and the next tap shares it.
-      if (err.name === 'AbortError') setText(status, before);
-      else if (err.name === 'NotAllowedError' && fresh) setText(status, pdfButton.dataset.again);
-      else {
-        tries += 1;
-        setText(status, pdfButton.dataset.failed);
-      }
-    } finally {
-      busy = false;
-      pdfButton.removeAttribute('aria-disabled');
-      pdfButton.removeAttribute('aria-busy');
-    }
-  });
-
-  refresh();
 })();
 
 // Tell us your favourites (only on a page built with volumes.json site.submit.key): on a tap of
@@ -977,7 +876,9 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 // table can't be read back). The button follows the picks and notes that notes.js keeps, on the same
 // input and tap events. Kept on the phone, every access guarded for private mode: the first name
 // (site-wide), a random device id (one per phone, so a guest's newest row wins), the consent and the
-// time of the last send (per volume).
+// time of the last send (per volume). After a send that went through, and on load once one has, it
+// offers Save as PDF: tonight's menu with every pick and note, drawn by assets/keepsake.js (preloaded
+// with the page, run on the first tap).
 (() => {
   const block = document.querySelector('.submit');
   if (!block) return;
@@ -986,6 +887,9 @@ h2.course-label { font-size: inherit; font-weight: 400; }
   const consent = block.querySelector('#submit-share');
   const status = block.querySelector('.submit-status');
   const last = block.querySelector('.submit-last');
+  const keep = block.querySelector('.keep');
+  const pdfButton = keep.querySelector('#keep-pdf');
+  const pdfStatus = keep.querySelector('.keep-status');
   const { rest, table, apikey, slug } = block.dataset;
   const KEYS = { name: 'tipsytable:name', device: 'tipsytable:device', shareOk: `tipsytable:${slug}:share_ok`, sent: `tipsytable:${slug}:submitted` };
   const NOTE_MAX = 4000; // characters per wine
@@ -1044,11 +948,20 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     return { picks, notes };
   };
 
+  // The kept time of the last send, or null when there is none (or it can't be read as a time).
+  const lastSent = () => {
+    const at = new Date(read(KEYS.sent) || NaN);
+    return Number.isNaN(at.getTime()) ? null : at;
+  };
   // "Last sent 21:14.": the phone's own clock, 24-hour.
   const pad = (n) => String(n).padStart(2, '0');
-  const showLast = (iso) => {
-    const at = new Date(iso || NaN);
-    setText(last, Number.isNaN(at.getTime()) ? '' : block.dataset.last.replace('{time}', `${pad(at.getHours())}:${pad(at.getMinutes())}`));
+  const showLast = (at) => setText(last, at ? block.dataset.last.replace('{time}', `${pad(at.getHours())}:${pad(at.getMinutes())}`) : '');
+
+  // Once something has been sent, Save as PDF is the one filled button and Submit steps back (still
+  // there for a re-send). Focus stays where it is.
+  const offerPdf = () => {
+    keep.hidden = false;
+    button.classList.remove('btn-primary');
   };
 
   let busy = false;
@@ -1097,9 +1010,10 @@ h2.course-label { font-size: inherit; font-weight: 400; }
       });
       const answer = await response.text();
       if (response.ok) {
-        const at = new Date().toISOString();
-        write(KEYS.sent, at);
+        const at = new Date();
+        write(KEYS.sent, at.toISOString());
         showLast(at);
+        offerPdf();
         line = block.dataset.done;
       } else if (answer.includes('too many submissions')) {
         line = block.dataset.limit; // the table's guard: 30 sends a day from one phone, or 2,000 from all (one message)
@@ -1115,7 +1029,57 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     }
   });
 
-  showLast(read(KEYS.sent));
+  // Save as PDF: to the share sheet where the phone can share files, a download otherwise.
+  const deliver = async (file) => {
+    if (navigator.canShare && navigator.canShare({ files: [file] })) return navigator.share({ files: [file], title: pdfButton.dataset.title });
+    const link = Object.assign(document.createElement('a'), { href: URL.createObjectURL(file), download: file.name });
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(link.href), 60000); // long enough for a browser that asks first
+  };
+
+  // The last PDF and the picks and notes it shows: tapped again with nothing changed, it goes straight
+  // to delivery, inside the tap. A browser remembers a failed module fetch for the page's life, so a
+  // retry after a failure asks for the module under a new URL.
+  let made = null;
+  let making = false;
+  let tries = 0;
+  pdfButton.addEventListener('click', async () => {
+    if (making) return;
+    making = true;
+    const key = JSON.stringify(gather());
+    const fresh = !made || made.key !== key;
+    const before = pdfStatus.textContent;
+    // Not `disabled`: that would drop a keyboard user's focus.
+    pdfButton.setAttribute('aria-disabled', 'true');
+    if (fresh) {
+      pdfButton.setAttribute('aria-busy', 'true');
+      setText(pdfStatus, pdfButton.dataset.busy);
+    }
+    try {
+      if (fresh) made = { key, file: await (await import(`${pdfButton.dataset.module}${tries ? `?${tries}` : ''}`)).keepsake() };
+      await deliver(made.file);
+      setText(pdfStatus, pdfButton.dataset.ready);
+    } catch (err) {
+      // AbortError: the guest closed the share sheet. NotAllowedError right after drawing: the tap went
+      // stale while the PDF was made, so it is kept and the next tap shares it.
+      if (err.name === 'AbortError') setText(pdfStatus, before);
+      else if (err.name === 'NotAllowedError' && fresh) setText(pdfStatus, pdfButton.dataset.again);
+      else {
+        tries += 1;
+        setText(pdfStatus, pdfButton.dataset.failed);
+      }
+    } finally {
+      making = false;
+      pdfButton.removeAttribute('aria-disabled');
+      pdfButton.removeAttribute('aria-busy');
+    }
+  });
+
+  const sent = lastSent();
+  showLast(sent);
+  if (sent) offerPdf();
   refresh();
 })();
 </script>
