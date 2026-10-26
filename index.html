@@ -122,6 +122,8 @@ h1, h2, h3 { color: var(--heading); }
   font-variant-numeric: lining-nums;
 }
 .sc-label { font-size: 15px; color: var(--muted); }
+/* An Instagram handle as written, lowercase in the text face, inside a small-caps link. */
+.foot-handle { font-family: var(--font-text); letter-spacing: 0; }
 /* Leader dots between a name and its value, as on a printed menu. */
 .lead { flex: 1 1 0; min-width: 1em; overflow: hidden; white-space: nowrap; font-size: 13px; letter-spacing: 0.3em; color: var(--muted); }
 .lead::before { content: "........................................................................................"; }
@@ -258,8 +260,7 @@ h1, h2, h3 { color: var(--heading); }
 /* Footer */
 .home-foot { margin-top: auto; padding-top: 18px; border-top: 1.5px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 16px; }
 .home-foot p { margin: 0; }
-.foot-link { display: inline-flex; align-items: center; gap: 0.35em; min-height: 44px; font-family: var(--font-sc); font-size: 15px; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; }
-.foot-handle { font-family: var(--font-text); letter-spacing: 0; }
+.foot-link { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0 0.35em; min-height: 44px; font-family: var(--font-sc); font-size: 15px; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; }
 
 /* Wide screens: the index is a sheet on the table, like every volume. */
 @media (min-width: 880px) {
@@ -298,6 +299,7 @@ h1, h2, h3 { color: var(--heading); }
 
 <footer class="home-foot">
 <p class="sc-label">Tipsy Table · tipsytablehk.com</p>
+<a class="foot-link" href="https://www.instagram.com/tipsytablehk/">Instagram <span class="foot-handle">@tipsytablehk</span></a>
 </footer>
 </main>
 <script>

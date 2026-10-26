@@ -21,6 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon.png">
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<link rel="modulepreload" href="./assets/keepsake.js">
 <script>document.documentElement.classList.add("js");</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,6 +124,8 @@ h1, h2, h3 { color: var(--heading); }
   font-variant-numeric: lining-nums;
 }
 .sc-label { font-size: 15px; color: var(--muted); }
+/* An Instagram handle as written, lowercase in the text face, inside a small-caps link. */
+.foot-handle { font-family: var(--font-text); letter-spacing: 0; }
 /* Leader dots between a name and its value, as on a printed menu. */
 .lead { flex: 1 1 0; min-width: 1em; overflow: hidden; white-space: nowrap; font-size: 13px; letter-spacing: 0.3em; color: var(--muted); }
 .lead::before { content: "........................................................................................"; }
@@ -379,8 +382,40 @@ h1, h2, h3 { color: var(--heading); }
 }
 .notes-field::placeholder { color: var(--muted); opacity: 1; font-style: italic; }
 .notes-field:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
-.notes-hint { display: none; margin: 6px 0 0; font-style: italic; font-size: 15px; color: var(--muted); text-wrap: pretty; }
-.js .notes-hint { display: block; }
+/* notes.js fills the hint only when this phone can't save. */
+.notes-hint { margin: 6px 0 0; font-style: italic; font-size: 15px; color: var(--muted); text-wrap: pretty; }
+.notes-hint:empty { display: none; }
+
+/* Your favourite pairing: one pill per dish of the course, tapped rather than typed, so only with JS.
+   A pick fills with the accent and gains a check, which takes the padding it gives up: nothing moves. */
+.pairing { display: none; margin-top: 16px; }
+.js .pairing { display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 18px;
+  border: 1px solid var(--muted);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out);
+}
+.chip[aria-pressed="true"] { padding-inline: 10px; border-color: var(--accent); background: var(--accent); color: var(--bg); }
+.chip[aria-pressed="true"]::before { content: ""; flex: none; width: 10px; height: 5px; margin: 0 6px 3px 0; border: solid currentColor; border-width: 0 0 2px 2px; transform: rotate(-45deg); }
+.chip:active { transform: scale(0.97); }
+.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .chip:hover { border-color: var(--accent); } }
+@media (prefers-reduced-motion: reduce) {
+  .chip { transition: none; }
+  .chip:active { transform: none; }
+}
 
 /* The kitchen's encore: three closing dishes, no wine. */
 .finale { margin-top: 76px; padding-top: 22px; border-top: 1px dashed var(--rule); }
@@ -395,9 +430,10 @@ h1, h2, h3 { color: var(--heading); }
 .photo img { width: 100%; height: auto; background: var(--insert); }
 .photo figcaption { margin-top: 8px; max-width: 46ch; font-style: italic; font-size: 15.5px; line-height: 1.4; color: var(--muted); text-wrap: pretty; }
 
-/* Take your notes with you: only with JS, since only JS can copy or share. */
+/* Take your notes with you: only with JS, since only JS can draw the PDF or copy. */
 .export { display: none; margin-top: 76px; padding-top: 22px; border-top: 1px dashed var(--rule); }
 .js .export { display: block; }
+.export-intro { margin: 6px 0 0; max-width: 40ch; font-style: italic; font-size: 17px; color: var(--muted); text-wrap: pretty; }
 .export-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 .btn {
   display: inline-flex;
@@ -418,6 +454,7 @@ h1, h2, h3 { color: var(--heading); }
 .btn-primary { background: var(--accent); color: var(--bg); }
 .btn:active:not(:disabled) { transform: scale(0.97); }
 .btn:disabled { opacity: 0.45; cursor: default; }
+.btn[aria-busy="true"] { cursor: progress; }
 .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .export-status { min-height: 1.4em; margin: 10px 0 0; font-style: italic; font-size: 15px; color: var(--muted); }
 .export-text { display: block; width: 100%; margin-top: 10px; padding: 10px 12px; field-sizing: content; font: inherit; font-size: 16px; line-height: 1.45; color: var(--text); background: var(--insert); border: 1px solid var(--muted); border-radius: 3px; }
@@ -433,12 +470,10 @@ h1, h2, h3 { color: var(--heading); }
 .closing-text { margin: 0; max-width: 30ch; font-style: italic; font-size: 19px; line-height: 1.42; text-wrap: pretty; }
 .closing-line { margin: 0; max-width: 14em; font-family: var(--font-display); font-size: 25px; line-height: 1.2; color: var(--heading); transform: rotate(-2deg); transform-origin: left center; text-wrap: balance; }
 .signoff { width: 112px; }
-.signoff-meta { margin: 0; display: grid; gap: 4px; font-size: 15px; color: var(--muted); }
-.signoff-meta .sc-label { letter-spacing: 0.06em; }
-/* The footer line links home: a 44 px tap target that takes no more room than the line. */
-.home-link { display: inline-flex; align-items: center; min-height: 44px; margin-block: -12px; text-decoration: none; }
-@media (hover: hover) and (pointer: fine) { .home-link:hover { color: var(--accent); } }
-.signoff-meta [lang|="zh"] { font-size: 18px; }
+/* Follow us: the closing's one link, in the menu's small caps. */
+.follow { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0 0.35em; min-height: 44px; margin-top: -8px; font-family: var(--font-sc); font-size: 17px; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; text-underline-offset: 0.18em; }
+.follow:focus-visible { text-decoration: underline; }
+@media (hover: hover) and (pointer: fine) { .follow:hover { text-decoration: underline; } }
 
 /* Wide screens: the menu is a sheet on the table. */
 @media (min-width: 880px) {
@@ -456,7 +491,6 @@ h1, h2, h3 { color: var(--heading); }
 
 /* Utilities */
 h2.course-label { font-size: inherit; font-weight: 400; }
-.signoff-meta p { margin: 0; }
 </style>
 </head>
 <body>
@@ -534,7 +568,9 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Riesling 100%</dd><dt>Appellation</dt><dd>Mosel</dd><dt>Vineyard</dt><dd>Zeppwingert</dd><dt>Soils</dt><dd>Blue and grey slate</dd><dt>Picked</dt><dd>Harvesting began on September 28, 2022, and finished on October 15, 2022, after several breaks for optimal ripeness.</dd><dt>Made</dt><dd>Made using the traditional Champagne method, including a second fermentation in the bottle. The wine was left on its lees aged for over 24 months en tirage.</dd><dt>Alcohol</dt><dd>10%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
 <div class="notes"><div class="notes-head"><label class="label" for="notes-weiser-kunstler-zeppwingert-sekt-2022">Your notes<span class="vh"> on Enkircher Zeppwingert Sekt Brut Nature</span></label><span class="notes-status" aria-live="polite"></span></div>
 <textarea class="notes-field" id="notes-weiser-kunstler-zeppwingert-sekt-2022" rows="2" autocapitalize="sentences" aria-describedby="notes-hint" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:weiser-kunstler-zeppwingert-sekt-2022" data-line="I · Weiser-Künstler Enkircher Zeppwingert Sekt Brut Nature 2022"></textarea>
-<p class="notes-hint" id="notes-hint" data-unavailable="This phone can't save notes right now. Copy them before you go.">Saved on this phone only. Nothing is sent anywhere. Copy your notes to keep them.</p>
+<p class="notes-hint" id="notes-hint" data-unavailable="This phone can’t save notes right now. Copy them before you go."></p>
+<div class="pairing"><p class="label" id="pairing-weiser-kunstler-zeppwingert-sekt-2022">Your favourite pairing<span class="vh"> for Enkircher Zeppwingert Sekt Brut Nature</span></p>
+<div class="chips" role="group" aria-labelledby="pairing-weiser-kunstler-zeppwingert-sekt-2022" data-key="tipsytable:vol-1:pairing:weiser-kunstler-zeppwingert-sekt-2022"><button type="button" class="chip" aria-pressed="false" data-dish="1-1" data-zh="涼拌蓮藕片" data-en="Chilled lotus root, dressed">Lotus root</button><button type="button" class="chip" aria-pressed="false" data-dish="1-2" data-zh="韭菜鹽水豆腐" data-en="Brined tofu with Chinese chives">Brined tofu</button><button type="button" class="chip" aria-pressed="false" data-dish="1-3" data-zh="香煎手打西洋菜墨魚餅" data-en="Pan-fried hand-made cuttlefish and watercress cakes">Cuttlefish cakes</button></div></div>
 </div>
 <a class="to-map" href="#map">↑ map</a>
 </section>
@@ -572,6 +608,8 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Clairette 80%<br>Grenache Blanc 20%</dd><dt>Appellation</dt><dd>Côtes du Rhône</dd><dt>Vineyard</dt><dd>Coudoulet Est</dd><dt>Soils</dt><dd>Early Würm (Quaternary) terrace with rolled pebbles composed of clays and limestones.</dd><dt>Picked</dt><dd>Hand-harvested into crates with sorting in the vineyard, followed by a second sorting on a sorting table. Direct pressing of whole bunches.</dd><dt>Made</dt><dd>Fermentation for 20 to 25 days in temperature-controlled stainless-steel tanks. Indigenous yeasts. Malolactic fermentation in tanks. 7 months of aging in concrete or stainless-steel tanks. Clarification of the wines in the cellar during the winter. Bottled without fining or filtration.</dd><dt>Alcohol</dt><dd>13.5%</dd><dt>Production</dt><dd>6,500 bottles</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
 <div class="notes"><div class="notes-head"><label class="label" for="notes-jaume-coudoulet-blanc-2024">Your notes<span class="vh"> on Coudoulet Blanc</span></label><span class="notes-status" aria-live="polite"></span></div>
 <textarea class="notes-field" id="notes-jaume-coudoulet-blanc-2024" rows="2" autocapitalize="sentences" aria-describedby="notes-hint" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:jaume-coudoulet-blanc-2024" data-line="II · Domaine Élodie Jaume Coudoulet Blanc 2024"></textarea>
+<div class="pairing"><p class="label" id="pairing-jaume-coudoulet-blanc-2024">Your favourite pairing<span class="vh"> for Coudoulet Blanc</span></p>
+<div class="chips" role="group" aria-labelledby="pairing-jaume-coudoulet-blanc-2024" data-key="tipsytable:vol-1:pairing:jaume-coudoulet-blanc-2024"><button type="button" class="chip" aria-pressed="false" data-dish="2-1" data-zh="香煎雜錦鹹鮮魚仔拼盤" data-en="Pan-seared platter of assorted salt-cured small fish">Salt-cured fish</button><button type="button" class="chip" aria-pressed="false" data-dish="2-2" data-zh="手撕雞拼鴨腿" data-en="Hand-shredded chicken with duck leg">Chicken and duck leg</button><button type="button" class="chip" aria-pressed="false" data-dish="2-3" data-zh="砂鍋豬潤炒蜆（配煎米粉）" data-en="Claypot clams and pork liver, with crisp-fried rice vermicelli">Clams and pork liver</button><button type="button" class="chip" aria-pressed="false" data-dish="2-4" data-zh="柚子金沙骨" data-en="Pomelo and salted-egg-yolk pork ribs">Pomelo pork ribs</button></div></div>
 </div>
 <a class="to-map" href="#map">↑ map</a>
 </section>
@@ -583,6 +621,8 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Chardonnay 100%</dd><dt>Appellation</dt><dd>Rully AOC</dd><dt>Vineyard</dt><dd>Les Plantenays</dd><dt>Soils</dt><dd>Stony, marly, soft limestone</dd><dt>Picked</dt><dd>By hand</dd><dt>Made</dt><dd>Fermentation is 100% natural, using indigenous yeasts from our terroirs. The wine is aged in underground cellars for between 10 and 12 months, without stirring. It is matured in French oak barrels, 25% of them new, from 4 complementary coopers. The wine is racked by gravity to preserve its quality.</dd><dt>Alcohol</dt><dd>13%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
 <div class="notes"><div class="notes-head"><label class="label" for="notes-mia-les-plantenays-2022">Your notes<span class="vh"> on Les Plantenays</span></label><span class="notes-status" aria-live="polite"></span></div>
 <textarea class="notes-field" id="notes-mia-les-plantenays-2022" rows="2" autocapitalize="sentences" aria-describedby="notes-hint" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:mia-les-plantenays-2022" data-line="II · Domaine Mia Les Plantenays 2022"></textarea>
+<div class="pairing"><p class="label" id="pairing-mia-les-plantenays-2022">Your favourite pairing<span class="vh"> for Les Plantenays</span></p>
+<div class="chips" role="group" aria-labelledby="pairing-mia-les-plantenays-2022" data-key="tipsytable:vol-1:pairing:mia-les-plantenays-2022"><button type="button" class="chip" aria-pressed="false" data-dish="2-1" data-zh="香煎雜錦鹹鮮魚仔拼盤" data-en="Pan-seared platter of assorted salt-cured small fish">Salt-cured fish</button><button type="button" class="chip" aria-pressed="false" data-dish="2-2" data-zh="手撕雞拼鴨腿" data-en="Hand-shredded chicken with duck leg">Chicken and duck leg</button><button type="button" class="chip" aria-pressed="false" data-dish="2-3" data-zh="砂鍋豬潤炒蜆（配煎米粉）" data-en="Claypot clams and pork liver, with crisp-fried rice vermicelli">Clams and pork liver</button><button type="button" class="chip" aria-pressed="false" data-dish="2-4" data-zh="柚子金沙骨" data-en="Pomelo and salted-egg-yolk pork ribs">Pomelo pork ribs</button></div></div>
 </div>
 <a class="to-map" href="#map">↑ map</a>
 </section>
@@ -600,13 +640,15 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <h3 class="wine" id="name-orte-escalada-do-bibei-2018">Escalada do Bibei</h3>
 <p class="meta"><span class="vintage">2018</span><span class="where">Galicia, Spain</span></p>
 <div class="tell"><p class="label">Tell the table</p><p class="tell-line">“A mountain red reviving grapes Valdeorras nearly lost.”</p></div>
-<p class="story taste"><span class="runin">What to taste for</span> Smoky dark fruit, warm baking spices and dried violets, with fine-grained tannin. Think clove and cinnamon, not jam.</p>
+<p class="story taste"><span class="runin">What to taste for</span> Smoky dark fruit, warm baking spices and dried violets, with fine-grained tannin. Think clove and cinnamon, not jam. Similar to Pinot Noir in style: light on its feet, perfumed, more lift than weight.</p>
 <p class="story"><span class="runin">The place</span> Valdeorras is a mountain valley in eastern Galicia, cut by the River Sil and its tributary, the Bibei. The Romans came here for gold, which they mined from the Sil. Wine here turns up in records from over 1,000 years ago. In the 1880s a vine-killing louse called phylloxera ruined most of the vineyards. Growers replanted with heavy-cropping grapes. Local reds such as Merenzao grew rare. This wine sets out to bring them back.</p>
 <p class="story"><span class="runin">The maker</span> Alberto Orte co-founded a US importer of Spanish wine at 24, in 1999. Now he makes his own. In Valdeorras he works with a few farmers on tiny plots of 80 to 100-year-old vines. The slopes are too steep for tractors. When a vine dies, he replants with a cutting from the same plot.</p>
 <div class="sayit"><p class="label">Say it</p><dl><div><dt>Alberto Orte</dt><dd>al-BAIR-toh OR-teh</dd></div><div><dt>Escalada do Bibei</dt><dd>es-kah-LAH-dah doh bee-BAY</dd></div></dl></div>
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Mencía 60%<br>Merenzao and Brancellao 20%<br>Grau Negro 10%<br>Garnacha Tintorera 10%</dd><dt>Appellation</dt><dd>Valdeorras DO</dd><dt>Vineyard</dt><dd>Granite banks of the Bibei River</dd><dt>Soils</dt><dd>The soil is composed of slate and granite topsoil with a thin clay subsoil. This soil profile is poor in organic matter.</dd><dt>Picked</dt><dd>Hand harvested</dd><dt>Made</dt><dd>Macerated for 28 days. Aged in French oak barrels for 18 months. After one month of natural racking and sediment settling, the wine is gently filtered then bottled.</dd><dt>Alcohol</dt><dd>13%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
 <div class="notes"><div class="notes-head"><label class="label" for="notes-orte-escalada-do-bibei-2018">Your notes<span class="vh"> on Escalada do Bibei</span></label><span class="notes-status" aria-live="polite"></span></div>
 <textarea class="notes-field" id="notes-orte-escalada-do-bibei-2018" rows="2" autocapitalize="sentences" aria-describedby="notes-hint" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:orte-escalada-do-bibei-2018" data-line="III · Alberto Orte Escalada do Bibei 2018"></textarea>
+<div class="pairing"><p class="label" id="pairing-orte-escalada-do-bibei-2018">Your favourite pairing<span class="vh"> for Escalada do Bibei</span></p>
+<div class="chips" role="group" aria-labelledby="pairing-orte-escalada-do-bibei-2018" data-key="tipsytable:vol-1:pairing:orte-escalada-do-bibei-2018"><button type="button" class="chip" aria-pressed="false" data-dish="3-1" data-zh="墨魚土魷蒸肉餅" data-en="Steamed pork patty with cuttlefish and dried squid">Steamed pork patty</button><button type="button" class="chip" aria-pressed="false" data-dish="3-2" data-zh="京蔥豉油皇大蝦炒腸粉" data-en="Wok-fried rice rolls with king prawns and Peking leek in supreme soy">Prawn rice rolls</button></div></div>
 </div>
 <a class="to-map" href="#map">↑ map</a>
 </section>
@@ -620,25 +662,22 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">蝦膏海蝦煲仔炒飯</span><span class="dish-en">Claypot fried rice with sea prawns and shrimp roe</span></li><li><span class="dish-zh" lang="zh-Hant-HK">蜑家叉燒燒鵝魚湯艇仔粉</span><span class="dish-en">Tanka boat noodles: char siu and roast goose in fish broth</span></li><li><span class="dish-zh" lang="zh-Hant-HK">蝦醬吊桶炒時蔬</span><span class="dish-en">Seasonal greens with baby squid and shrimp paste</span></li></ul></div>
 </section>
 
-<section class="export" aria-labelledby="export-title" data-title="Tipsy Table · Volume I · Friday 30 October 2026" data-saved="Saved" data-copied="Copied. Paste them anywhere you like." data-empty="Write a note on any wine and it will be ready to copy." data-fallback="Press and hold the text below to copy it.">
+<section class="export" aria-labelledby="export-title" data-title="Tipsy Table · Volume I · Friday 30 October 2026" data-saved="Saved" data-copied="Copied. Paste them anywhere you like." data-empty="Nothing to copy yet. Add a note or pick a pairing first." data-fallback="Press and hold the text below to copy it." data-pairing="Favourite pairing">
 <h2 class="sec-title" id="export-title">Take your notes with you</h2>
+<p class="export-intro">A PDF of tonight’s menu with your notes and favourite pairings, ready to keep or send.</p>
 <div class="export-actions">
-<button type="button" class="btn btn-primary" data-export="copy" disabled>Copy my notes</button>
-<button type="button" class="btn" data-export="share" disabled hidden>Share</button>
+<button type="button" class="btn btn-primary" data-export="pdf" data-module="./assets/keepsake.js" data-title="Tipsy Table · Volume I · my notes" data-file="tipsy-table-vol-1-notes.pdf" data-footer="Tipsy Table · tipsytablehk.com/vol-1/" data-page="page {n} of {total}" data-notes="Your notes" data-busy="Making your PDF…" data-ready="Your PDF is ready." data-again="Your PDF is ready. Tap Save as PDF to keep it." data-failed="Couldn’t make the PDF. Check your connection and tap again, or copy your notes.">Save as PDF</button>
+<button type="button" class="btn" data-export="copy" disabled>Copy my notes</button>
 </div>
-<p class="export-status" aria-live="polite">Write a note on any wine and it will be ready to copy.</p>
+<p class="export-status" aria-live="polite">Nothing to copy yet. Add a note or pick a pairing first.</p>
 <textarea class="export-text" readonly hidden aria-label="All your notes, ready to copy"></textarea>
 </section>
 
 <footer class="closing">
-<p class="closing-text">Jocelyn and Bryan are here all evening. Ask them anything about tonight’s wines. No question is too small.</p>
+
 <p class="closing-line">Thank you for joining us.</p>
 <picture class="signoff"><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture>
-<div class="signoff-meta">
-<p>Your hosts tonight: Jocelyn and Bryan</p>
-<p>In the kitchen: Kam Tung Kitchen <span lang="zh-Hant-HK">金東大</span></p>
-<p class="sc-label"><a class="home-link" href="../">Tipsy Table · tipsytablehk.com</a></p>
-</div>
+<a class="follow" href="https://www.instagram.com/tipsytablehk/" rel="me">Follow us at <span class="foot-handle">@tipsytablehk</span></a>
 </footer>
 </main>
 <script>
@@ -665,17 +704,18 @@ h2.course-label { font-size: inherit; font-weight: 400; }
   drawables.forEach((el) => draw.observe(el));
 })();
 
-// Your notes: each wine's field is kept in this phone's localStorage and nowhere else.
-// Saved 300 ms after typing stops and when the field loses focus; restored on load. If storage
-// is blocked (private mode), typing still works and the first field's line says so. The export
-// section copies or shares every note as plain text; Share appears only where the phone has it.
+// Your notes and favourite pairings: each wine's note and pick are kept in this phone's localStorage
+// and nowhere else. A note is saved 300 ms after typing stops and when the field loses focus, a pick
+// when it is tapped; both are restored on load. If storage is blocked (private mode), both still work
+// on the page and the first field's hint says so. The export section saves tonight's menu with them
+// as a PDF (assets/keepsake.js, fetched on the first tap) or copies them as plain text.
 (() => {
   const fields = [...document.querySelectorAll('.notes-field')];
   const panel = document.querySelector('.export');
   if (!fields.length || !panel) return;
   const hint = document.querySelector('.notes-hint');
   const copyButton = panel.querySelector('[data-export="copy"]');
-  const shareButton = panel.querySelector('[data-export="share"]');
+  const pdfButton = panel.querySelector('[data-export="pdf"]');
   const status = panel.querySelector('.export-status');
   const fallback = panel.querySelector('.export-text');
 
@@ -702,27 +742,34 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     field.style.height = `${field.scrollHeight + field.offsetHeight - field.clientHeight}px`;
   };
 
-  const save = (field) => {
+  // Keeps a note or a pick under its element's data-key; an empty value removes it.
+  const save = (el, value) => {
     if (!store) return;
+    const saved = el.closest('.notes').querySelector('.notes-status');
     try {
-      if (field.value.trim()) store.setItem(field.dataset.key, field.value);
-      else store.removeItem(field.dataset.key);
-      setText(field.closest('.notes').querySelector('.notes-status'), panel.dataset.saved);
+      if (value) store.setItem(el.dataset.key, value);
+      else store.removeItem(el.dataset.key);
+      setText(saved, panel.dataset.saved);
     } catch {
-      if (hint) setText(field.closest('.notes').querySelector('.notes-status'), hint.dataset.unavailable);
+      if (hint) setText(saved, hint.dataset.unavailable);
       cannotSave();
     }
   };
+  const saveNote = (field) => save(field, field.value.trim() ? field.value : '');
 
+  // Per wine: its line, its favourite pairing, its note. A wine with neither is left out.
   const notesText = () => {
-    const wines = fields.filter((f) => f.value.trim()).map((f) => `${f.dataset.line}\n${f.value.trim()}`);
+    const wines = fields.map((field) => {
+      const chip = field.closest('.notes').querySelector('.chip[aria-pressed="true"]');
+      const kept = [chip && `${panel.dataset.pairing}: ${chip.dataset.zh} · ${chip.dataset.en}`, field.value.trim()].filter(Boolean);
+      return kept.length ? [field.dataset.line, ...kept].join('\n') : '';
+    }).filter(Boolean);
     return wines.length ? `${panel.dataset.title}\n\n${wines.join('\n\n')}` : '';
   };
 
   const refresh = () => {
     const empty = !notesText();
     copyButton.disabled = empty;
-    shareButton.disabled = empty;
     setText(status, empty ? panel.dataset.empty : '');
     fallback.hidden = true;
   };
@@ -751,22 +798,44 @@ h2.course-label { font-size: inherit; font-weight: 400; }
       fit(field);
       refresh();
       clearTimeout(timers.get(field));
-      timers.set(field, setTimeout(() => { timers.delete(field); save(field); }, 300));
+      timers.set(field, setTimeout(() => { timers.delete(field); saveNote(field); }, 300));
     });
     field.addEventListener('blur', () => {
       clearTimeout(timers.get(field));
       timers.delete(field);
-      save(field);
+      saveNote(field);
     });
   });
 
   // A screen lock or app switch inside the 300 ms window must not lose the last words typed.
   const flush = () => {
-    timers.forEach((timer, field) => { clearTimeout(timer); save(field); });
+    timers.forEach((timer, field) => { clearTimeout(timer); saveNote(field); });
     timers.clear();
   };
   addEventListener('pagehide', flush);
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
+
+  // Favourite pairing: a tap picks a dish, a tap on the picked one clears it; one pick per wine.
+  document.querySelectorAll('.chips').forEach((group) => {
+    const chips = [...group.querySelectorAll('.chip')];
+    const press = (picked) => chips.forEach((chip) => chip.setAttribute('aria-pressed', chip === picked));
+    if (store) {
+      try {
+        const kept = store.getItem(group.dataset.key);
+        press(chips.find((chip) => chip.dataset.dish === kept));
+      } catch {
+        cannotSave();
+      }
+    }
+    group.addEventListener('click', (event) => {
+      const chip = event.target.closest('.chip');
+      if (!chip) return;
+      const picked = chip.getAttribute('aria-pressed') === 'true' ? null : chip;
+      press(picked);
+      save(group, picked ? picked.dataset.dish : '');
+      refresh();
+    });
+  });
 
   copyButton.addEventListener('click', async () => {
     const text = notesText();
@@ -780,18 +849,53 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     }
   });
 
-  if (navigator.share) {
-    shareButton.hidden = false;
-    shareButton.addEventListener('click', async () => {
-      const text = notesText();
-      if (!text) return;
-      try {
-        await navigator.share({ title: panel.dataset.title, text });
-      } catch (err) {
-        if (err.name !== 'AbortError') showFallback(text);
+  // Save as PDF: to the share sheet where the phone can share files, a download otherwise.
+  const deliver = async (file) => {
+    if (navigator.canShare && navigator.canShare({ files: [file] })) return navigator.share({ files: [file], title: pdfButton.dataset.title });
+    const link = Object.assign(document.createElement('a'), { href: URL.createObjectURL(file), download: file.name });
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(link.href), 60000); // long enough for a browser that asks first
+  };
+
+  // The last PDF and the picks and notes it shows: tapped again with nothing changed, it goes straight
+  // to delivery, inside the tap. A browser remembers a failed module fetch for the page's life, so a
+  // retry after a failure asks for the module under a new URL.
+  let made = null;
+  let busy = false;
+  let tries = 0;
+  pdfButton.addEventListener('click', async () => {
+    if (busy) return;
+    busy = true;
+    const key = notesText();
+    const fresh = !made || made.key !== key;
+    const before = status.textContent;
+    // Not `disabled`: that would drop a keyboard user's focus.
+    pdfButton.setAttribute('aria-disabled', 'true');
+    if (fresh) {
+      pdfButton.setAttribute('aria-busy', 'true');
+      setText(status, pdfButton.dataset.busy);
+    }
+    try {
+      if (fresh) made = { key, file: await (await import(`${pdfButton.dataset.module}${tries ? `?${tries}` : ''}`)).keepsake() };
+      await deliver(made.file);
+      setText(status, pdfButton.dataset.ready);
+    } catch (err) {
+      // AbortError: the guest closed the share sheet. NotAllowedError right after drawing: the tap went
+      // stale while the PDF was made, so it is kept and the next tap shares it.
+      if (err.name === 'AbortError') setText(status, before);
+      else if (err.name === 'NotAllowedError' && fresh) setText(status, pdfButton.dataset.again);
+      else {
+        tries += 1;
+        setText(status, pdfButton.dataset.failed);
       }
-    });
-  }
+    } finally {
+      busy = false;
+      pdfButton.removeAttribute('aria-disabled');
+      pdfButton.removeAttribute('aria-busy');
+    }
+  });
 
   refresh();
 })();
