@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..700;1,400..600&family=Vollkorn+SC:wght@400;600&family=Young+Serif&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&text=%E4%BA%AC%E4%BB%94%E5%8F%89%E5%90%8A%E5%9C%9F%E5%A2%A8%E5%A4%A7%E5%AD%90%E5%AE%B6%E6%89%8B%E6%89%93%E6%8B%8C%E6%8B%BC%E6%92%95%E6%99%82%E6%9D%B1%E6%9F%9A%E6%A1%B6%E6%B0%B4%E6%B2%99%E6%B2%B9%E6%B4%8B%E6%B5%B7%E6%B6%BC%E6%B9%AF%E6%BD%A4%E7%82%92%E7%85%8E%E7%85%B2%E7%87%92%E7%89%87%E7%9A%87%E7%9B%A4%E7%A0%82%E7%B1%B3%E7%B2%89%E8%82%89%E8%85%90%E8%85%B8%E8%85%BF%E8%86%8F%E8%89%87%E8%8F%9C%E8%92%B8%E8%93%AE%E8%94%A5%E8%94%AC%E8%97%95%E8%9C%86%E8%9C%91%E8%9D%A6%E8%A5%BF%E8%B1%86%E8%B1%89%E8%B1%AC%E9%85%8D%E9%86%AC%E9%87%91%E9%8C%A6%E9%8D%8B%E9%9B%9C%E9%9B%9E%E9%9F%AD%E9%A3%AF%E9%A4%85%E9%A6%99%E9%AA%A8%E9%AD%9A%E9%AD%B7%E9%AE%AE%E9%B4%A8%E9%B5%9D%E9%B9%B9%E9%B9%BD%EF%BC%88%EF%BC%89&display=swap">
 <style>
-/* Colour, type and motion tokens shared by the guest page, the redirect and the 404. */
+/* Colour, type and motion tokens shared by the journal home, every volume page and the 404. */
 :root {
   /* Light: comp A's menu card, one ink on paper. */
   --bg: #F3E9D7;          /* paper */
@@ -73,7 +73,8 @@
   }
 }
 
-/* Layout: one printed menu column with 16px gutters; from 880px it becomes a sheet lying on the table. */
+/* Shared by the home and every volume page. Layout: one printed menu column with 16px gutters;
+   from 880px it becomes a sheet lying on the table. */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -101,7 +102,6 @@ body::after {
 }
 img { max-width: 100%; height: auto; display: block; }
 picture { display: block; }
-.defs { position: absolute; }
 a { color: inherit; }
 a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 h1, h2, h3 { color: var(--heading); }
@@ -114,6 +114,32 @@ h1, h2, h3 { color: var(--heading); }
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 14px 48px;
 }
+
+/* Small-caps labels, the menu card's quiet voice. */
+.sc-label, .label, .runin {
+  font-family: var(--font-sc);
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  font-variant-numeric: lining-nums;
+}
+.sc-label { font-size: 15px; color: var(--muted); }
+/* Leader dots between a name and its value, as on a printed menu. */
+.lead { flex: 1 1 0; min-width: 1em; overflow: hidden; white-space: nowrap; font-size: 13px; letter-spacing: 0.3em; color: var(--muted); }
+.lead::before { content: "........................................................................................"; }
+
+@media (min-width: 880px) {
+  body { background: var(--table); }
+  .sheet {
+    margin-block: 44px;
+    padding: 34px 64px 60px;
+    background: var(--bg);
+    box-shadow: 0 1px 2px var(--shade), 0 28px 50px -30px var(--shade);
+  }
+}
+
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+.defs { position: absolute; }
 
 /* Masthead */
 .dateline {
@@ -146,9 +172,10 @@ h1, h2, h3 { color: var(--heading); }
   padding-top: 26px;
   border-bottom: 1.5px solid var(--line);
 }
-.mast-word { grid-column: 1; grid-row: 1; margin: 0; line-height: 0; }
+/* The wordmark is the page's h1, wrapped in the link home so the heading reads "Tipsy Table". */
+.mast-word { grid-column: 1; grid-row: 1; justify-self: start; line-height: 0; }
+.mast-word h1 { margin: 0; }
 .mast-word img { width: min(55vw, 222px); }
-.mast-word a { display: block; width: fit-content; }
 .stamp {
   grid-column: 1; grid-row: 2;
   justify-self: start;
@@ -167,13 +194,6 @@ h1, h2, h3 { color: var(--heading); }
 .credits { display: grid; gap: 14px; margin: 0; padding-block: 16px 18px; border-bottom: 1px solid var(--rule); }
 .credits div { display: grid; align-content: start; }
 .credits dd { margin: 0; }
-.sc-label, .label, .runin {
-  font-family: var(--font-sc);
-  font-weight: 400;
-  letter-spacing: 0.07em;
-  font-variant-numeric: lining-nums;
-}
-.sc-label { font-size: 15px; color: var(--muted); }
 .credit-name { font-style: italic; font-size: 20px; line-height: 1.3; color: var(--heading); }
 .credit-name [lang|="zh"] { font-size: 19px; margin-left: 0.2em; }
 .credit-note { font-size: 15px; font-style: italic; color: var(--muted); }
@@ -226,8 +246,6 @@ h1, h2, h3 { color: var(--heading); }
 .legend a { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45em; min-height: 44px; text-decoration: none; }
 .lg-num { flex: none; width: 36px; font-family: var(--font-display); font-size: 16px; color: var(--heading); }
 .lg-name { flex: 0 1 auto; min-width: 0; }
-.lead { flex: 1 1 0; min-width: 1em; overflow: hidden; white-space: nowrap; font-size: 13px; letter-spacing: 0.3em; color: var(--muted); }
-.lead::before { content: "........................................................................................"; }
 .lg-where { flex: 0 1 auto; min-width: 0; font-style: italic; }
 
 /* Courses */
@@ -337,12 +355,78 @@ h1, h2, h3 { color: var(--heading); }
   .nerd dd + dt { margin-top: 8px; }
 }
 
+/* Your notes: a quiet field at the foot of each wine, on the insert's paper. 17px text keeps iOS from zooming in. */
+.notes { margin-top: 18px; }
+.notes-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 12px; }
+.notes-status { font-style: italic; font-size: 14px; color: var(--muted); }
+.notes-field {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 76px;
+  margin: 2px 0 0;
+  padding: 10px 12px;
+  field-sizing: content;
+  resize: vertical;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1.45;
+  font-variant-numeric: lining-nums;
+  color: var(--text);
+  background: var(--insert);
+  border: 1px solid var(--muted);
+  border-radius: 3px;
+}
+.notes-field::placeholder { color: var(--muted); opacity: 1; font-style: italic; }
+.notes-field:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+.notes-hint { display: none; margin: 6px 0 0; font-style: italic; font-size: 15px; color: var(--muted); text-wrap: pretty; }
+.js .notes-hint { display: block; }
+
 /* The kitchen's encore: three closing dishes, no wine. */
 .finale { margin-top: 76px; padding-top: 22px; border-top: 1px dashed var(--rule); }
 .finale-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; margin-bottom: 14px; }
 .finale-title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 27px; line-height: 1.1; text-wrap: balance; }
 .finale-intro { margin: 6px 0 0; font-style: italic; font-size: 17px; color: var(--muted); }
 .finale .dishes { margin-bottom: 0; }
+
+/* The night: photos from the dinner, one column, captions in the menu's italic. */
+.night { margin-top: 76px; padding-top: 22px; border-top: 1px dashed var(--rule); }
+.photo { margin: 26px 0 0; }
+.photo img { width: 100%; height: auto; background: var(--insert); }
+.photo figcaption { margin-top: 8px; max-width: 46ch; font-style: italic; font-size: 15.5px; line-height: 1.4; color: var(--muted); text-wrap: pretty; }
+
+/* Take your notes with you: only with JS, since only JS can copy or share. */
+.export { display: none; margin-top: 76px; padding-top: 22px; border-top: 1px dashed var(--rule); }
+.js .export { display: block; }
+.export-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1.5px solid var(--accent);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-sc);
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out);
+}
+.btn[hidden] { display: none; }
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn:active:not(:disabled) { transform: scale(0.97); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.export-status { min-height: 1.4em; margin: 10px 0 0; font-style: italic; font-size: 15px; color: var(--muted); }
+.export-text { display: block; width: 100%; margin-top: 10px; padding: 10px 12px; field-sizing: content; font: inherit; font-size: 16px; line-height: 1.45; color: var(--text); background: var(--insert); border: 1px solid var(--muted); border-radius: 3px; }
+.export-text:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+.export-text[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+  .btn:active:not(:disabled) { transform: none; }
+}
 
 /* Closing */
 .closing { margin-top: 76px; padding-top: 30px; border-top: 1.5px solid var(--line); display: grid; justify-items: start; gap: 18px; }
@@ -358,16 +442,7 @@ h1, h2, h3 { color: var(--heading); }
 
 /* Wide screens: the menu is a sheet on the table. */
 @media (min-width: 880px) {
-  body { background: var(--table); }
-  .sheet {
-    --gutter: 64px;
-    margin-block: 44px;
-    padding-left: 64px;
-    padding-right: 64px;
-    padding-block: 34px 60px;
-    background: var(--bg);
-    box-shadow: 0 1px 2px var(--shade), 0 28px 50px -30px var(--shade);
-  }
+  .sheet { --gutter: 64px; }
   .mast-word img { width: 268px; }
   .mast-host { width: 210px; }
   .welcome-text { font-size: 21px; }
@@ -376,10 +451,10 @@ h1, h2, h3 { color: var(--heading); }
   .numeral { font-size: 66px; }
   .illo { height: 118px; max-width: 134px; }
   .dish-zh { font-size: 21px; }
+  .photo:not(.is-wide) { max-width: 70%; }
 }
 
 /* Utilities */
-.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 h2.course-label { font-size: inherit; font-weight: 400; }
 .signoff-meta p { margin: 0; }
 </style>
@@ -393,7 +468,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <nav class="jump" aria-label="Jump to a course"><a href="#course-1">I</a><a href="#course-2">II</a><a href="#course-3">III</a></nav>
 </div>
 <div class="mast">
-<h1 class="mast-word"><a href="../" aria-label="Tipsy Table home"><picture><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture></a></h1>
+<a class="mast-word" href="../"><h1><picture><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture></h1><span class="vh"> home</span></a>
 <p class="stamp">Volume I</p>
 <picture class="mast-host"><source srcset="./assets/mark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/mark.png" width="420" height="451" alt=""></picture>
 </div>
@@ -457,6 +532,10 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="story"><span class="runin">The maker</span> Konstantin Weiser and Alexandra Künstler started from scratch in 2005, with no family vineyards. They farm a little over 4 hectares of Riesling, by hand. Some of their vines are over 100 years old. When phylloxera wrecked Europe’s vineyards in the late 1800s, most growers replanted on American roots. Their old vines still grow on their own.</p>
 <div class="sayit"><p class="label">Say it</p><dl><div><dt>Weiser-Künstler</dt><dd>VY-zer KEWNST-ler</dd></div><div><dt>Enkircher Zeppwingert</dt><dd>ENK-irsh-er TSEP-ving-ert</dd></div><div><dt>Sekt</dt><dd>zekt</dd></div></dl></div>
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Riesling 100%</dd><dt>Appellation</dt><dd>Mosel</dd><dt>Vineyard</dt><dd>Zeppwingert</dd><dt>Soils</dt><dd>Blue and grey slate</dd><dt>Picked</dt><dd>Harvesting began on September 28, 2022, and finished on October 15, 2022, after several breaks for optimal ripeness.</dd><dt>Made</dt><dd>Made using the traditional Champagne method, including a second fermentation in the bottle. The wine was left on its lees aged for over 24 months en tirage.</dd><dt>Alcohol</dt><dd>10%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
+<div class="notes"><div class="notes-head"><label class="label" for="notes-weiser-kunstler-zeppwingert-sekt-2022">Your notes</label><span class="notes-status" aria-live="polite"></span></div>
+<textarea class="notes-field" id="notes-weiser-kunstler-zeppwingert-sekt-2022" rows="2" autocapitalize="sentences" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:weiser-kunstler-zeppwingert-sekt-2022" data-line="I · Weiser-Künstler Enkircher Zeppwingert Sekt Brut Nature 2022"></textarea>
+<p class="notes-hint" data-unavailable="This phone can't save notes right now. Copy them before you go.">Saved on this phone only. Nothing is sent anywhere.</p>
+</div>
 <a class="to-map" href="#map">↑ map</a>
 </section>
 </article>
@@ -491,6 +570,9 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="story"><span class="runin">The maker</span> Élodie Jaume’s family has grown grapes around Châteauneuf-du-Pape since 1826. She started with 5 hectares of her own. Then she took over the family estate. It now carries her name. She farms organically and biodynamically. This white comes from 1.3 hectares, nearly two football pitches. That was enough for about 6,500 bottles.</p>
 <div class="sayit"><p class="label">Say it</p><dl><div><dt>Domaine Élodie Jaume</dt><dd>doh-MEN ay-loh-DEE ZHOHM</dd></div><div><dt>Côtes du Rhône Coudoulet Blanc</dt><dd>koht dew ROHN koo-doo-LAY BLAHN</dd></div></dl></div>
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Clairette 80%<br>Grenache Blanc 20%</dd><dt>Appellation</dt><dd>Côtes du Rhône</dd><dt>Vineyard</dt><dd>Coudoulet Est</dd><dt>Soils</dt><dd>Early Würm (Quaternary) terrace with rolled pebbles composed of clays and limestones.</dd><dt>Picked</dt><dd>Hand-harvested into crates with sorting in the vineyard, followed by a second sorting on a sorting table. Direct pressing of whole bunches.</dd><dt>Made</dt><dd>Fermentation for 20 to 25 days in temperature-controlled stainless-steel tanks. Indigenous yeasts. Malolactic fermentation in tanks. 7 months of aging in concrete or stainless-steel tanks. Clarification of the wines in the cellar during the winter. Bottled without fining or filtration.</dd><dt>Alcohol</dt><dd>13.5%</dd><dt>Production</dt><dd>6,500 bottles</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
+<div class="notes"><div class="notes-head"><label class="label" for="notes-jaume-coudoulet-blanc-2024">Your notes</label><span class="notes-status" aria-live="polite"></span></div>
+<textarea class="notes-field" id="notes-jaume-coudoulet-blanc-2024" rows="2" autocapitalize="sentences" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:jaume-coudoulet-blanc-2024" data-line="II · Domaine Élodie Jaume Coudoulet Blanc 2024"></textarea>
+</div>
 <a class="to-map" href="#map">↑ map</a>
 </section>
 <section class="pair-detail" id="more-mia-les-plantenays-2022" aria-labelledby="more-title-mia-les-plantenays-2022">
@@ -499,6 +581,9 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="story"><span class="runin">The maker</span> Mia Subotic took over this family estate from her father in 2020. It bears her first name. The wines are made in underground cellars in Nuits-Saint-Georges, with David Duband. Les Plantenays sits in a hollow. One side of the plot catches the morning sun. The other side gets the evening sun.</p>
 <div class="sayit"><p class="label">Say it</p><dl><div><dt>Domaine Mia</dt><dd>doh-MEN MEE-ah</dd></div><div><dt>Rully Les Plantenays</dt><dd>rew-LEE lay plahnt-NAY</dd></div></dl></div>
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Chardonnay 100%</dd><dt>Appellation</dt><dd>Rully AOC</dd><dt>Vineyard</dt><dd>Les Plantenays</dd><dt>Soils</dt><dd>Stony, marly, soft limestone</dd><dt>Picked</dt><dd>By hand</dd><dt>Made</dt><dd>Fermentation is 100% natural, using indigenous yeasts from our terroirs. The wine is aged in underground cellars for between 10 and 12 months, without stirring. It is matured in French oak barrels, 25% of them new, from 4 complementary coopers. The wine is racked by gravity to preserve its quality.</dd><dt>Alcohol</dt><dd>13%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
+<div class="notes"><div class="notes-head"><label class="label" for="notes-mia-les-plantenays-2022">Your notes</label><span class="notes-status" aria-live="polite"></span></div>
+<textarea class="notes-field" id="notes-mia-les-plantenays-2022" rows="2" autocapitalize="sentences" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:mia-les-plantenays-2022" data-line="II · Domaine Mia Les Plantenays 2022"></textarea>
+</div>
 <a class="to-map" href="#map">↑ map</a>
 </section>
 </article>
@@ -520,6 +605,9 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="story"><span class="runin">The maker</span> Alberto Orte co-founded a US importer of Spanish wine at 24, in 1999. Now he makes his own. In Valdeorras he works with a few farmers on tiny plots of 80 to 100-year-old vines. The slopes are too steep for tractors. When a vine dies, he replants with a cutting from the same plot.</p>
 <div class="sayit"><p class="label">Say it</p><dl><div><dt>Alberto Orte</dt><dd>al-BAIR-toh OR-teh</dd></div><div><dt>Escalada do Bibei</dt><dd>es-kah-LAH-dah doh bee-BAY</dd></div></dl></div>
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Mencía 60%<br>Merenzao and Brancellao 20%<br>Grau Negro 10%<br>Garnacha Tintorera 10%</dd><dt>Appellation</dt><dd>Valdeorras DO</dd><dt>Vineyard</dt><dd>Granite banks of the Bibei River</dd><dt>Soils</dt><dd>The soil is composed of slate and granite topsoil with a thin clay subsoil. This soil profile is poor in organic matter.</dd><dt>Picked</dt><dd>Hand harvested</dd><dt>Made</dt><dd>Macerated for 28 days. Aged in French oak barrels for 18 months. After one month of natural racking and sediment settling, the wine is gently filtered then bottled.</dd><dt>Alcohol</dt><dd>13%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
+<div class="notes"><div class="notes-head"><label class="label" for="notes-orte-escalada-do-bibei-2018">Your notes</label><span class="notes-status" aria-live="polite"></span></div>
+<textarea class="notes-field" id="notes-orte-escalada-do-bibei-2018" rows="2" autocapitalize="sentences" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:orte-escalada-do-bibei-2018" data-line="III · Alberto Orte Escalada do Bibei 2018"></textarea>
+</div>
 <a class="to-map" href="#map">↑ map</a>
 </section>
 </article>
@@ -530,6 +618,16 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <svg class="illo" viewBox="0 0 124 112" role="img" aria-label="A steaming bowl with chopsticks resting on its rim"><g filter="url(#wobble-ink)"><path class="wine-fill pale" d="M17 60c30 3.2 60 3.2 90 0-1.6 10-6 17.6-13 22.6-8.4 6-19 8.6-32 8.6s-23.6-2.6-32-8.6c-7-5-11.4-12.6-13-22.6Z"/><path class="draw" pathLength="1" style="--i:0" d="M14 58c1.4 15.6 7.8 26.4 18.6 33 8.2 5 18.4 7.2 29.4 7.2s21.2-2.2 29.4-7.2C102.2 84.4 108.6 73.6 110 58"/><path class="draw" pathLength="1" style="--i:1" d="M12.5 58c32.6 3.4 66.4 3.4 99 0"/><path class="draw" pathLength="1" style="--i:2" d="M46 98.6c-.6 3.4.2 5.6 2.4 6.6h27.4c2.2-1 3-3.2 2.4-6.6"/><path class="draw" pathLength="1" style="--i:3" d="M70 54.5 106.5 17M79.5 55.5 113 21.5"/><path class="draw" pathLength="1" style="--i:4" d="M41 46c-4.6-5.2 4.4-9.4 0-15.2s4.6-9.6.4-15"/><path class="draw" pathLength="1" style="--i:5" d="M55 43c-4.4-4.8 4.2-8.8 0-14.2s4.4-8.8.4-13.6"/></g></svg>
 </div>
 <div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">蝦膏海蝦煲仔炒飯</span><span class="dish-en">Claypot fried rice with sea prawns and shrimp roe</span></li><li><span class="dish-zh" lang="zh-Hant-HK">蜑家叉燒燒鵝魚湯艇仔粉</span><span class="dish-en">Tanka boat noodles: char siu and roast goose in fish broth</span></li><li><span class="dish-zh" lang="zh-Hant-HK">蝦醬吊桶炒時蔬</span><span class="dish-en">Seasonal greens with baby squid and shrimp paste</span></li></ul></div>
+</section>
+
+<section class="export" aria-labelledby="export-title" data-title="Tipsy Table · Volume I · Friday 30 October 2026" data-saved="Saved" data-copied="Copied. Paste them anywhere you like." data-empty="Write a note on any wine and it will be ready to copy.">
+<h2 class="sec-title" id="export-title">Take your notes with you</h2>
+<div class="export-actions">
+<button type="button" class="btn btn-primary" data-export="copy" disabled>Copy my notes</button>
+<button type="button" class="btn" data-export="share" disabled hidden>Share</button>
+</div>
+<p class="export-status" aria-live="polite">Write a note on any wine and it will be ready to copy.</p>
+<textarea class="export-text" readonly hidden aria-label="Your notes"></textarea>
 </section>
 
 <footer class="closing">
@@ -565,6 +663,124 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     });
   }, { threshold: 0.45 });
   drawables.forEach((el) => draw.observe(el));
+})();
+
+// Your notes: each wine's field is kept in this phone's localStorage and nowhere else.
+// Saved 300 ms after typing stops and when the field loses focus; restored on load. If storage
+// is blocked (private mode), typing still works and the first field's line says so. The export
+// section copies or shares every note as plain text; Share appears only where the phone has it.
+(() => {
+  const fields = [...document.querySelectorAll('.notes-field')];
+  const panel = document.querySelector('.export');
+  if (!fields.length || !panel) return;
+  const hint = document.querySelector('.notes-hint');
+  const copyButton = panel.querySelector('[data-export="copy"]');
+  const shareButton = panel.querySelector('[data-export="share"]');
+  const status = panel.querySelector('.export-status');
+  const fallback = panel.querySelector('.export-text');
+
+  const store = (() => {
+    try {
+      const probe = 'tipsytable:probe';
+      localStorage.setItem(probe, '1');
+      localStorage.removeItem(probe);
+      return localStorage;
+    } catch {
+      return null;
+    }
+  })();
+  const cannotSave = () => { if (hint) hint.textContent = hint.dataset.unavailable; };
+  if (!store) cannotSave();
+
+  const setText = (el, text) => { if (el.textContent !== text) el.textContent = text; };
+
+  // Grow with the text where field-sizing is not supported.
+  const autoGrow = !CSS.supports('field-sizing', 'content');
+  const fit = (field) => {
+    if (!autoGrow) return;
+    field.style.height = 'auto';
+    field.style.height = `${field.scrollHeight + field.offsetHeight - field.clientHeight}px`;
+  };
+
+  const save = (field) => {
+    if (!store) return;
+    try {
+      if (field.value.trim()) store.setItem(field.dataset.key, field.value);
+      else store.removeItem(field.dataset.key);
+      setText(field.closest('.notes').querySelector('.notes-status'), panel.dataset.saved);
+    } catch {
+      cannotSave();
+    }
+  };
+
+  const notesText = () => {
+    const wines = fields.filter((f) => f.value.trim()).map((f) => `${f.dataset.line}\n${f.value.trim()}`);
+    return wines.length ? `${panel.dataset.title}\n\n${wines.join('\n\n')}` : '';
+  };
+
+  const refresh = () => {
+    const empty = !notesText();
+    copyButton.disabled = empty;
+    shareButton.disabled = empty;
+    setText(status, empty ? panel.dataset.empty : '');
+  };
+
+  const showFallback = (text) => {
+    fallback.value = text;
+    fallback.hidden = false;
+    fit(fallback);
+    fallback.focus();
+    fallback.select();
+  };
+
+  const timers = new Map();
+  fields.forEach((field) => {
+    if (store) {
+      try {
+        field.value = store.getItem(field.dataset.key) || '';
+      } catch {
+        cannotSave();
+      }
+    }
+    fit(field);
+    field.addEventListener('input', () => {
+      fit(field);
+      refresh();
+      clearTimeout(timers.get(field));
+      timers.set(field, setTimeout(() => save(field), 300));
+    });
+    field.addEventListener('blur', () => {
+      clearTimeout(timers.get(field));
+      save(field);
+    });
+  });
+
+  copyButton.addEventListener('click', async () => {
+    const text = notesText();
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      fallback.hidden = true;
+      setText(status, panel.dataset.copied);
+    } catch {
+      showFallback(text);
+    }
+  });
+
+  if (navigator.share) {
+    shareButton.hidden = false;
+    shareButton.addEventListener('click', async () => {
+      const text = notesText();
+      if (!text) return;
+      try {
+        await navigator.share({ title: panel.dataset.title, text });
+      } catch (err) {
+        if (err.name !== 'AbortError') showFallback(text);
+      }
+    });
+  }
+
+  refresh();
 })();
 </script>
 </body>

@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tipsy Table</title>
 <meta name="description" content="Tipsy Table wine dinners in Hong Kong. Every volume's wines, menu and map, newest first.">
-<link rel="canonical" href="https://tipsytablehk.com/">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F3E9D7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#2A1810" media="(prefers-color-scheme: dark)">
@@ -23,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..700;1,400..600&family=Vollkorn+SC:wght@400;600&family=Young+Serif&display=swap">
 <style>
-/* Colour, type and motion tokens shared by the guest page, the redirect and the 404. */
+/* Colour, type and motion tokens shared by the journal home, every volume page and the 404. */
 :root {
   /* Light: comp A's menu card, one ink on paper. */
   --bg: #F3E9D7;          /* paper */
@@ -79,7 +78,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 </style>
 </head>
 <body>
-<main><p class="big">This glass is empty.</p><a id="home" href="/">All the dinners</a><a id="latest" href="/vol-1/" data-slug="vol-1">Back to Volume I</a></main>
+<main><p class="big">This glass is empty.</p><a id="home" href="/">All the dinners</a><a id="latest" href="/vol-1/" data-slug="vol-1">Latest: Volume I</a></main>
 <script>(() => {
   const seg = location.pathname.split('/').filter(Boolean)[0];
   const custom = /(^|\.)tipsytablehk\.com$/.test(location.hostname);
