@@ -201,8 +201,16 @@ h1, h2, h3 { color: var(--heading); }
 .credit-name [lang|="zh"] { font-size: 19px; margin-left: 0.2em; }
 .credit-note { font-size: 15px; font-style: italic; color: var(--muted); }
 .credit-note [lang|="zh"] { font-size: 18px; margin-right: 0.3em; }
+/* Follow us, under the hosts: the handle as written, in the accent; a 44px target that keeps the row's
+   rhythm. Its focus ring hugs the handle, clear of the label above. */
+.follow-link { display: inline-flex; align-items: center; min-height: 44px; margin-block: -9px; color: var(--accent); text-decoration: none; text-underline-offset: 0.18em; }
+.follow-link:focus-visible { outline: none; text-decoration: underline; }
+.follow-link:focus-visible .foot-handle { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+@media (hover: hover) and (pointer: fine) { .follow-link:hover { text-decoration: underline; } }
 @media (min-width: 560px) {
   .credits { grid-template-columns: 1fr 1.25fr; gap: 24px; }
+  /* The hosts and Follow us stack in the first column, the kitchen keeps the second. */
+  .credit-kitchen { grid-column: 2; grid-row: 1 / span 2; }
 }
 .welcome { padding-top: 22px; }
 .welcome-text { margin: 0; font-size: 19px; line-height: 1.45; max-width: 34ch; text-wrap: pretty; }
@@ -330,7 +338,7 @@ h1, h2, h3 { color: var(--heading); }
 .nerd summary { list-style: none; display: flex; align-items: center; gap: 10px; min-height: 48px; padding-block: 8px; cursor: pointer; }
 .nerd summary::-webkit-details-marker { display: none; }
 .nerd-title { font-family: var(--font-sc); font-size: 17px; letter-spacing: 0.06em; color: var(--heading); }
-.nerd-hint { flex: 1; font-style: italic; font-size: 15px; color: var(--muted); }
+.nerd-hint { flex: 1; font-style: italic; font-size: 17px; color: var(--muted); }
 .plus { position: relative; flex: none; width: 15px; height: 15px; transition: transform 180ms var(--ease-out); }
 .plus::before, .plus::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; margin-top: -0.75px; border-radius: 1px; background: var(--heading); }
 .plus::after { transform: rotate(90deg); }
@@ -349,10 +357,10 @@ h1, h2, h3 { color: var(--heading); }
   .plus { transition: none; }
 }
 @keyframes fade-in { from { opacity: 0; } }
-.nerd dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 16px; font-size: 16px; line-height: 1.4; }
+.nerd dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 16px; font-size: 18px; line-height: 1.45; }
 .nerd dt { font-family: var(--font-sc); letter-spacing: 0.06em; color: var(--muted); }
 .nerd dd { margin: 0; font-variant-numeric: lining-nums; text-wrap: pretty; min-width: 0; }
-.nerd-source { margin: 12px 0 0; font-style: italic; font-size: 14px; color: var(--muted); }
+.nerd-source { margin: 12px 0 0; font-style: italic; font-size: 15px; color: var(--muted); }
 @media (max-width: 400px) {
   .nerd dl { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .nerd dd + dt { margin-top: 8px; }
@@ -491,6 +499,57 @@ h1, h2, h3 { color: var(--heading); }
 
 /* Utilities */
 h2.course-label { font-size: inherit; font-weight: 400; }
+
+/* Tell us your favourites: only on a page built with volumes.json site.submit.key, and only with JS,
+   since only JS can send. The name field is the notes field's twin (17px text keeps iOS from zooming
+   in); the consent is a real checkbox in a 44px row that is all label, so all of it taps. */
+.submit { display: none; margin-top: 76px; padding-top: 22px; border-top: 1px dashed var(--rule); }
+.js .submit { display: block; }
+.submit-intro { margin: 6px 0 0; max-width: 40ch; font-style: italic; font-size: 17px; color: var(--muted); text-wrap: pretty; }
+.submit-name { margin-top: 16px; }
+.submit-name .label { display: block; }
+.submit-field {
+  display: block;
+  width: 100%;
+  max-width: 18em;
+  min-height: 44px;
+  margin: 0;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--insert);
+  border: 1px solid var(--muted);
+  border-radius: 3px;
+}
+.submit-field:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* An autofilled name keeps the paper, not the browser's tint. */
+.submit-field:-webkit-autofill { -webkit-text-fill-color: var(--text); box-shadow: inset 0 0 0 40px var(--insert); }
+.consent { display: flex; align-items: flex-start; gap: 12px; width: fit-content; max-width: 100%; min-height: 44px; margin-top: 8px; padding-block: 10px; line-height: 24px; overflow-wrap: anywhere; cursor: pointer; }
+/* The box in the page's own hand: the notes field's paper and line when empty; ticked, the accent with a
+   check in the paper colour, like a picked chip. */
+.consent input {
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  appearance: none;
+  background: var(--insert);
+  border: 1.5px solid var(--muted);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.consent input::before { content: ""; width: 12px; height: 6px; margin-top: -3px; border: solid var(--bg); border-width: 0 0 2px 2px; transform: rotate(-45deg); opacity: 0; }
+.consent input:checked { background: var(--accent); border-color: var(--accent); }
+.consent input:checked::before { opacity: 1; }
+.consent input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.submit .btn { margin-top: 8px; }
+.submit-status { min-height: 1.4em; margin: 10px 0 0; font-style: italic; font-size: 15px; color: var(--muted); }
+.submit-last { margin: 0; font-style: italic; font-size: 15px; color: var(--muted); }
+.submit-last:empty { display: none; }
 </style>
 </head>
 <body>
@@ -508,7 +567,8 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 </div>
 <dl class="credits">
 <div><dt class="sc-label">Your hosts tonight</dt><dd class="credit-name">Jocelyn and Bryan</dd></div>
-<div><dt class="sc-label">In the kitchen</dt><dd class="credit-name">Kam Tung Kitchen <span lang="zh-Hant-HK">金東大</span></dd><dd class="credit-note"><span lang="zh-Hant-HK">蜑家菜</span>Tanka boat-man cuisine</dd></div>
+<div><dt class="sc-label">Follow us</dt><dd class="credit-name"><a class="follow-link" href="https://www.instagram.com/TipsyTableHK/"><span class="foot-handle">@TipsyTableHK</span></a></dd></div>
+<div class="credit-kitchen"><dt class="sc-label">In the kitchen</dt><dd class="credit-name">Kam Tung Kitchen <span lang="zh-Hant-HK">金東大</span></dd><dd class="credit-note"><span lang="zh-Hant-HK">蜑家菜</span>Tanka boat-man cuisine</dd></div>
 </dl>
 </header>
 
@@ -673,11 +733,22 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <textarea class="export-text" readonly hidden aria-label="All your notes, ready to copy"></textarea>
 </section>
 
+<section class="submit" aria-labelledby="submit-title" data-rest="https://waltajfqeijtfrnoddgy.supabase.co/rest/v1/" data-table="submissions" data-apikey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndhbHRhamZxZWlqdGZybm9kZGd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMTczNDIsImV4cCI6MjEwODU5MzM0Mn0.QCJ3qDMC6__ynbmqKkhcIrgWIyJSynkJTe9hFE3PsYo" data-slug="vol-1" data-empty="Pick a pairing or write a note first." data-busy="Sending…" data-done="Received, thank you. Submit again any time to update." data-failed="Couldn’t send. Check your connection and try again." data-limit="That’s enough from this phone for today." data-last="Last sent {time}.">
+<h2 class="sec-title" id="submit-title">Tell us your favourites</h2>
+<p class="submit-intro" id="submit-intro">Send your favourite pairings and notes to Tipsy Table. They help us plan the next dinners. A random code goes with them so you can update what you sent.</p>
+<div class="submit-name"><label class="label" for="submit-name">First name (optional)</label>
+<input class="submit-field" id="submit-name" type="text" autocomplete="given-name" autocapitalize="words" autocorrect="off" spellcheck="false" maxlength="40" enterkeyhint="done"></div>
+<label class="consent"><input type="checkbox" id="submit-share"><span>You may quote my notes on tipsytablehk.com</span></label>
+<button type="button" class="btn btn-primary" id="submit-send" aria-describedby="submit-intro" disabled>Submit</button>
+<p class="submit-status" aria-live="polite">Pick a pairing or write a note first.</p>
+<p class="submit-last"></p>
+</section>
+
 <footer class="closing">
 
 <p class="closing-line">Thank you for joining us.</p>
 <picture class="signoff"><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture>
-<a class="follow" href="https://www.instagram.com/tipsytablehk/" rel="me">Follow us at <span class="foot-handle">@tipsytablehk</span></a>
+<a class="follow" href="https://www.instagram.com/TipsyTableHK/" rel="me">Follow us <span class="foot-handle">@TipsyTableHK</span></a>
 </footer>
 </main>
 <script>
@@ -897,6 +968,154 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     }
   });
 
+  refresh();
+})();
+
+// Tell us your favourites (only on a page built with volumes.json site.submit.key): on a tap of
+// Submit, and only then, this phone's favourite pairings and notes, the optional first name and the
+// consent to quote them go to the guest submissions table as one new row (Prefer: return=minimal; the
+// table can't be read back). The button follows the picks and notes that notes.js keeps, on the same
+// input and tap events. Kept on the phone, every access guarded for private mode: the first name
+// (site-wide), a random device id (one per phone, so a guest's newest row wins), the consent and the
+// time of the last send (per volume).
+(() => {
+  const block = document.querySelector('.submit');
+  if (!block) return;
+  const button = block.querySelector('#submit-send');
+  const name = block.querySelector('#submit-name');
+  const consent = block.querySelector('#submit-share');
+  const status = block.querySelector('.submit-status');
+  const last = block.querySelector('.submit-last');
+  const { rest, table, apikey, slug } = block.dataset;
+  const KEYS = { name: 'tipsytable:name', device: 'tipsytable:device', shareOk: `tipsytable:${slug}:share_ok`, sent: `tipsytable:${slug}:submitted` };
+  const NOTE_MAX = 4000; // characters per wine
+  const TIMEOUT = 15000;
+  const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+
+  const read = (key) => {
+    try {
+      return localStorage.getItem(key);
+    } catch {
+      return null;
+    }
+  };
+  // An empty value removes the key. Where storage is blocked or full, the value still counts for this visit.
+  const write = (key, value) => {
+    try {
+      if (value) localStorage.setItem(key, value);
+      else localStorage.removeItem(key);
+    } catch {
+      // Not kept: nothing else to do.
+    }
+  };
+  const setText = (el, text) => { if (el.textContent !== text) el.textContent = text; };
+
+  // A version 4 UUID, made on the first send and kept; a new one per visit where storage is blocked.
+  let device = null;
+  const deviceId = () => {
+    if (device) return device;
+    const kept = read(KEYS.device);
+    if (UUID.test(kept || '')) return (device = kept);
+    if (crypto.randomUUID) device = crypto.randomUUID();
+    else {
+      const b = crypto.getRandomValues(new Uint8Array(16));
+      b[6] = (b[6] & 0x0f) | 0x40; // version 4
+      b[8] = (b[8] & 0x3f) | 0x80; // RFC 4122 variant
+      const h = [...b].map((x) => x.toString(16).padStart(2, '0')).join('');
+      device = `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20)}`;
+    }
+    write(KEYS.device, device);
+    return device;
+  };
+
+  // Per wine (each notes field's id is notes-<wine id>): the picked dish as course and dish number, and
+  // the note, trimmed and capped. A wine with neither is left out.
+  const gather = () => {
+    const picks = {};
+    const notes = {};
+    document.querySelectorAll('.notes').forEach((box) => {
+      const field = box.querySelector('.notes-field');
+      const wine = field.id.slice('notes-'.length);
+      const chip = box.querySelector('.chip[aria-pressed="true"]');
+      const note = field.value.trim();
+      if (chip) picks[wine] = chip.dataset.dish;
+      if (note) notes[wine] = [...note].slice(0, NOTE_MAX).join('');
+    });
+    return { picks, notes };
+  };
+
+  // "Last sent 21:14.": the phone's own clock, 24-hour.
+  const pad = (n) => String(n).padStart(2, '0');
+  const showLast = (iso) => {
+    const at = new Date(iso || NaN);
+    setText(last, Number.isNaN(at.getTime()) ? '' : block.dataset.last.replace('{time}', `${pad(at.getHours())}:${pad(at.getMinutes())}`));
+  };
+
+  let busy = false;
+  // Off while there is no pick and no note, and the line says why; any change clears an earlier result.
+  const refresh = () => {
+    const { picks, notes } = gather();
+    const empty = !Object.keys(picks).length && !Object.keys(notes).length;
+    button.disabled = empty;
+    if (!busy) setText(status, empty ? block.dataset.empty : '');
+  };
+
+  name.value = read(KEYS.name) || '';
+  consent.checked = read(KEYS.shareOk) === '1';
+  name.addEventListener('input', () => write(KEYS.name, name.value.trim()));
+  // Enter (the keyboard's Done) moves on to the consent box, which also puts a phone's keyboard away.
+  // Nothing is sent except by Submit.
+  name.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' || event.isComposing || event.keyCode === 229) return;
+    event.preventDefault();
+    consent.focus();
+  });
+  consent.addEventListener('change', () => write(KEYS.shareOk, consent.checked ? '1' : ''));
+  // notes.js has handled these by the time they reach the document: values and picks are current.
+  document.addEventListener('input', (event) => { if (event.target.matches('.notes-field')) refresh(); });
+  document.addEventListener('click', (event) => { if (event.target.closest('.chip')) refresh(); });
+
+  // One request per tap. The answer is read to its end, so the request completes instead of being
+  // cancelled with its body unread, but only the table's guard message is looked for; it is never shown.
+  button.addEventListener('click', async () => {
+    if (busy) return;
+    busy = true;
+    const { picks, notes } = gather();
+    // Not `disabled`: that would drop a keyboard user's focus.
+    button.setAttribute('aria-disabled', 'true');
+    button.setAttribute('aria-busy', 'true');
+    setText(status, block.dataset.busy);
+    const abort = new AbortController();
+    const timer = setTimeout(() => abort.abort(), TIMEOUT);
+    let line = block.dataset.failed;
+    try {
+      const response = await fetch(`${rest}${table}`, {
+        method: 'POST',
+        headers: { apikey, 'Content-Type': 'application/json', Prefer: 'return=minimal', Accept: 'application/json' },
+        body: JSON.stringify({ volume: slug, device_id: deviceId(), first_name: name.value.trim() || null, share_ok: consent.checked, picks, notes }),
+        signal: abort.signal,
+      });
+      const answer = await response.text();
+      if (response.ok) {
+        const at = new Date().toISOString();
+        write(KEYS.sent, at);
+        showLast(at);
+        line = block.dataset.done;
+      } else if (answer.includes('too many submissions')) {
+        line = block.dataset.limit; // the table's guard: 30 sends a day from one phone, or 2,000 from all (one message)
+      }
+    } catch {
+      // Offline, refused or past the timeout: the failed line stands.
+    } finally {
+      clearTimeout(timer);
+      busy = false;
+      button.removeAttribute('aria-disabled');
+      button.removeAttribute('aria-busy');
+      setText(status, line);
+    }
+  });
+
+  showLast(read(KEYS.sent));
   refresh();
 })();
 </script>
