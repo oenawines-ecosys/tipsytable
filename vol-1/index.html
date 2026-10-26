@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en" data-course="1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tipsy Table · Volume I · 30 October 2026</title>
+<meta name="description" content="Four wines, three courses and a map for the table at Tipsy Table Volume I, Friday 30 October 2026, Hong Kong.">
+<link rel="canonical" href="https://tipsytablehk.com/vol-1/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F3E9D7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2A1810" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tipsy Table">
+<meta property="og:title" content="Tipsy Table · Volume I · 30 October 2026">
+<meta property="og:description" content="Four wines, three courses and a map for the table at Tipsy Table Volume I, Friday 30 October 2026, Hong Kong.">
+<meta property="og:url" content="https://tipsytablehk.com/vol-1/">
+<meta property="og:image" content="https://tipsytablehk.com/vol-1/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tipsy Table · Volume I · 30 October 2026">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon.png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..700;1,400..600&family=Vollkorn+SC:wght@400;600&family=Young+Serif&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&text=%E4%BA%AC%E4%BB%94%E5%8F%89%E5%90%8A%E5%9C%9F%E5%A2%A8%E5%A4%A7%E5%AD%90%E5%AE%B6%E6%89%8B%E6%89%93%E6%8B%8C%E6%8B%BC%E6%92%95%E6%99%82%E6%9D%B1%E6%9F%9A%E6%A1%B6%E6%B0%B4%E6%B2%99%E6%B2%B9%E6%B4%8B%E6%B5%B7%E6%B6%BC%E6%B9%AF%E6%BD%A4%E7%82%92%E7%85%8E%E7%85%B2%E7%87%92%E7%89%87%E7%9A%87%E7%9B%A4%E7%A0%82%E7%B1%B3%E7%B2%89%E8%82%89%E8%85%90%E8%85%B8%E8%85%BF%E8%86%8F%E8%89%87%E8%8F%9C%E8%92%B8%E8%93%AE%E8%94%A5%E8%94%AC%E8%97%95%E8%9C%86%E8%9C%91%E8%9D%A6%E8%A5%BF%E8%B1%86%E8%B1%89%E8%B1%AC%E9%85%8D%E9%86%AC%E9%87%91%E9%8C%A6%E9%8D%8B%E9%9B%9C%E9%9B%9E%E9%9F%AD%E9%A3%AF%E9%A4%85%E9%A6%99%E9%AA%A8%E9%AD%9A%E9%AD%B7%E9%AE%AE%E9%B4%A8%E9%B5%9D%E9%B9%B9%E9%B9%BD%EF%BC%88%EF%BC%89&display=swap">
+<style>
+/* Colour, type and motion tokens shared by the guest page, the redirect and the 404. */
+:root {
+  /* Light: comp A's menu card, one ink on paper. */
+  --bg: #F3E9D7;          /* paper */
+  --insert: #E8D9C0;      /* the "For the nerds" insert */
+  --table: #DCCAAC;       /* what the sheet lies on, wide screens */
+  --text: #4C2819;        /* ink */
+  --heading: #4C2819;
+  --muted: #6F5040;       /* tint */
+  --accent: #9F3B26;      /* brick */
+  --line: #4C2819;        /* line drawings, coast */
+  --rule: rgba(76, 40, 25, 0.3);
+  --land: rgba(76, 40, 25, 0.075);
+  --halo: #F3E9D7;        /* knock-out behind map labels */
+  --shade: rgba(76, 40, 25, 0.22);
+  --grain-opacity: 0.5;
+  --grain-blend: multiply;
+  --font-display: "Young Serif", Georgia, "Times New Roman", serif;
+  --font-text: "Vollkorn", Georgia, "Times New Roman", serif;
+  --font-sc: "Vollkorn SC", "Vollkorn", Georgia, serif;
+  --font-zh: "LXGW WenKai TC", "Kaiti TC", "STKaiti", "BiauKai", "PingFang HK", "Noto Serif TC", serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  color-scheme: light;
+}
+/* Dark: comp B's room at nine. The ink becomes the room, cream becomes the light, amber marks where you are. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #2A1810;
+    --insert: #4C2819;
+    --table: #20120B;
+    --text: #DED1BE;
+    --heading: #F4EBDD;
+    --muted: #A8977F;
+    --accent: #E0A458;
+    --line: #DED1BE;
+    --rule: rgba(222, 209, 190, 0.22);
+    --land: #4C2819;
+    --halo: #4C2819;
+    --shade: rgba(10, 5, 2, 0.5);
+    --grain-opacity: 0.35;
+    --grain-blend: screen;
+    color-scheme: dark;
+  }
+}
+
+/* Layout: one printed menu column with 16px gutters; from 880px it becomes a sheet lying on the table. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.5;
+  font-variant-numeric: oldstyle-nums;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+/* Paper tooth: a fixed, non-interactive grain layer. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .16 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+img { max-width: 100%; height: auto; display: block; }
+picture { display: block; }
+.defs { position: absolute; }
+a { color: inherit; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { color: var(--heading); }
+[lang|="zh"] { font-family: var(--font-zh); font-style: normal; letter-spacing: 0.04em; }
+
+.sheet {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 14px 48px;
+}
+
+/* Masthead */
+.dateline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule);
+}
+.dateline p { margin: 0; display: grid; font-family: var(--font-sc); font-size: 15px; line-height: 1.3; letter-spacing: 0.06em; font-variant-numeric: lining-nums; }
+.dateline p span + span { color: var(--muted); }
+.jump { display: flex; }
+.jump a {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--heading);
+}
+.mast {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: 4px;
+  padding-top: 26px;
+  border-bottom: 1.5px solid var(--line);
+}
+.mast-word { grid-column: 1; grid-row: 1; margin: 0; line-height: 0; }
+.mast-word img { width: min(55vw, 222px); }
+.stamp {
+  grid-column: 1; grid-row: 2;
+  justify-self: start;
+  margin: 14px 0 16px 2px;
+  padding: 5px 10px 4px;
+  border: 1.5px solid var(--accent);
+  border-radius: 3px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 21px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  transform: rotate(-2deg);
+}
+.mast-host { grid-column: 2; grid-row: 1 / span 2; width: min(41vw, 172px); margin-bottom: -4px; }
+.credits { display: grid; gap: 14px; margin: 0; padding-block: 16px 18px; border-bottom: 1px solid var(--rule); }
+.credits div { display: grid; align-content: start; }
+.credits dd { margin: 0; }
+.sc-label, .label, .runin {
+  font-family: var(--font-sc);
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  font-variant-numeric: lining-nums;
+}
+.sc-label { font-size: 15px; color: var(--muted); }
+.credit-name { font-style: italic; font-size: 20px; line-height: 1.3; color: var(--heading); }
+.credit-name [lang|="zh"] { font-size: 19px; margin-left: 0.2em; }
+.credit-note { font-size: 15px; font-style: italic; color: var(--muted); }
+.credit-note [lang|="zh"] { font-size: 18px; margin-right: 0.3em; }
+@media (min-width: 560px) {
+  .credits { grid-template-columns: 1fr 1.25fr; gap: 24px; }
+}
+.welcome { padding-top: 22px; }
+.welcome-text { margin: 0; font-size: 19px; line-height: 1.45; max-width: 34ch; text-wrap: pretty; }
+.how-to { margin: 18px 0 0; max-width: 40ch; font-style: italic; font-size: 16px; color: var(--muted); text-wrap: pretty; }
+
+/* Map */
+.map-sec { margin-top: 46px; scroll-margin-top: 10px; }
+.sec-head { display: grid; gap: 4px; margin-bottom: 12px; }
+.sec-title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 25px; line-height: 1.1; text-wrap: balance; }
+.map-note { margin: 0; font-style: italic; font-size: 15px; color: var(--muted); transform: rotate(-2deg); transform-origin: left center; }
+.map { margin: 0; padding-block: 4px; border-top: 1.5px solid var(--line); border-bottom: 1px solid var(--rule); }
+.map-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.map-svg .land { fill: var(--land); }
+.map-svg .coast { fill: none; stroke: var(--line); stroke-width: 1.05; stroke-linejoin: round; stroke-linecap: round; }
+.map-svg .borders { fill: none; stroke: var(--line); stroke-opacity: 0.5; stroke-width: 0.75; stroke-dasharray: 0.1 2.6; stroke-linecap: round; }
+.map-svg .rivers { fill: none; stroke: var(--line); stroke-opacity: 0.55; stroke-width: 0.85; stroke-linecap: round; stroke-linejoin: round; }
+.map-svg text { font-family: var(--font-text); fill: var(--heading); }
+.map-svg .labels text, .map-svg .pin-label { paint-order: stroke; stroke: var(--halo); stroke-width: 3px; stroke-linejoin: round; }
+.map-svg .labels .water { stroke: var(--bg); }
+.map-svg .country { font-family: var(--font-sc); font-size: 10.5px; letter-spacing: 0.32em; text-transform: lowercase; fill: var(--muted); }
+.map-svg .country-sm { font-size: 8.5px; letter-spacing: 0.2em; }
+.map-svg .water { font-style: italic; font-size: 10.5px; letter-spacing: 0.03em; fill: var(--muted); }
+/* The route, in service order: dashed, drawn on once through a mask. */
+.map-svg .route { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 4 4; stroke-linecap: round; }
+.map-svg .route-mask { fill: none; stroke: #fff; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .map-svg .route-mask { stroke-dashoffset: 1; transition: stroke-dashoffset 860ms cubic-bezier(0.77, 0, 0.175, 1); }
+  .js .map-svg.is-drawn .route-mask { stroke-dashoffset: 0; }
+}
+.pin { cursor: pointer; }
+.pin-hit { fill: transparent; }
+.pin .glass-line { fill: none; stroke: var(--heading); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.pin .glass-wine { fill: var(--heading); }
+.pin-num { font-family: var(--font-display); font-size: 13px; }
+.pin-place { font-family: var(--font-sc); font-size: 11.5px; letter-spacing: 0.04em; }
+:root[data-course="1"] .pin[data-course="1"] .glass-wine,
+:root[data-course="2"] .pin[data-course="2"] .glass-wine,
+:root[data-course="3"] .pin[data-course="3"] .glass-wine { fill: var(--accent); }
+.pin:focus-visible { outline: none; }
+.pin:focus-visible .glass-line { stroke: var(--accent); }
+
+.legend { list-style: none; margin: 10px 0 0; padding: 0; }
+.legend a { display: flex; align-items: center; gap: 0.45em; min-height: 44px; text-decoration: none; }
+.lg-num { flex: none; width: 36px; font-family: var(--font-display); font-size: 16px; color: var(--heading); }
+.lg-name { flex: none; }
+.lead { flex: 1 1 0; min-width: 1em; overflow: hidden; white-space: nowrap; font-size: 13px; letter-spacing: 0.3em; color: var(--muted); }
+.lead::before { content: "........................................................................................"; }
+.lg-where { flex: none; font-style: italic; }
+.lg-amp { font-family: var(--font-text); font-style: italic; font-size: 18px; }
+
+/* Courses */
+.course { margin-top: 76px; scroll-margin-top: 10px; }
+.course-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; margin-bottom: 18px; }
+.numeral { margin: 0; min-width: 1.05em; font-family: var(--font-display); font-size: 58px; line-height: 0.9; color: var(--accent); transform: rotate(-2deg); }
+.course-label { margin: 0; display: grid; min-width: 0; }
+.pour { display: flex; align-items: center; gap: 10px; font-family: var(--font-sc); font-size: 16px; letter-spacing: 0.07em; color: var(--heading); }
+.pour::after { content: ""; flex: 1; height: 1.5px; background: var(--line); }
+.style { font-style: italic; font-size: 15px; color: var(--muted); }
+.illo { display: block; width: auto; height: 92px; max-width: 104px; overflow: visible; }
+.illo .draw { fill: none; stroke: var(--line); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.illo .wine-fill { fill: var(--line); }
+.illo .wine-fill.pale { fill-opacity: 0.14; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .illo .draw { stroke-dasharray: 1 2; stroke-dashoffset: 1; transition: stroke-dashoffset 680ms var(--ease-out) calc(var(--i, 0) * 30ms); }
+  .js .illo .wine-fill { opacity: 0; transition: opacity 240ms ease-out 560ms; }
+  .js .illo.is-drawn .draw { stroke-dashoffset: 0; }
+  .js .illo.is-drawn .wine-fill { opacity: 1; }
+}
+
+/* On the table: the kitchen's dishes for the course, Chinese first, English gloss under. */
+.dishes { margin: 0 0 30px; }
+.dishes .label { display: flex; align-items: center; gap: 10px; }
+.dishes .label::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.dish-list { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 12px; }
+.dish-list li { display: grid; gap: 1px; }
+.dish-zh { font-size: 20px; line-height: 1.35; color: var(--heading); }
+.dish-en { font-style: italic; font-size: 15.5px; line-height: 1.35; color: var(--muted); text-wrap: pretty; }
+
+.wine-card { scroll-margin-top: 12px; }
+.producer { margin: 0; font-family: var(--font-sc); font-size: 18px; letter-spacing: 0.04em; }
+.wine { margin: 2px 0 10px; font-family: var(--font-display); font-weight: 400; font-size: 31px; line-height: 1.08; text-wrap: balance; }
+.meta { margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; }
+.vintage { font-weight: 600; font-variant-numeric: lining-nums tabular-nums; color: var(--heading); }
+.where { font-style: italic; padding-left: 12px; border-left: 1px solid var(--rule); }
+.tell { margin-top: 22px; }
+.label { margin: 0 0 4px; font-size: 15px; color: var(--muted); }
+.tell-line { margin: 0; font-style: italic; font-size: 23px; line-height: 1.3; text-indent: -0.4em; hanging-punctuation: first; text-wrap: pretty; color: var(--heading); }
+.story { margin: 18px 0 0; text-wrap: pretty; }
+.runin { font-size: 16px; margin-right: 0.3em; color: var(--heading); }
+.sayit { margin-top: 22px; }
+.sayit dl { display: grid; gap: 8px; margin: 0; }
+.sayit dl div { display: grid; }
+.sayit dt { font-style: italic; font-size: 15px; color: var(--muted); }
+.sayit dd { margin: 0; font-family: var(--font-sc); font-size: 18px; letter-spacing: 0.04em; overflow-wrap: anywhere; }
+.to-map { display: inline-flex; align-items: center; min-height: 44px; padding-inline: 2px; font-family: var(--font-sc); font-size: 15px; letter-spacing: 0.06em; color: var(--muted); text-decoration: none; }
+.to-map:hover { color: var(--accent); }
+
+/* Course II: two whites in one course */
+.pair { display: grid; grid-template-columns: 1fr 1fr; }
+.pair-wine { min-width: 0; padding-right: 14px; }
+.pair-wine + .pair-wine { padding: 0 0 0 14px; border-left: 1px solid var(--rule); }
+.pair .producer { font-size: 15px; text-wrap: balance; }
+.pair .wine { font-size: 23px; margin-bottom: 6px; }
+.pair .meta { display: grid; gap: 0; }
+.pair .where { border-left: 0; padding-left: 0; }
+.pair .tell { margin-top: 14px; }
+.pair .tell-line { font-size: 18px; }
+.pair .taste { margin-top: 14px; font-size: 16px; }
+.compare { margin-top: 30px; padding-top: 18px; border-top: 1px dashed var(--rule); }
+.compare-lead { margin: 0; font-style: italic; font-size: 21px; line-height: 1.32; text-wrap: pretty; color: var(--heading); }
+.compare-body { margin: 8px 0 0; text-wrap: pretty; }
+.pair-detail { margin-top: 40px; scroll-margin-top: 12px; }
+.pair-sub { margin: 0; display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 400; font-size: 21px; line-height: 1.15; }
+.pair-sub::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.pair-detail .story:first-of-type { margin-top: 10px; }
+
+/* For the nerds: a small insert that unfolds from the fold line */
+.nerd { margin-top: 22px; border-top: 1px dashed var(--rule); }
+.nerd summary { list-style: none; display: flex; align-items: center; gap: 10px; min-height: 48px; padding-block: 8px; cursor: pointer; }
+.nerd summary::-webkit-details-marker { display: none; }
+.nerd-title { font-family: var(--font-sc); font-size: 17px; letter-spacing: 0.06em; color: var(--heading); }
+.nerd-hint { flex: 1; font-style: italic; font-size: 15px; color: var(--muted); }
+.plus { position: relative; flex: none; width: 15px; height: 15px; transition: transform 180ms var(--ease-out); }
+.plus::before, .plus::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; margin-top: -0.75px; border-radius: 1px; background: var(--heading); }
+.plus::after { transform: rotate(90deg); }
+.nerd[open] .plus { transform: rotate(45deg); }
+.nerd-body {
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 16px var(--gutter) 18px;
+  background: var(--insert);
+  box-shadow: inset 0 10px 9px -10px var(--shade);
+  transform-origin: top center;
+}
+.nerd[open] .nerd-body { animation: unfold 190ms var(--ease-out); }
+@keyframes unfold { from { opacity: 0; transform: perspective(800px) rotateX(-18deg) translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .nerd[open] .nerd-body { animation-name: fade-in; }
+  .plus { transition: none; }
+}
+@keyframes fade-in { from { opacity: 0; } }
+.nerd dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 16px; font-size: 16px; line-height: 1.4; }
+.nerd dt { font-family: var(--font-sc); letter-spacing: 0.06em; color: var(--muted); }
+.nerd dd { margin: 0; font-variant-numeric: lining-nums; text-wrap: pretty; min-width: 0; }
+.nerd-source { margin: 12px 0 0; font-style: italic; font-size: 14px; color: var(--muted); }
+@media (max-width: 400px) {
+  .nerd dl { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .nerd dd + dt { margin-top: 8px; }
+}
+
+/* The kitchen's encore: three closing dishes, no wine. */
+.finale { margin-top: 76px; padding-top: 22px; border-top: 1px dashed var(--rule); }
+.finale-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; margin-bottom: 14px; }
+.finale-title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 27px; line-height: 1.1; text-wrap: balance; }
+.finale-intro { margin: 6px 0 0; font-style: italic; font-size: 17px; color: var(--muted); }
+.finale .dishes { margin-bottom: 0; }
+
+/* Closing */
+.closing { margin-top: 76px; padding-top: 30px; border-top: 1.5px solid var(--line); display: grid; justify-items: start; gap: 18px; }
+.closing-text { margin: 0; max-width: 30ch; font-style: italic; font-size: 19px; line-height: 1.42; text-wrap: pretty; }
+.closing-line { margin: 0; max-width: 14em; font-family: var(--font-display); font-size: 25px; line-height: 1.2; color: var(--heading); transform: rotate(-2deg); transform-origin: left center; text-wrap: balance; }
+.signoff { width: 112px; }
+.signoff-meta { margin: 0; display: grid; gap: 4px; font-size: 15px; color: var(--muted); }
+.signoff-meta .sc-label { letter-spacing: 0.06em; }
+.signoff-meta [lang|="zh"] { font-size: 18px; }
+
+/* Wide screens: the menu is a sheet on the table. */
+@media (min-width: 880px) {
+  body { background: var(--table); }
+  .sheet {
+    --gutter: 64px;
+    margin-block: 44px;
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-block: 34px 60px;
+    background: var(--bg);
+    box-shadow: 0 1px 2px var(--shade), 0 28px 50px -30px var(--shade);
+  }
+  .mast-word img { width: 268px; }
+  .mast-host { width: 210px; }
+  .welcome-text { font-size: 21px; }
+  .wine { font-size: 38px; }
+  .pair .wine { font-size: 28px; }
+  .numeral { font-size: 66px; }
+  .illo { height: 118px; max-width: 134px; }
+  .dish-zh { font-size: 21px; }
+}
+
+/* Utilities */
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+h2.course-label { font-size: inherit; font-weight: 400; }
+.signoff-meta p { margin: 0; }
+</style>
+</head>
+<body>
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false"><filter id="wobble-ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<main class="sheet">
+<header class="masthead">
+<div class="dateline">
+<p><span>Friday 30 October 2026</span><span>Hong Kong</span></p>
+<nav class="jump" aria-label="Jump to a course"><a href="#course-1">I</a><a href="#course-2">II</a><a href="#course-3">III</a></nav>
+</div>
+<div class="mast">
+<h1 class="mast-word"><picture><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture></h1>
+<p class="stamp">Volume I</p>
+<picture class="mast-host"><source srcset="./assets/mark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/mark.png" width="420" height="451" alt=""></picture>
+</div>
+<dl class="credits">
+<div><dt class="sc-label">Your sommelier tonight</dt><dd class="credit-name">Bryan, DipWSET</dd></div>
+<div><dt class="sc-label">In the kitchen</dt><dd class="credit-name">Kam Tung Kitchen <span lang="zh-Hant-HK">金東大</span></dd><dd class="credit-note"><span lang="zh-Hant-HK">蜑家菜</span>Tanka boat-people cooking</dd></div>
+</dl>
+</header>
+
+<section class="welcome" aria-label="Welcome">
+<p class="welcome-text">Welcome to Tipsy Table. Tonight we pour four wines across three courses. First, a sparkling Riesling. Then two whites, side by side. Last, a red from the mountains of Galicia. Each wine has a card below: where it grew, who made it, how to say its name. The map walks you there. Sip first or read first. Both work.</p>
+<p class="how-to">The technical notes cover the basics: grapes, vineyard, how the wine was made and what to taste for. Skipping them is allowed.</p>
+</section>
+
+<section class="map-sec" id="map" aria-labelledby="map-title">
+<div class="sec-head">
+<h2 class="sec-title" id="map-title">Where tonight’s wines come from</h2>
+<p class="map-note">Tap a glass and we’ll walk you there.</p>
+</div>
+<figure class="map">
+<svg class="map-svg" viewBox="0 0 360 300" role="img" aria-labelledby="map-title">
+<defs>
+<filter id="wobble" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+<mask id="route-reveal" maskUnits="userSpaceOnUse" x="-10" y="-10" width="380" height="320"><path class="route-mask" pathLength="1" d="M312.1 50.9Q307.5 98.4 276.1 134.4Q262.8 171.4 281 206.2Q168.4 241 50.8 248.1"/></mask>
+</defs>
+<g filter="url(#wobble)">
+<path class="land" d="M362,194.4L357.8,193L354.7,193L350.9,195.4L346.6,201.3L343.2,207.4L341.8,208.7L336.9,211.1L332.4,212.4L331.4,212.9L330.3,213.5L328.2,214.6L326.7,215.7L321.2,222L318.5,223.9L318,225L317.6,226.9L316.1,228.7L314.6,229.6L311.1,230.7L307.6,232.7L305.9,232L301.7,232.4L298.9,230.5L293.7,229.4L291.9,226.5L289.6,226.4L288.1,226.6L287.2,226.2L286.9,225.2L286.8,224.2L285.2,224.7L284,224.8L283.3,225.2L282.8,225.7L282,225.4L281.6,225.6L281.7,226.2L280.2,226.4L278.6,226.1L274.4,224.7L273.7,224.5L270.8,224.1L269.6,223.5L268.6,221.9L267.8,221.5L267.4,221.2L264.8,222.1L263.9,223.4L262.5,224.9L252.7,232.3L250.9,235.3L248.9,239.8L248.8,241.8L249.9,248.2L252.1,251.6L252.4,252.4L253,254L254,254.6L254.4,256.1L252.7,256.9L251.7,257L251.5,259.5L251.9,260.2L252.9,260.8L253.2,261.5L253.6,265.2L251.7,267.4L248.9,270L235.4,278.3L232.2,282.2L231,283.1L220.9,285.7L213.7,288.3L210.2,289.3L206,293.8L204,295.6L205.6,296.1L207.5,298.3L206.8,299.2L204.1,300.7L202.9,301.2L202.2,300.9L201.6,301.1L201.1,302L11.3,302L11.3,302L11.3,302L10.7,301.2L11.2,299.2L14.3,290.3L15.2,289.2L16.5,286.6L17.2,282.4L17.9,279.5L18,278L17.9,276.2L17,272.6L16.6,265.2L16.8,262.8L18,261.7L16.2,261.3L15.6,259.7L16,258L18.3,255.3L16.9,255.5L16.4,254.9L16.7,250.8L19.3,248.3L21,246.8L20.3,246.4L18.7,246.3L18.9,244.9L19.8,244.5L20.7,243.1L19.9,242.4L19.3,241.4L19.6,239L19.9,238L19.8,237L16.3,238L15.4,237.7L15.6,235.8L17.8,233.4L18.1,232.6L16,231.9L14.5,230.3L13.7,229L12.8,227.2L13,225.6L14.5,222.2L16.2,221.3L17.7,220.8L20.8,218.7L24.7,219.6L27.2,219.4L29.5,218.4L30.9,218.2L33,217.3L33.1,215.8L32.5,214.6L33.3,213.6L35.6,212.6L38.3,211.2L41.2,211.1L44.3,209.9L46.2,211.1L47.9,211L49.8,212.3L52.1,215.2L55.8,216.7L59,216.1L64.3,216.5L67,217L71.9,216.8L74.6,217.3L79.1,216.3L82.4,218.2L89,219.5L92.9,221.2L103.8,224.1L107.9,224.4L113.6,223.5L116,222.7L118.2,223.4L121.5,222.5L123.1,222.7L125,224.4L132,226.9L133.9,225.2L135.3,224.8L140.4,226.1L145.4,228.6L148.1,228.8L152.1,228.4L155.3,227L155.9,226.8L159,226.1L161.9,222.9L164.9,211L167.1,196.8L168.5,194.2L170.3,193.5L168.9,191.5L168,192.4L167.7,193.5L167.2,194L168.5,181L169.3,176.3L170.7,171.3L173.3,173.3L175.3,175.4L176.4,177.2L177.7,183L178.7,184.3L180.3,185.5L179.7,184.1L178.6,183.1L177.1,175.3L176,173.1L174.4,171.3L169.2,167.3L168.7,166.5L168.5,165L170.2,165.1L171.7,165.9L171.6,165L171.1,164.2L170.5,161L170.1,153.7L170.2,152.4L170,150.8L168.3,150.5L167,150.3L165.5,149.7L158.5,145.2L156.2,140.6L153.8,137.3L153.3,135.8L153.4,134.3L154.8,131.3L153.7,129.3L152.6,128.9L151.7,127.9L152.6,126.4L153.4,125.3L154.8,125.1L156.7,125.5L158.5,126.5L159.8,126.8L155.8,124.2L149,124.8L147.6,124.4L146.4,123.8L146,122L147,121.2L147.9,119.7L146.9,118.6L145.7,118.1L143.7,118.1L141.8,118.3L141.4,117.7L142.6,116L141.6,115.4L140.4,115.6L138.5,115.9L136.7,115.3L135.2,113.3L134.1,113.2L133.3,113.4L132.2,112.6L131,112.4L130.2,112.6L129.1,111.4L122.3,108.8L119.3,108.4L116.5,109.2L115,108.8L114,107.3L113.2,104.8L108.9,102.7L109.9,101.5L111.9,101.4L114.3,100.7L115.3,99.7L113.5,98.3L112.2,97.9L111.6,97.4L111.1,96.2L112,95.8L112.5,96.1L114.1,96.4L117,96.3L116.1,95.1L114.9,94.7L114.5,94.4L112.2,94.1L111.1,94.5L108.8,94.1L108.3,92.9L108.2,91.8L109,89.5L112.5,87.6L120.8,85.8L124.3,86.3L126.8,86.1L129.8,84.8L131.1,83.6L135.3,83.1L139.2,84.6L142.7,89.7L144.4,91.5L148.7,88.7L155.1,89L156.4,90.7L156.9,89.4L158.2,87.8L159.1,88.5L159.5,89.6L166.2,89.5L167.3,89.2L165.5,88L164.2,85.1L164.1,74.7L162.4,71.7L160.4,67L159.5,64.2L159.5,63.2L159.8,61.9L162.4,62L164.4,62.4L168.2,61.5L170,62.2L169.8,64.4L170.3,67.1L171,68.4L171.9,70L174.9,69.9L178.3,70.8L182.5,71L188.6,72.6L191.2,71.7L193.7,69.9L198.5,68.7L198.9,68L196.2,68.3L193.6,67.1L193.3,65.8L193.6,64.6L194.6,62L202,57.8L207.2,56.5L212.6,54.2L215.3,51.8L217.1,48.7L217.7,48L218.4,47.4L217.7,46.3L218,34.6L218.5,32.5L219.5,30.7L221.1,29.4L223.5,27.9L232.3,25.7L233.6,24.9L240.7,20.2L244.9,17.8L247,17.1L248.2,16.6L250.9,16.3L253,17.1L255.8,17.3L257.9,16.1L259.6,17L261.4,16.2L259.9,15.9L257.7,14.9L254.7,15.9L252.5,14.9L250.8,14.9L249.6,14.1L248.5,12.7L249.3,11.7L250,11.3L253.2,11L255.6,11.5L259.9,14.5L261,14.4L262.1,14L261.5,13.1L260.4,12.8L258.8,12L257.5,10.9L260.4,10.4L259.9,9.8L259.5,8.8L256.3,5.3L256.8,4.2L257.5,2.1L258.3,0.3L259.1,-0.2L260.3,-1.5L260.7,-2L362,-2ZM156.7,73.7L156.8,75L156,75.3L155.4,74.8L154.1,74.8L152.9,75L153.2,72.6L155.6,73ZM148.5,66.5L147.8,68.2L146.2,67.5L146.1,67L147.9,66.1L148.3,66.1ZM217.8,-2L217.8,-1.8L217.3,-1L214.9,1.5L213.3,2.5L212.7,2.1L212,2.1L211.9,2.7L212.6,3.9L212.7,5.5L211.3,6.6L209.8,7L207.5,6.5L204.1,8.5L206.5,9.6L207,10.7L206.4,12.7L205,13.6L203.3,14L201.5,14.1L200.1,14.6L198.8,15.5L200.5,15L201.7,15.5L202.4,17.1L203.1,17.6L206.5,18.3L208.5,18.3L212.5,17.8L214.4,17.9L215.1,18.1L215.1,19.5L214.9,22.9L214.3,23.6L209.1,26.5L207.9,28.5L207.6,29.7L204.5,29.6L203.1,30.8L200.5,31.7L198.6,32.6L196.7,33.7L195,34L188.3,32.6L184.1,32.7L178.5,33.8L177.1,33.6L175,32.4L172.8,31.6L170.3,31.2L168.1,30.1L169.4,32.1L166.3,34L164.9,34.3L163.5,34.2L160.5,34.7L157.7,34.3L158.1,35.7L158.8,36.9L158.2,37.4L157.6,37.5L152.4,36.4L151.6,36.6L150.9,37.4L149,36.9L147.2,35.4L145.3,34.4L143.3,33.8L141.6,33.9L134.7,35.8L133.2,38L132.4,41.1L131.3,43.8L129.5,45.9L127.6,46.1L125.9,44.5L122.6,42.7L121.5,41.4L121.1,41.4L120.7,41.8L119.4,42.2L118,42.1L115.8,42.4L112,43.5L110.4,44.3L107.1,46.6L106.3,47.2L105,49.7L103.1,50L101.6,48.3L99.8,47.5L97.8,48L96.5,48.7L96,48L96.1,46.6L97.7,44.9L101.6,44L105.2,40.8L107,38.9L107.7,37.8L108.6,37.1L109.7,36.9L110.3,35.7L115.3,30.9L115.8,29.8L116.1,27.7L116.6,25.7L120.5,24.6L122.5,20.5L123,20.2L128.3,19.7L132.1,19.9L136,21L137.9,21.1L139.9,20.9L141.5,19.9L144.3,15.9L145.9,14.1L147.7,12.5L149.4,10.7L152.1,7.3L150.3,8.4L148.1,10.3L148.1,10.3L146.8,11.3L142.9,12.3L141.2,13.3L138.1,15.7L137.6,15.9L133.2,15.1L130,11.6L128,10.1L127.2,9.9L126.3,10.3L124.3,10.5L122.3,10.4L123.4,8.9L124.8,8.1L121.9,7.3L121,6.8L120.1,5.7L117.8,5.4L116.7,5.6L114.6,6.9L111.5,8.2L108,5.8L107.4,4.8L107.5,3.1L107.1,1.6L106.1,1.1L107.6,-0.7L109.2,-1.8L109.9,-2L217.8,-2ZM61.2,-2L60.6,-1.7L59.1,-1.5L58.7,-2L61.2,-2ZM56,-2L56,-1.3L55.6,0.1L54.6,0.7L53.4,0.7L51.4,1.9L49,2L47.5,3.3L39.4,4.6L39,4.5L37.9,3.8L36.8,3.4L35.6,3.4L32.2,4.3L30.5,3.8L33,0.9L36,-0.3L36.3,-0.7L35.4,-1L30.1,-0.6L28.2,0.1L26.3,0.1L27.3,-1.2L28.6,-2L56,-2ZM173.9,35.7L172.4,36.6L172,37.6L171.6,38L170.7,38.3L169.8,38.3L166.3,36.1L165.5,36.1L166.3,35.1L168.5,34.4L169.8,33.4L172.6,34.5ZM256.4,7.2L258.1,8.5L258.4,8.9L258.6,9.4L256.6,10.1L254.3,8.4L252.9,8.9L252.4,8.1L252.4,7.5L253.8,7.1ZM360,302L360,301.8L358.5,300.3L357.9,298L357.1,296.6L355.8,295.1L354.4,294L353.4,292.9L352.9,289.8L353.1,287.1L353.4,286L353.9,286.1L355.3,287.3L356.4,287.4L358.5,287.5L360.5,286.9L362,286L362,302ZM354.3,282.5L353.8,283.8L352.9,283.8L353.1,282.9L353.8,281L354.8,280.3L355.3,280.8L354.9,281.9ZM362,263.2L360.9,262.7L360.8,261.6L361.4,259.8L360.9,258.4L359.7,258.6L358.6,258.5L358.4,257.7L359.1,256.7L359.9,255.4L359.7,254L358.5,253.5L357.4,252.5L356.8,251.1L357.5,249.9L358.7,249.1L357.6,247.7L356.9,247.7L356.4,247.4L356.8,246.6L357.6,245.5L358.8,242.1L360.6,240.4L362,239.8L362,263.2ZM169.1,161.5L168.4,163.8L167.3,161.7L165.7,159.8L165.4,158.1L165.4,157.6L167.3,158.9Z"/>
+<path class="rivers" d="M342,137.3L341.8,137.7L341.6,137.9L341.5,138.3L341.1,138.7L340.6,139.3L340.1,139.9L339.9,140.1L337.5,142.6L336.4,143.5L336.2,143.9L335.9,144.2L335.1,144.7L334.4,144.9L332.1,144.9L329,145L328.6,145.2L328,145.7L326.4,146.3L325.6,147.2L324.9,147.4L324.4,147.9L321.5,149.6L319.9,151.1L319.4,151.2L319.2,151.1L319,150.8L318.8,150.5L318.7,150.3L318.6,149.7L318.6,149.4L318.4,149.1L317.9,148.6L316.6,146.7L316.5,146.5L316.4,146L316.2,145.9L316,145.9L315.7,145.7L315.6,145.5L315.7,145.3L315.7,145.1L315.7,145L315.5,144.8L315.2,144.5L315.1,144.3M302.2,150.5L302,150.5L301.8,150.5L301.6,150.4L301.5,150.4L301.5,150.3L301.3,150.4L301.1,150.5L300.9,150.5L300.7,150.6L300.2,151.2L299.9,151.4L299.3,152.4L299.1,152.7L298.9,152.8L298.5,152.7L298.4,152.8L298.2,152.9L298,153.4L297.9,153.6L297.7,153.7L297.5,153.6L297.4,153.4L297.2,153.3L296.8,153.7L296.9,154.9L297.3,157L297.4,158L297.3,158.9L296.8,160.7L296.7,161.2L296.7,161.6L296.4,161.7L296.1,161.7L295.7,161.8L295.5,162.2L295.3,162.8L295.3,163.4L295.4,163.9L295.4,164.2L295.1,164.6L294.6,165.4L294.2,165.7L293.8,165.8L293.5,165.5L292.8,164.4L292.4,163.9L291,162.8L290.5,162.1L290.1,161.1L290.1,161.1L290.2,161.1L290.2,161L290.1,160.9L290,160.8L289.2,160.1L288.9,159.9L288.7,159.9L288.7,160L288.5,160.1L288.2,160.3L288,160.6L287.2,162.1L287,162.4L286.6,162.5L286.3,162.5L285.7,162.1L285.3,162L284.7,161.7L284.4,161.6L284.1,161.6L283.4,161.8L283.1,161.8L282.1,161.7L281.8,161.8L281.2,162L280.7,162.2L280,162.5L279.8,162.7L279.7,163.1L279.8,163.6L279.7,163.9L279.3,163.6L279.2,163.8L279.1,164L279.5,164.7L279.5,165.6L279.2,166.6L278.8,167.4L278.9,168L279.6,168.5L280.2,169.1L280,170L278.8,171.2L278.3,172L278.3,173.1L278.7,174.3L278.8,174.8L278.9,175.1L279.2,175.4L279.5,175.7L279.5,176.3L279.6,176.3L279.6,176.8L279.6,177.6L279.7,178.4L280,179.4L279.9,180.1L280,180.7L280.4,180.9L280.3,181.2L280.4,181.4L280.6,181.6L280.7,181.8L280.7,182.1L280.6,182.7L280.6,183L280.8,183.5L281.3,184.4L281.5,184.8L281.4,185.3L281.1,186.5L281,186.8L280.9,186.9L280.6,187.4L280.5,187.5L280.4,187.8L280.3,188L280.2,188.1L280,188.3L279.7,188.7L279.6,189L279.5,189.4L279.5,190.1L279.5,190.4L279.9,191.1L280,191.6L280,192.6L279.6,193.3L279.1,194L278.8,194.9L278.6,197.5L278.5,197.7L278.2,198.5L278.1,198.7L278.1,198.9L278.1,199.1L278,199.7L278,202.7L278.1,203L278.2,203.2L278.4,203.3L278.5,203.5L278.7,204.3L279,204.5L279.2,204.8L279.4,205.5L279.3,206.7L279.4,207.2L279.6,207.7L279.7,207.7L280,207.4L280.4,207.6L280.7,207.9L281,208.1L282,209.1L282,209.4L281.9,209.6L281.8,209.7L281.6,209.7L281.4,209.8L281.4,210L281.5,210.3L281.5,210.5L280.6,211.5L280.5,211.7L280.3,211.7L279.5,212.4L278.5,212.9L278.3,213L278.4,214.9L278.4,215.5L277.9,216.9L278,217.5L278,217.7M278,217.6L278,217.7M278,217.7L277.7,217.9L277.5,217.8L277.2,217.7L276,217.8L275.4,218L275.1,218.7L274.9,219.3L274.5,219.8L274.5,220L274.8,220.1L275,220.1L275.2,220.2L275.2,220.5L275,220.8L274.4,221L274.2,221.3L274.1,221.5L273.8,221.7L273.2,222.2L273.3,222.4L274.2,224.6M278,217.7L277.9,219L278.2,219.3L278.6,219.5L279.3,220.6L279.7,221M312.8,102L312,102.1L311.6,102.4L311.4,102.7L311.2,103.3L311,103.5L310.7,103.6L310.3,103.7L309.9,103.6L309.6,103.4L309.3,103L309.1,102.6L308.8,102.2L308.3,102.2L307.7,102.2L307.2,102L306.9,101.6L307,101.2L307.1,100.7L307.1,100.5L306.9,100.4L306.2,99.9L306,99.7L305.9,99.7L305.8,99.8L305.6,99.7L305.4,99.6L305.3,99.5L305.2,99.1L305.1,99.1L304.9,99.2L304.7,99.2L304.3,98.9L304.1,98.4L304,97.9L304,97.3L303.6,96.4L303.3,95.9L303,95.6L303,95.4L302.9,95.1L300.4,92.7L300.3,92.5L300.5,92.4L300.6,92L300.8,91.7L301.1,91.5L301.2,91.4L301.2,91.1L301.1,90.5L300.8,90L300.2,89.2L299.9,89L299.6,88.8L299.5,88.6L299.5,88.5L299.4,88.4L299.3,88.4L299,88.4L298.9,88.4L298.8,88.4L298.5,88.1L298.1,87.7L297.7,87.5L297.4,87.7L297,87.5L296.7,87.3L296.3,87.1L296.1,86.7L295.8,86.5L294,86.7L293.9,86.6L293.8,86.6L293.6,86.6L293.6,86.4L293.6,86.1L293.6,85.9L293.9,85.7L294,85.7L294.4,85.7L294.5,85.6L294.5,85.4L294.8,85.1L295.1,84.3L295.3,83.9L295.6,83.8L296.3,83.7L296.5,83.8L296.6,83.8L296.8,83.6L297.1,83.4L297.4,83.3L297.6,83.2L297.5,82.7L297.3,82.5L297.1,82.4L297,82.3L297.2,81.9L297,81.8L296.9,81.7L296.8,81.8L296.7,81.9L296.6,81.6L296.5,81.2L296.5,80.9L296.7,80.6L296.6,80.5L296.3,80.4L295.9,80L295.7,79.4L295.8,79.1L295.9,78.9L295.8,78.6L295.4,77.5L295.5,77.3L295.6,77L295.6,76.6L295.7,76.2L296.1,75.1L296.4,74.7L297.2,73.9L297.5,73.7L297.8,73.5L298,72.9L298,72.4L297.7,72.3L297.8,71.9L297.8,71.4L297.7,71.1L297.5,70.8L297.6,70.6L297.5,70.5L297.6,70.3L297.6,70.2L297.7,69.9L297.2,69.6L297.1,69L297.1,68.4L296.8,67.8L297.3,67.5L297.5,67.4L297.6,67.1L297.7,67L298.4,66.4L298.6,66.4L298.7,66.3L298.9,65.9L299,65.8L299.1,65.8L299.3,65.9L299.4,65.8L299.5,65.6L299.5,65.4L299.6,65.2L299.7,65.1L299.9,65L299.9,65L299.9,64.8L299.8,64L299.8,62.9L299.8,62L299.9,61.7L300.1,61.3L300.5,60.7L300.6,60.4L300.8,60.2L300.8,60L300.8,59.9L300.7,59.8L300.5,59.7L300.5,59.6L300.7,59.2L301.9,58.3L302.2,58L302.7,58L303.1,58L303.6,58L303.9,57.7L304.1,57.4L304.2,56.6L304.3,56.4L305.1,56L305.2,55.9L305.2,55.4L305.3,55.1L305.4,54.9L305.6,54.8L305.8,54.8L306,54.9L306.4,55.1L306.9,55.4L307,55.5L307.3,55.4L307.5,55.3L307.6,55.3L307.9,55.4L307.7,54.9L307.6,54.7L307.4,54.5L307.7,54.2L307.9,54.2L308.6,54.7L308.6,54.6L308.6,54.2L308.5,53.7L308.4,53.4L308.5,53L308.7,52.8L308.8,52.9L309,53.1L309.1,53.5L309.3,52.8L309.6,52.3L310,52L311.1,51.8L310.9,51.5L309.9,50.7L310.1,50.4L310.4,50.3L311.1,50.5L311.1,50.5L311.2,50.5L311.5,50.1L311.6,50.1L311.7,50.1L311.8,50.2L311.8,50.4L311.7,50.7L311.9,50.9L312.1,50.9L312.2,50.5L312.2,50.3L312,50.1L311.8,49.8L311.9,49.5L311.8,49L311.8,48.6L311.8,48.3L312,48.5L312.5,49L312.7,49.2L312.8,48.9L312.7,48.5L312.4,48.3L312.2,48.2L311.9,48L311.9,47.7L311.9,47.3L311.9,47.1L311.6,46.9L312,46.9L312.3,47L312.7,47.2L312.9,47.4L313,47.3L313.1,47.2L313,47.1L313,47L313,46.9L312.9,46.8L313,46.7L313.2,46.6L313.7,46.6L313.7,46.4L313.5,46.2L313.5,45.9L313.5,45.7L313.5,45.5L313.3,45.5L312.8,45.9L312.6,46L312.5,45.9L312.4,45.7L312.4,45.5L312.5,45.4L313.7,45L314.2,44.9L314.4,44.8L314.6,44.6L314.8,44.5L315.4,44.5L315.6,44.5L315.7,44.2L315.8,43.9L315.9,43.6L316.1,43.5L316.5,43.3L317,43.1L317,42.9L316.8,42.9L316.8,42.7L316.9,42.6L316.9,42.6L316.9,42.5L316.8,42.3L317,42.1L317,41.8L317,41.4L317,41L317.2,40.8L317.4,40.8L318,40.8L318.1,40.7L318.4,40.4L318.5,40.1L318.5,40L318.4,39.9L318.5,39.7L318.7,39.3L318.8,39.3L319.3,39.4M299.2,101L298.9,101.1L298.4,101L297.9,100.9L297.5,100.9L297.1,101.4L296.8,102L296.4,102.3L296,102.5L295.7,102.9L295.1,103.3L294.9,103.8L294.7,104.3L294.7,104.6L295,104.9L295.9,105.5L296.2,105.8L296.2,106.3L295.6,107.4L295.6,107.8L295.8,108L296.1,108.1L296.5,108.3L297,108.9L297.7,110L297.9,110.5L297.9,111.1L297.8,111.7L297.7,112.2L297.4,112.4L296.8,112.5L296.8,112.9L296.8,113.2L296.6,113.4L296.4,113.4L296.2,113.2L295.9,113.1L295.1,113.9L294.5,114.2L294.4,114.3L294.2,114.6L293.2,115L292.9,115.3L292.6,115.7L292.4,115.9L292,116.1L291.6,116.2L291.4,116.3L291.5,116.8L291.4,117.3L291,117.8L289.7,118.5L289.3,118.9L288.9,119.5L288.7,120L288.7,120.5L288.7,120.9L288.6,121.3L287.8,121.9L287.6,122.4L287.4,122.8L287.1,123.2L287.3,123.7L287.4,124.1L287.2,124.5L287,125.1L286.7,125.6L286.7,126.2L286.7,126.7L286.3,127.2L285.7,127.6L284.8,127.9L283.7,128.7L283,128.9L282.7,129.2L282.6,129.7L282.8,130.2L282.9,130.9L282.6,131.6L282.1,132.1L281.6,132.5L281.5,133L281.3,133.1L280.9,133.4M68.7,234L68.2,234.3L67.7,234.6L66.1,235.4L65.7,235.7L65.4,236.1L64.9,236.5L64.4,237.1L64.1,237.8L64.1,238.7L64.2,239.6L64.2,240.6L63.8,241.6L63.3,242.5L62.8,243.2L62.3,243.6L61.6,243.8L61,244.1L60.4,244.2L60,244.2L59.6,244L59.1,243.8L58.7,243.8L58.2,243.9L57.8,244.4L57.8,244.7L57.8,245.1L58,245.7L57.9,245.9L57.8,246.3L57.7,246.5L57.6,246.7L57.5,246.9L57.4,247L57.2,247L56.9,246.8L55.9,246.5L55,246.4L54.2,246.4L53.3,246.5L52.8,246.4L52.5,246.6L52.1,246.8L51.5,246.9L50.3,246.7L50,246.4L49.8,245.5L49.4,244.9L48.7,244.6L47.6,244.6L46.7,244.8L46.4,245.1L46.1,245.3L45.4,245.7L44.6,246L44,246.1L43.7,246L43.3,245.8L43,245.7L42.6,245.8L42.2,245.7L41.8,245.4L41.4,245L40.7,244.5L40.4,244.3L39.7,244.2"/>
+<path class="borders" d="M362,110.1L362,110.2L360.2,110.1L359.8,110.5L360.3,110.7L361.7,111.7L361.7,113.7L360.6,117.1L360.1,119.7L360.2,121.7L360.5,122.6L360.7,122.6L362,122.5M362,140.3L361.5,139.2L361.1,137.9L360.6,138L358.8,137.7L358.1,138.4L358.3,140.5L358.5,143.3L357.8,145.1L355.7,148.5L355,149.9L354.7,150.9L354.7,151.7L355.3,153.1L355.9,154.4L355.6,155.3L354.4,155.8L353.4,155.1L352.9,153.7L350.7,151.8L351.4,150L351.2,149.6L347.9,149.1L346.4,147.9L344.3,145.9L343.8,144.9L343.6,141.8L343.4,141L343.1,140.7L342.2,140.8L341,142L339.9,143.8L337.6,145.9L337.4,146.3L338.4,148L338.4,148.7L336.7,151.7L336.4,152.7L334,154.7L332.9,155.5L329.2,154.5L328.3,154.4L326.7,155.5L324.5,156.5L321,157.6L319.6,157.1L318.9,156.6L318.5,155.7L317.5,154.3L316.4,153.5L315.6,152.5L314.6,151.5L313.9,150.7L314.5,147.7L313.8,146.8L313.4,145.3L313.5,144.3L313.1,144.1L309.9,143.8L307.1,144.2L305.3,145.3L303.8,147L303.6,147.4L303.8,147.7L304.7,149.1L303.5,150.7L301.5,152.1L300,152.3L299.4,152.1L299.3,150.4L300.4,149.8L301.4,148.6L301.6,147L301.7,146L300.5,144.7L300.6,143.9L301.2,142.3L301.5,141L302,139.8L304.1,137.8L306.2,135.7L306.4,133.7L306.4,131.2L306.7,130.6L309.6,128.9L310.2,128.2L310.6,127.4L312.7,124.5L314.9,121.6L315.2,120.6L315.6,120L315.6,119.6L315.3,119.3L314.1,119.1L313.7,118.3L314.7,116.7L316.2,115.6L317.7,115.5L318.3,115.8L318.2,116.3L318.9,116.8L320.1,116.9L321.4,116.6L322.8,115.9L323.5,114.5L323.8,113.4L325.9,112L327.4,112.5L331.4,112.3L334.4,111.7L336.2,110.7L338.4,110.5L340,110.8L340.3,110.7L340.7,110.5L341,110.1L342.5,109.6L342.6,109.3L342.5,108.9L342.2,108.7L340.5,109.1L339.8,108.9L339.6,108.2L340,107L341.2,106L342.3,105.7L343.1,105.8L345.2,107.3L345.7,107.4L346,107L346.3,106.8L347.1,107.1L347.9,108.1L348,108.2L352.4,107.4L353.3,107.3L356.5,108.8L359.8,110.5M155.9,226.8L155.9,227.7L156.6,229L157.4,229.5L159,230.2L160.3,230.3L162,230.7L163.2,231.5L163.2,232.6L162.8,233.8L162.1,235L161.7,235.9L162.1,236.4L162.7,236.8L163.3,236.9L163.8,236.8L164.1,236.1L164.8,235.3L165.1,235.2L165.1,235.6L165.4,236.2L167.5,237.3L172.1,239.3L173.9,239.4L175.4,239.6L175.8,240.4L178.8,243.4L179.5,243.3L180.8,243.4L182.4,243.2L183.5,242.6L184.3,242.7L185.1,243.3L186.1,243.8L187.4,244.8L188.5,246L189.3,246.4L193.9,245.6L195,246.3L196.1,246.3L197.3,246.2L200.1,246.5L202.3,246.4L202.5,246.1L202.7,243.5L203,242.5L203.5,242.3L204.8,242.5L209.6,244L211.5,245L213.4,245.7L215.1,245.8L216.1,246.3L217.7,248.8L217.5,250.1L217.6,250.5L217.8,251.4L217.7,252.3L218.2,253L218.9,253.1L219.8,252.8L220.8,252.4L222.6,251.4L223.1,251.2L226.1,252.4L227.5,253.1L228,254L228.6,254.9L229.5,255L230.8,254.1L232.8,253.2L236.2,253.9L240,255L241.6,255.1L241.6,254.5L241.9,253.7L242.5,253.3L243.4,253.1L244.7,252.7L246.2,251.9L247.7,251.6L249.3,252.1L251.3,252.4L252.4,252.4M52,302L52.8,301.3L52.6,300.4L52.1,299.5L52.1,298.6L52.6,297.6L53,294L53.4,293.1L53.3,289.9L53.1,287.2L52,283.6L52.4,282.9L53.1,282.3L55.3,281.3L57.2,278.6L59.9,276.5L63.3,275L65.7,273.1L66.7,271.5L67.4,271.1L67.3,270.4L66.9,269.3L65.8,268.1L64.2,267.4L62.4,267.2L61.2,266.9L61,266L61.3,263.8L61.4,261.6L61.2,260.5L60.4,259.7L58.7,259.8L57.3,259L56.2,258.7L55.6,259.1L52.4,258.7L51.1,258.2L50.2,257.7L49.6,257.9L49.2,258.3L49.1,259L48.8,259.8L47.5,260.5L44.8,261.1L42.7,260.8L40.8,260L40.2,259.5L39.3,259L35.3,259.1L34.8,258.7L33.4,259.4L31.3,260.2L30.1,260.1L29.7,259.9L29.6,259.4L29,257.7L29.3,257L31.1,254.7L31.1,254.2L30.4,253.3L30,252.1L29.9,251.5L28.8,251.3L27.7,251.8L23.4,252.5L22.4,252.8L20.4,253.8L18.3,255.3M302.5,-2L302.5,-1.7L302.1,-0.9L301.7,-0.1L298.2,1.7L296.6,1.7L295.9,2.5L295.6,2.7L294.6,2L292.4,1.4L291.6,1.7L291.2,2.2L289.9,2.8L289,3.7L289.1,4.7L290.9,7.4L291.6,7.9L291.6,8.9L292.6,10.1L293.6,11.7L293.7,12.7L293.7,13.7L293.3,15.2L292.1,18.8L292.1,19.4L292.3,19.9L292.8,20L293.2,20.3L293.1,20.8L290.5,23.3L290.2,23.8L289,23.7L288.9,24.1L289,24.8L289.5,25.3L290.6,25.5L291.5,26.1L292.2,27.2L291.6,31.3L289.9,31.4L288.3,31.5L287.5,31.4L286.6,31L286.1,30.2L285.5,29.3L285.6,28.6L287,26.9L287.2,26.3L287,26.1L287.1,25.3L288.1,22.7L288.2,21.6L287.6,20.9L286.8,20.6L284.4,20L283.2,19L282.7,18L282.1,17.8L281.4,18.2L279.4,18.7L277.8,18.2L275.8,16.6L275.3,15L275,13.8L274.5,13.4L273.9,14.1L273.2,15.1L271.6,15.3L271.2,15.1L271,14.5L270.9,14L270.4,13.4L270,13.1L268.1,15L267.3,15L266.3,14.4L265.8,13.7L264.8,14.2L263.9,15L264.3,16.6L263.8,16.9L262.7,16.8L261.4,16.2L261.2,17.3L260.6,18.4L258.5,20L256.2,21.2L255.1,21.1L254.2,20.6L253.8,20.1L252.5,19.6L250.9,19.3L249.8,20L249.1,20.6L248.5,20.5L248,20L247.5,19.3L247,17.1M330.3,213.5L330.3,212.9L330.6,212.6L330.9,212.4L331.3,212.6L331.4,212.9M360.6,117.1L360.8,117.5L360.9,118L361.2,118.5L361.3,119.2L361.7,119.9L362,120.3M332.4,212.4L332.2,211L332,209.9L332.6,208.6L333.8,207.1L334.8,205.1L335.2,203.8L334.9,203L334.2,201.8L333.5,201.7L329.3,203.1L328.3,203L324.9,201.6L321.4,199.8L320,198.4L319.4,197L319.7,196L319.3,195.1L318.6,193.9L319.1,192.5L320,190.6L320.4,189.4L321.3,189L321.6,188.3L320.7,185.4L320.3,185L319.7,184.7L318.7,184.7L317.1,184.2L315.8,183.3L315.4,182L314.7,180.7L313.5,179.6L313.4,178.3L314.5,177.6L316.1,177.4L317.3,177.6L319.7,175.3L320.6,175L321.4,174.5L321.9,171.6L322.4,170.7L322.5,170.1L321.9,169.6L319.7,167.7L318.5,165.7L316.9,163.5L315.4,162.6L315.1,161.8L315,160.7L315.2,159.8L317.5,158.2L318.9,156.6M325.9,112L325,111.7L324.2,110.1L324.1,107.4L324.8,103.9L324.8,101.3L324.2,99.7L324.6,97.2L325.9,93.9L326.6,90.4L326.8,86.8L327.3,84.3L328.6,82.6L331.7,77.7L332,77.3L331.6,75L330.7,74.8L329.2,74.3L325.7,73.8L322.4,73.5L320.9,73L319.4,71.4L318.6,71.4L317.1,72.2L315.2,72.8L313.8,72.5L312.9,72.7L312.4,73.1L312.2,72.8L311.7,71.3L310.9,71L309.8,70.8L309,71L308.6,71.7L307.9,72.3L307.1,72.2L304.7,68.9L304.1,68.2L303.9,67.5L303.3,66.3L301.8,65.2L300.5,64.9L299.9,65M294.8,47.8L294.7,48.5L294.9,50L295.4,51.6L296.7,53L297.6,54.1L298.8,54.9L300.9,55.7L301.7,55.8L301.8,56.9L301.8,58.2L301.2,58.9L300.6,59.9L300.2,61.1L299.9,63.4L299.9,65L298.7,64.5L298,64.1L297,64L296,64.4L295.3,65.3L294.2,65.6L293.3,65.5L292.7,64.9L292.3,64.6L290.9,64.3L290.3,63.5L290.7,63L291,62.3L291.3,61.4L291.6,60.5L290.2,58.3L289.9,57.6L288.7,56.4L288.7,55.8L288.9,55.1L288.8,54.6L288.8,53.5L289.5,52.3L289.9,50.9L290.6,49L292.4,46.7L293.7,47L294.3,46.9L294.7,47.7L294.8,47.8L294.8,47.2L295.6,44.8L298.6,42.3L298.1,40.1L297.9,38.8L297.1,38L295.6,37.7L295.1,37.1L294.9,36.5L295.9,35.1L294.5,34.1L293.8,33.1L291.8,31.8L291.6,31.3M223.1,251.2L223.3,250.6L223.8,249.7L223.8,249.2L223.1,248.5L220.4,247.7L219.2,247.6L218.3,248.1L217.7,248.8M233.6,24.9L233.8,26.1L234.5,27.7L234.9,28.6L234.6,29.7L234.9,30.7L236.1,32.3L237.7,33.9L239,34.9L239.5,34.8L240.4,34.4L242.1,33.3L243.5,33L244.3,33.7L244.7,34.2L245.7,36L246,37.8L246.5,39.4L247.2,40L249.9,40.1L251.9,40.7L252.5,41.1L253.3,44.6L253.6,45.1L254.2,44.6L254.6,44.1L255.3,44L256.4,44.1L258,44.1L259.6,44.4L261.9,46.3L261.8,47L261.5,48.1L261.3,49.1L261.7,49.4L262.4,50.3L262.3,51.4L261.7,52.2L261.6,52.9L261.6,53.3L261.8,53.6L262.3,53.8L265.5,54.1L268.5,53.5L270.3,52.3L270.6,51.2L271.1,49.8L272.1,48.6L272.9,48.2L273.6,48.6L272.6,53.4L273.6,54.5L273.8,56.3L274.2,57.8L275.3,57.7L276.6,57.9L277.5,58.5L278.7,59.3L280.2,60.1L281.4,60.3L281.8,61L282.7,61.8L284.2,63.4L285.5,64.4L286.1,64.4L287.2,63.9L288.9,63.5L290.3,63.5"/>
+<path class="coast" d="M156.7,73.7L156.8,75L156,75.3L155.4,74.8L154.1,74.8L152.9,75L153.2,72.6L155.6,73L156.7,73.7M148.5,66.5L147.8,68.2L146.2,67.5L146.1,67L147.9,66.1L148.3,66.1L148.5,66.5M148.1,10.3L146.8,11.3L142.9,12.3L141.2,13.3L138.1,15.7L137.6,15.9L133.2,15.1L130,11.6L128,10.1L127.2,9.9L126.3,10.3L124.3,10.5L122.3,10.4L123.4,8.9L124.8,8.1L121.9,7.3L121,6.8L120.1,5.7L117.8,5.4L116.7,5.6L114.6,6.9L111.5,8.2L108,5.8L107.4,4.8L107.5,3.1L107.1,1.6L106.1,1.1L107.6,-0.7L109.2,-1.8L109.9,-2M217.8,-2L217.8,-1.8L217.3,-1L214.9,1.5L213.3,2.5L212.7,2.1L212,2.1L211.9,2.7L212.6,3.9L212.7,5.5L211.3,6.6L209.8,7L207.5,6.5L204.1,8.5L206.5,9.6L207,10.7L206.4,12.7L205,13.6L203.3,14L201.5,14.1L200.1,14.6L198.8,15.5L200.5,15L201.7,15.5L202.4,17.1L203.1,17.6L206.5,18.3L208.5,18.3L212.5,17.8L214.4,17.9L215.1,18.1L215.1,19.5L214.9,22.9L214.3,23.6L209.1,26.5L207.9,28.5L207.6,29.7L204.5,29.6L203.1,30.8L200.5,31.7L198.6,32.6L196.7,33.7L195,34L188.3,32.6L184.1,32.7L178.5,33.8L177.1,33.6L175,32.4L172.8,31.6L170.3,31.2L168.1,30.1L169.4,32.1L166.3,34L164.9,34.3L163.5,34.2L160.5,34.7L157.7,34.3L158.1,35.7L158.8,36.9L158.2,37.4L157.6,37.5L152.4,36.4L151.6,36.6L150.9,37.4L149,36.9L147.2,35.4L145.3,34.4L143.3,33.8L141.6,33.9L134.7,35.8L133.2,38L132.4,41.1L131.3,43.8L129.5,45.9L127.6,46.1L125.9,44.5L122.6,42.7L121.5,41.4L121.1,41.4L120.7,41.8L119.4,42.2L118,42.1L115.8,42.4L112,43.5L110.4,44.3L107.1,46.6L106.3,47.2L105,49.7L103.1,50L101.6,48.3L99.8,47.5L97.8,48L96.5,48.7L96,48L96.1,46.6L97.7,44.9L101.6,44L105.2,40.8L107,38.9L107.7,37.8L108.6,37.1L109.7,36.9L110.3,35.7L115.3,30.9L115.8,29.8L116.1,27.7L116.6,25.7L120.5,24.6L122.5,20.5L123,20.2L128.3,19.7L132.1,19.9L136,21L137.9,21.1L139.9,20.9L141.5,19.9L144.3,15.9L145.9,14.1L147.7,12.5L149.4,10.7L152.1,7.3L150.3,8.4L148.1,10.3M173.9,35.7L172.4,36.6L172,37.6L171.6,38L170.7,38.3L169.8,38.3L166.3,36.1L165.5,36.1L166.3,35.1L168.5,34.4L169.8,33.4L172.6,34.5L173.9,35.7M256.4,7.2L258.1,8.5L258.4,8.9L258.6,9.4L256.6,10.1L254.3,8.4L252.9,8.9L252.4,8.1L252.4,7.5L253.8,7.1L256.4,7.2M360,302L360,301.8L358.5,300.3L357.9,298L357.1,296.6L355.8,295.1L354.4,294L353.4,292.9L352.9,289.8L353.1,287.1L353.4,286L353.9,286.1L355.3,287.3L356.4,287.4L358.5,287.5L360.5,286.9L362,286M354.3,282.5L353.8,283.8L352.9,283.8L353.1,282.9L353.8,281L354.8,280.3L355.3,280.8L354.9,281.9L354.3,282.5M61.2,-2L60.6,-1.7L59.1,-1.5L58.7,-2M56,-2L56,-1.3L55.6,0.1L54.6,0.7L53.4,0.7L51.4,1.9L49,2L47.5,3.3L39.4,4.6L39,4.5L37.9,3.8L36.8,3.4L35.6,3.4L32.2,4.3L30.5,3.8L33,0.9L36,-0.3L36.3,-0.7L35.4,-1L30.1,-0.6L28.2,0.1L26.3,0.1L27.3,-1.2L28.6,-2M362,263.2L360.9,262.7L360.8,261.6L361.4,259.8L360.9,258.4L359.7,258.6L358.6,258.5L358.4,257.7L359.1,256.7L359.9,255.4L359.7,254L358.5,253.5L357.4,252.5L356.8,251.1L357.5,249.9L358.7,249.1L357.6,247.7L356.9,247.7L356.4,247.4L356.8,246.6L357.6,245.5L358.8,242.1L360.6,240.4L362,239.8M169.1,161.5L168.4,163.8L167.3,161.7L165.7,159.8L165.4,158.1L165.4,157.6L167.3,158.9L169.1,161.5M362,194.4L357.8,193L354.7,193L350.9,195.4L346.6,201.3L343.2,207.4L341.8,208.7L336.9,211.1L332.4,212.4L331.4,212.9L330.3,213.5L328.2,214.6L326.7,215.7L321.2,222L318.5,223.9L318,225L317.6,226.9L316.1,228.7L314.6,229.6L311.1,230.7L307.6,232.7L305.9,232L301.7,232.4L298.9,230.5L293.7,229.4L291.9,226.5L289.6,226.4L288.1,226.6L287.2,226.2L286.9,225.2L286.8,224.2L285.2,224.7L284,224.8L283.3,225.2L282.8,225.7L282,225.4L281.6,225.6L281.7,226.2L280.2,226.4L278.6,226.1L274.4,224.7L273.7,224.5L270.8,224.1L269.6,223.5L268.6,221.9L267.8,221.5L267.4,221.2L264.8,222.1L263.9,223.4L262.5,224.9L252.7,232.3L250.9,235.3L248.9,239.8L248.8,241.8L249.9,248.2L252.1,251.6L252.4,252.4L253,254L254,254.6L254.4,256.1L252.7,256.9L251.7,257L251.5,259.5L251.9,260.2L252.9,260.8L253.2,261.5L253.6,265.2L251.7,267.4L248.9,270L235.4,278.3L232.2,282.2L231,283.1L220.9,285.7L213.7,288.3L210.2,289.3L206,293.8L204,295.6L205.6,296.1L207.5,298.3L206.8,299.2L204.1,300.7L202.9,301.2L202.2,300.9L201.6,301.1L201.1,302M11.3,302L11.3,302L10.7,301.2L11.2,299.2L14.3,290.3L15.2,289.2L16.5,286.6L17.2,282.4L17.9,279.5L18,278L17.9,276.2L17,272.6L16.6,265.2L16.8,262.8L18,261.7L16.2,261.3L15.6,259.7L16,258L18.3,255.3L16.9,255.5L16.4,254.9L16.7,250.8L19.3,248.3L21,246.8L20.3,246.4L18.7,246.3L18.9,244.9L19.8,244.5L20.7,243.1L19.9,242.4L19.3,241.4L19.6,239L19.9,238L19.8,237L16.3,238L15.4,237.7L15.6,235.8L17.8,233.4L18.1,232.6L16,231.9L14.5,230.3L13.7,229L12.8,227.2L13,225.6L14.5,222.2L16.2,221.3L17.7,220.8L20.8,218.7L24.7,219.6L27.2,219.4L29.5,218.4L30.9,218.2L33,217.3L33.1,215.8L32.5,214.6L33.3,213.6L35.6,212.6L38.3,211.2L41.2,211.1L44.3,209.9L46.2,211.1L47.9,211L49.8,212.3L52.1,215.2L55.8,216.7L59,216.1L64.3,216.5L67,217L71.9,216.8L74.6,217.3L79.1,216.3L82.4,218.2L89,219.5L92.9,221.2L103.8,224.1L107.9,224.4L113.6,223.5L116,222.7L118.2,223.4L121.5,222.5L123.1,222.7L125,224.4L132,226.9L133.9,225.2L135.3,224.8L140.4,226.1L145.4,228.6L148.1,228.8L152.1,228.4L155.3,227L155.9,226.8L159,226.1L161.9,222.9L164.9,211L167.1,196.8L168.5,194.2L170.3,193.5L168.9,191.5L168,192.4L167.7,193.5L167.2,194L168.5,181L169.3,176.3L170.7,171.3L173.3,173.3L175.3,175.4L176.4,177.2L177.7,183L178.7,184.3L180.3,185.5L179.7,184.1L178.6,183.1L177.1,175.3L176,173.1L174.4,171.3L169.2,167.3L168.7,166.5L168.5,165L170.2,165.1L171.7,165.9L171.6,165L171.1,164.2L170.5,161L170.1,153.7L170.2,152.4L170,150.8L168.3,150.5L167,150.3L165.5,149.7L158.5,145.2L156.2,140.6L153.8,137.3L153.3,135.8L153.4,134.3L154.8,131.3L153.7,129.3L152.6,128.9L151.7,127.9L152.6,126.4L153.4,125.3L154.8,125.1L156.7,125.5L158.5,126.5L159.8,126.8L155.8,124.2L149,124.8L147.6,124.4L146.4,123.8L146,122L147,121.2L147.9,119.7L146.9,118.6L145.7,118.1L143.7,118.1L141.8,118.3L141.4,117.7L142.6,116L141.6,115.4L140.4,115.6L138.5,115.9L136.7,115.3L135.2,113.3L134.1,113.2L133.3,113.4L132.2,112.6L131,112.4L130.2,112.6L129.1,111.4L122.3,108.8L119.3,108.4L116.5,109.2L115,108.8L114,107.3L113.2,104.8L108.9,102.7L109.9,101.5L111.9,101.4L114.3,100.7L115.3,99.7L113.5,98.3L112.2,97.9L111.6,97.4L111.1,96.2L112,95.8L112.5,96.1L114.1,96.4L117,96.3L116.1,95.1L114.9,94.7L114.5,94.4L112.2,94.1L111.1,94.5L108.8,94.1L108.3,92.9L108.2,91.8L109,89.5L112.5,87.6L120.8,85.8L124.3,86.3L126.8,86.1L129.8,84.8L131.1,83.6L135.3,83.1L139.2,84.6L142.7,89.7L144.4,91.5L148.7,88.7L155.1,89L156.4,90.7L156.9,89.4L158.2,87.8L159.1,88.5L159.5,89.6L166.2,89.5L167.3,89.2L165.5,88L164.2,85.1L164.1,74.7L162.4,71.7L160.4,67L159.5,64.2L159.5,63.2L159.8,61.9L162.4,62L164.4,62.4L168.2,61.5L170,62.2L169.8,64.4L170.3,67.1L171,68.4L171.9,70L174.9,69.9L178.3,70.8L182.5,71L188.6,72.6L191.2,71.7L193.7,69.9L198.5,68.7L198.9,68L196.2,68.3L193.6,67.1L193.3,65.8L193.6,64.6L194.6,62L202,57.8L207.2,56.5L212.6,54.2L215.3,51.8L217.1,48.7L217.7,48L218.4,47.4L217.7,46.3L218,34.6L218.5,32.5L219.5,30.7L221.1,29.4L223.5,27.9L232.3,25.7L233.6,24.9L240.7,20.2L244.9,17.8L247,17.1L248.2,16.6L250.9,16.3L253,17.1L255.8,17.3L257.9,16.1L259.6,17L261.4,16.2L259.9,15.9L257.7,14.9L254.7,15.9L252.5,14.9L250.8,14.9L249.6,14.1L248.5,12.7L249.3,11.7L250,11.3L253.2,11L255.6,11.5L259.9,14.5L261,14.4L262.1,14L261.5,13.1L260.4,12.8L258.8,12L257.5,10.9L260.4,10.4L259.9,9.8L259.5,8.8L256.3,5.3L256.8,4.2L257.5,2.1L258.3,0.3L259.1,-0.2L260.3,-1.5L260.7,-2"/>
+</g>
+<g class="labels" aria-hidden="true"><text class="country" x="219.6" y="130.3" text-anchor="middle">France</text><text class="country" x="123.1" y="269.2" text-anchor="middle">Spain</text><text class="country country-sm" x="29.1" y="269.6" text-anchor="middle">Portugal</text><text class="country" x="327" y="23.2" text-anchor="end">Germany</text><text class="water" x="56.9" y="141.6" text-anchor="middle">Atlantic</text><text class="water" x="314.4" y="251.2" text-anchor="middle">Mediterranean</text></g>
+<path class="route" d="M312.1 50.9Q307.5 98.4 276.1 134.4Q262.8 171.4 281 206.2Q168.4 241 50.8 248.1" mask="url(#route-reveal)"/>
+<a class="pin" href="#wine-weiser-kunstler-zeppwingert-sekt-2022" data-course="1" aria-label="Course I: Mosel"><g transform="translate(312.1 50.9)"><circle class="pin-hit" r="28" cy="-6"/><path class="glass-wine" d="M-4.6 -10.6c.3 2.6 1.9 3.9 4.6 3.9s4.3-1.3 4.6-3.9z"/><path class="glass-line" d="M-4.9 -15.2c-.5 4.9.6 8.3 4.9 8.4 4.3-.1 5.4-3.5 4.9-8.4M0 -6.8v5.6M-3.4 -.9c2.2-.7 4.6-.7 6.8 0"/><text class="pin-label" x="-8" y="-5" text-anchor="end"><tspan class="pin-num">I</tspan><tspan class="pin-place" dx="4">Mosel</tspan></text></g></a>
+<a class="pin" href="#wine-mia-les-plantenays-2022" data-course="2" aria-label="Course II: Rully, Burgundy"><g transform="translate(276.1 134.4)"><circle class="pin-hit" r="28" cy="-6"/><path class="glass-wine" d="M-4.6 -10.6c.3 2.6 1.9 3.9 4.6 3.9s4.3-1.3 4.6-3.9z"/><path class="glass-line" d="M-4.9 -15.2c-.5 4.9.6 8.3 4.9 8.4 4.3-.1 5.4-3.5 4.9-8.4M0 -6.8v5.6M-3.4 -.9c2.2-.7 4.6-.7 6.8 0"/><text class="pin-label" x="8" y="-5" text-anchor="start"><tspan class="pin-num">II</tspan><tspan class="pin-place" dx="4">Rully,</tspan><tspan class="pin-place" x="8" dy="12">Burgundy</tspan></text></g></a>
+<a class="pin" href="#wine-jaume-coudoulet-blanc-2024" data-course="2" aria-label="Course II: Rhône"><g transform="translate(281 206.2)"><circle class="pin-hit" r="28" cy="-6"/><path class="glass-wine" d="M-4.6 -10.6c.3 2.6 1.9 3.9 4.6 3.9s4.3-1.3 4.6-3.9z"/><path class="glass-line" d="M-4.9 -15.2c-.5 4.9.6 8.3 4.9 8.4 4.3-.1 5.4-3.5 4.9-8.4M0 -6.8v5.6M-3.4 -.9c2.2-.7 4.6-.7 6.8 0"/><text class="pin-label" x="8" y="-5" text-anchor="start"><tspan class="pin-num">II</tspan><tspan class="pin-place" dx="4">Rhône</tspan></text></g></a>
+<a class="pin" href="#wine-orte-escalada-do-bibei-2018" data-course="3" aria-label="Course III: Galicia"><g transform="translate(50.8 248.1)"><circle class="pin-hit" r="28" cy="-6"/><path class="glass-wine" d="M-4.6 -10.6c.3 2.6 1.9 3.9 4.6 3.9s4.3-1.3 4.6-3.9z"/><path class="glass-line" d="M-4.9 -15.2c-.5 4.9.6 8.3 4.9 8.4 4.3-.1 5.4-3.5 4.9-8.4M0 -6.8v5.6M-3.4 -.9c2.2-.7 4.6-.7 6.8 0"/><text class="pin-label" x="7" y="-19"><tspan class="pin-num">III</tspan><tspan class="pin-place" dx="4">Galicia</tspan></text></g></a>
+</svg>
+</figure>
+<ol class="legend">
+<li><a href="#wine-weiser-kunstler-zeppwingert-sekt-2022"><span class="lg-num">I</span><span class="lg-name">Weiser-Künstler</span><span class="lead" aria-hidden="true"></span><span class="lg-where">Mosel</span></a></li>
+<li><a href="#wine-jaume-coudoulet-blanc-2024"><span class="lg-num">II</span><span class="lg-name">Domaine Élodie Jaume</span><span class="lead" aria-hidden="true"></span><span class="lg-where">Rhône</span></a><a href="#wine-mia-les-plantenays-2022"><span class="lg-num lg-amp" aria-hidden="true">&amp;</span><span class="lg-name">Domaine Mia</span><span class="lead" aria-hidden="true"></span><span class="lg-where">Rully, Burgundy</span></a></li>
+<li><a href="#wine-orte-escalada-do-bibei-2018"><span class="lg-num">III</span><span class="lg-name">Alberto Orte</span><span class="lead" aria-hidden="true"></span><span class="lg-where">Galicia</span></a></li>
+</ol>
+</section>
+
+<article class="course" id="course-1" data-n="1" aria-labelledby="course-1-title">
+<header class="course-head">
+<p class="numeral" aria-hidden="true">I</p>
+<h2 class="course-label" id="course-1-title"><span class="vh">Course I: </span><span class="pour">To begin</span><span class="style">Sparkling</span></h2>
+<svg class="illo" viewBox="0 0 90 120" role="img" aria-label="A flute of Sekt with bubbles rising"><g filter="url(#wobble-ink)"><path class="wine-fill pale" d="M34.2 27c6.6 1.6 15 1.3 21.6-.4.4 8.8-.7 16.6-2.6 22.4-2 6-5.1 9.8-8.2 10.2-3.1-.4-6.2-4.2-8.2-10.2-1.9-5.8-3-13.4-2.6-22Z"/><path class="draw" pathLength="1" style="--i:0" d="M33 14c-1.6 13.5-.8 27.5 2.4 36.5 2 5.6 5.3 8.9 9.6 9.3 4.3-.4 7.6-3.7 9.6-9.3 3.2-9 4-23 2.4-36.5"/><path class="draw" pathLength="1" style="--i:1" d="M33 14c7.6-1.9 16.4-1.9 24 0"/><path class="draw" pathLength="1" style="--i:2" d="M34.2 27c6.6 1.6 15 1.3 21.6-.4"/><path class="draw" pathLength="1" style="--i:3" d="M45 60c-.6 10.6.5 21.2-.2 31.8"/><path class="draw" pathLength="1" style="--i:4" d="M32.5 97c3.7-3.4 20.6-3.6 25 .2 1 1-4.6 2.8-12.3 2.8-7.8 0-13.6-1.6-12.7-3Z"/><circle class="draw" pathLength="1" style="--i:5" cx="43" cy="49" r="1.7"/><circle class="draw" pathLength="1" style="--i:5" cx="47.5" cy="41" r="1.4"/><circle class="draw" pathLength="1" style="--i:6" cx="42" cy="34" r="1.5"/><circle class="draw" pathLength="1" style="--i:6" cx="48" cy="8" r="1.8"/><circle class="draw" pathLength="1" style="--i:7" cx="41.5" cy="3.5" r="1.3"/><path class="draw" pathLength="1" style="--i:7" d="M67 66c2.6-4.4 2.6-8.8 0-13.2M72.5 69c3.6-6.6 3.6-13.4 0-20"/></g></svg>
+</header>
+<div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">涼拌蓮藕片</span><span class="dish-en">Chilled lotus root, dressed</span></li><li><span class="dish-zh" lang="zh-Hant-HK">韭菜鹽水豆腐</span><span class="dish-en">Brined tofu with Chinese chives</span></li><li><span class="dish-zh" lang="zh-Hant-HK">香煎手打西洋菜墨魚餅</span><span class="dish-en">Pan-fried hand-beaten cuttlefish and watercress cakes</span></li></ul></div>
+<section class="wine-card" id="wine-weiser-kunstler-zeppwingert-sekt-2022" aria-labelledby="name-weiser-kunstler-zeppwingert-sekt-2022">
+<p class="producer">Weiser-Künstler</p>
+<h3 class="wine" id="name-weiser-kunstler-zeppwingert-sekt-2022">Enkircher Zeppwingert Sekt Brut Nature</h3>
+<p class="meta"><span class="vintage">2022</span><span class="where">Mosel, Germany</span></p>
+<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“A slope Prussia ranked top class, turned into bone-dry Sekt.”</p></div>
+<p class="story taste"><span class="runin">What to taste for</span> Bone-dry, with fine bubbles and no sugar added. Delicate at first, then it lingers. The producer’s own phrase for it: ‘porcelain-doll’ Riesling.</p>
+<p class="story"><span class="runin">The place</span> Enkirch is a wine village on a loop of the Mosel. Its vines climb steep slopes of dark slate. In the 1800s, Prussian tax officials ranked the Mosel’s vineyards by what their wine earned. Zeppwingert, right on the river, landed in the top class. So the taxman had good taste. Tonight that Riesling comes as Sekt, German for sparkling wine. It is made the Champagne way, with no sugar added at the end.</p>
+<p class="story"><span class="runin">The maker</span> Konstantin Weiser and Alexandra Künstler started from scratch in 2005, with no family vineyards. They farm a little over 4 hectares of Riesling, by hand. Some of their vines are over 100 years old. When phylloxera wrecked Europe’s vineyards in the late 1800s, most growers replanted on American roots. Their old vines still grow on their own.</p>
+<div class="sayit"><p class="label">Say it</p><dl><div><dt>Weiser-Künstler</dt><dd>VY-zer KUENST-ler</dd></div><div><dt>Enkircher Zeppwingert</dt><dd>ENK-irsh-er TSEP-ving-ert</dd></div><div><dt>Sekt</dt><dd>zekt</dd></div></dl></div>
+<details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Riesling 100%</dd><dt>Appellation</dt><dd>Mosel</dd><dt>Vineyard</dt><dd>Zeppwingert</dd><dt>Soils</dt><dd>Blue and Gray Slate Soil</dd><dt>Picked</dt><dd>Harvesting began on September 28, 2022, and finished on October 15, 2022, after several breaks for optimal ripeness.</dd><dt>Made</dt><dd>Made using the traditional Champagne method, including a second fermentation in the bottle. The wine was left on its lees aged for over 24 months en tirage.</dd><dt>Alcohol</dt><dd>10%</dd></dl><p class="nerd-source">From the producer’s tech sheet.</p></div></details>
+<a class="to-map" href="#map">↑ map</a>
+</section>
+</article>
+
+<article class="course course-pair" id="course-2" data-n="2" aria-labelledby="course-2-title">
+<header class="course-head">
+<p class="numeral" aria-hidden="true">II</p>
+<h2 class="course-label" id="course-2-title"><span class="vh">Course II: </span><span class="pour">Side by side</span><span class="style">Two whites</span></h2>
+<svg class="illo" viewBox="0 0 120 112" role="img" aria-label="Two glasses of white wine touching rims"><g filter="url(#wobble-ink)"><g transform="rotate(10 31.7 100) translate(-4.300000000000001 0)"><path class="wine-fill pale" d="M22.3 35c8.4 1.8 19 1.5 27.4-.3.4 9-2.3 16.6-6.5 20.2-2.1 1.8-4.6 2.7-7.2 2.7s-5.1-.9-7.2-2.7c-4.3-3.7-7-11.1-6.5-19.9Z"/><path class="draw" pathLength="1" style="--i:0" d="M21 22c-1.4 14 1.6 27.5 7.2 32.6 2.2 2 4.8 3 7.8 3s5.6-1 7.8-3c5.6-5.1 8.6-18.6 7.2-32.6"/><path class="draw" pathLength="1" style="--i:1" d="M21 22c9.6-1.7 20.4-1.7 30 0"/><path class="draw" pathLength="1" style="--i:1" d="M22.3 35c8.4 1.8 19 1.5 27.4-.3"/><path class="draw" pathLength="1" style="--i:2" d="M36 57.6c-.5 12.4.4 24.8-.1 36.4"/><path class="draw" pathLength="1" style="--i:3" d="M25 98.5c4.5-3.6 17.4-3.8 22.4.1 1.1 1-4.7 2.6-11.3 2.6-6.5 0-12.2-1.5-11.1-2.7Z"/></g><g transform="rotate(-10 88.3 100) translate(52.3 0)"><path class="wine-fill pale" d="M22.3 35c8.4 1.8 19 1.5 27.4-.3.4 9-2.3 16.6-6.5 20.2-2.1 1.8-4.6 2.7-7.2 2.7s-5.1-.9-7.2-2.7c-4.3-3.7-7-11.1-6.5-19.9Z"/><path class="draw" pathLength="1" style="--i:1" d="M21 22c-1.4 14 1.6 27.5 7.2 32.6 2.2 2 4.8 3 7.8 3s5.6-1 7.8-3c5.6-5.1 8.6-18.6 7.2-32.6"/><path class="draw" pathLength="1" style="--i:2" d="M21 22c9.6-1.7 20.4-1.7 30 0"/><path class="draw" pathLength="1" style="--i:2" d="M22.3 35c8.4 1.8 19 1.5 27.4-.3"/><path class="draw" pathLength="1" style="--i:3" d="M36 57.6c-.5 12.4.4 24.8-.1 36.4"/><path class="draw" pathLength="1" style="--i:4" d="M25 98.5c4.5-3.6 17.4-3.8 22.4.1 1.1 1-4.7 2.6-11.3 2.6-6.5 0-12.2-1.5-11.1-2.7Z"/></g><path class="draw" pathLength="1" style="--i:5" d="M60 15v-7M52.5 17.5l-4.5-4.5M67.5 17.5l4.5-4.5"/></g></svg>
+</header>
+<div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">香煎雜錦鹹鮮魚仔拼盤</span><span class="dish-en">Pan-fried platter of lightly salted small fish</span></li><li><span class="dish-zh" lang="zh-Hant-HK">手撕雞拼鴨腿</span><span class="dish-en">Hand-torn chicken with duck leg</span></li><li><span class="dish-zh" lang="zh-Hant-HK">砂鍋豬潤炒蜆（配煎米粉）</span><span class="dish-en">Claypot clams and pork liver, with crisp-fried rice vermicelli</span></li><li><span class="dish-zh" lang="zh-Hant-HK">柚子金沙骨</span><span class="dish-en">Pomelo and salted-egg-yolk pork ribs</span></li></ul></div>
+<div class="pair">
+<section class="pair-wine wine-card" id="wine-jaume-coudoulet-blanc-2024" aria-labelledby="name-jaume-coudoulet-blanc-2024">
+<p class="producer">Domaine Élodie Jaume</p>
+<h3 class="wine" id="name-jaume-coudoulet-blanc-2024">Coudoulet Blanc</h3>
+<p class="meta"><span class="vintage">2024</span><span class="where">Rhône, France</span></p>
+<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“A Rhône white from a plot whose name means pebble.”</p></div>
+<p class="story taste"><span class="runin">What to taste for</span> Salty and zesty, with real weight in the mouth and a mouth-watering bitter twist at the end. Built for a table full of food.</p>
+</section>
+<section class="pair-wine wine-card" id="wine-mia-les-plantenays-2022" aria-labelledby="name-mia-les-plantenays-2022">
+<p class="producer">Domaine Mia</p>
+<h3 class="wine" id="name-mia-les-plantenays-2022">Les Plantenays</h3>
+<p class="meta"><span class="vintage">2022</span><span class="where">Burgundy, France</span></p>
+<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“Still Chardonnay from a village famous for sparkling wine.”</p></div>
+<p class="story taste"><span class="runin">What to taste for</span> White flowers, candied citrus and toasted hazelnut, in the producer’s words. Lighter and brighter than its neighbour in the glass.</p>
+</section>
+</div>
+<div class="compare"><p class="label">Pick a side</p><p class="compare-lead">Taste the two whites side by side.</p><p class="compare-body">The Rhône wine feels rounder in the mouth. It smells of ripe pear and herbs. It ends with a salty twist. The Rully feels lighter. It smells of lemon, white flowers and toasted hazelnut from the oak. Its acidity, the part that makes your mouth water, is brighter.</p></div>
+<section class="pair-detail" id="more-jaume-coudoulet-blanc-2024" aria-labelledby="more-title-jaume-coudoulet-blanc-2024">
+<h3 class="pair-sub" id="more-title-jaume-coudoulet-blanc-2024">More on Coudoulet Blanc</h3>
+<p class="story"><span class="runin">The place</span> These grapes grow in Orange, just outside Châteauneuf-du-Pape. The Côtes du Rhône name is older than you might think. In 1737 the king ordered casks from the river port of Roquemaure branded C.D.R. It was an early guarantee of where a wine came from. The ground here is covered in round river stones that hold the day’s heat. In Provence, such a stone is a coudoulet, the name on this bottle.</p>
+<p class="story"><span class="runin">The maker</span> Élodie Jaume’s family has grown grapes around Châteauneuf-du-Pape since 1826. She started with 5 hectares of her own. Then she took over the family estate. It now carries her name. She farms organically and biodynamically. This white comes from 1.3 hectares, nearly two football pitches. That was enough for about 6,500 bottles.</p>
+<div class="sayit"><p class="label">Say it</p><dl><div><dt>Domaine Élodie Jaume</dt><dd>doh-MEN ay-loh-DEE ZHOHM</dd></div><div><dt>Côtes du Rhône Coudoulet Blanc</dt><dd>koht dew ROHN koo-doo-LAY BLAHN</dd></div></dl></div>
+<details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Clairette 80%<br>Grenache Blanc 20%</dd><dt>Appellation</dt><dd>Côtes du Rhône</dd><dt>Vineyard</dt><dd>Coudoulet Est</dd><dt>Soils</dt><dd>Early Würm (Quaternary) terrace with rolled pebbles composed of clays and limestones.</dd><dt>Picked</dt><dd>Hand-harvested into crates with sorting in the vineyard, followed by a second sorting on a sorting table. Direct pressing of whole bunches.</dd><dt>Made</dt><dd>Fermentation for 20 to 25 days in temperature-controlled stainless-steel tanks. Indigenous yeasts. Malolactic fermentation in tanks. 7 months of aging in concrete or stainless-steel tanks. Clarification of the wines in the cellar during the winter. Bottled without fining or filtration.</dd><dt>Alcohol</dt><dd>13.5%</dd><dt>Production</dt><dd>6500 bottles</dd></dl><p class="nerd-source">From the producer’s tech sheet.</p></div></details>
+<a class="to-map" href="#map">↑ map</a>
+</section>
+<section class="pair-detail" id="more-mia-les-plantenays-2022" aria-labelledby="more-title-mia-les-plantenays-2022">
+<h3 class="pair-sub" id="more-title-mia-les-plantenays-2022">More on Les Plantenays</h3>
+<p class="story"><span class="runin">The place</span> Rully sits at the top of the Côte Chalonnaise, just south of the famous Côte de Beaune. People have prized its wine for centuries. In 1629 the town of Chalon welcomed King Louis XIII with 22 casks of it, about 3,000 litres. In the early 1800s Rully took up sparkling wine made the Champagne way. It is still a hub for Crémant de Bourgogne. Tonight’s glass is the still kind.</p>
+<p class="story"><span class="runin">The maker</span> Mia Subotic took over this family estate from her father in 2020. It bears her first name. The wines are made in underground cellars in Nuits-Saint-Georges, with David Duband. Les Plantenays sits in a hollow. One side of the plot catches the morning sun. The other side gets the evening sun.</p>
+<div class="sayit"><p class="label">Say it</p><dl><div><dt>Domaine Mia</dt><dd>doh-MEN MEE-ah</dd></div><div><dt>Rully Les Plantenays</dt><dd>rew-LEE lay plahnt-NAY</dd></div></dl></div>
+<details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Chardonnay 100%</dd><dt>Appellation</dt><dd>Rully AOC</dd><dt>Vineyard</dt><dd>Les Plantenays</dd><dt>Soils</dt><dd>Stony, marly, soft limestone</dd><dt>Picked</dt><dd>Made from 100% Chardonnay grapes, the vines are harvested by hand. The grapes are pressed gently, very slowly and whole.</dd><dt>Made</dt><dd>Fermentation is 100% natural, using indigenous yeasts from our terroirs. The wine is aged in underground cellars for between 10 and 12 months, without stirring. It is matured in French oak barrels, 25% of them new, from 4 complementary coopers. The wine is racked by gravity to preserve its quality.</dd><dt>Alcohol</dt><dd>13%</dd></dl><p class="nerd-source">From the producer’s tech sheet.</p></div></details>
+<a class="to-map" href="#map">↑ map</a>
+</section>
+</article>
+
+<article class="course" id="course-3" data-n="3" aria-labelledby="course-3-title">
+<header class="course-head">
+<p class="numeral" aria-hidden="true">III</p>
+<h2 class="course-label" id="course-3-title"><span class="vh">Course III: </span><span class="pour">To finish</span><span class="style">Red</span></h2>
+<svg class="illo" viewBox="0 0 130 120" role="img" aria-label="A glass of red standing on a steep vineyard terrace above a river"><g filter="url(#wobble-ink)"><path class="draw" pathLength="1" style="--i:0" d="M4 106c6-.4 12 .4 19-.2l.5-12.6c6.5-.5 13.5.6 19.5 0l.6-13c7.4-.4 14.4.6 20.4 0l.4-14c7.6-.4 14.6.5 21.6 0l.5-15c7.5-.4 16.5.4 26 0 4 0 8 .2 12 0"/><path class="draw" pathLength="1" style="--i:1" d="M31 93.4v-7.2c2.4-.6 3.6-2.6 2.2-4.4M52.5 80.2v-7.4c2.4-.6 3.6-2.6 2.2-4.4M74 66.3v-7.6c2.4-.6 3.6-2.6 2.2-4.4"/><path class="draw" pathLength="1" style="--i:2" d="M2 114c8-3.5 14 3 22 0s14-3.5 22 0 14 3 22 0"/><path class="wine-fill" d="M95.6 27c6.6 1.4 14.2 1.2 20.8-.2.2 5.2-1.6 9.6-4.4 11.2-1.8 1-3.8 1.5-6 1.5s-4.2-.5-6-1.5c-2.9-1.7-4.6-6.1-4.4-11Z"/><path class="draw" pathLength="1" style="--i:3" d="M95 18c-1.6 9.6.6 17 5 19.6 1.8 1 3.8 1.5 6 1.5s4.2-.5 6-1.5c4.4-2.6 6.6-10 5-19.6"/><path class="draw" pathLength="1" style="--i:4" d="M95 18c7.3-1.4 14.7-1.4 22 0"/><path class="draw" pathLength="1" style="--i:5" d="M106 39.1c-.3 3.4.2 6.8-.1 9.6M100 50.2c3.6-1.7 8.6-1.7 12 0"/></g></svg>
+</header>
+<div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">墨魚土魷蒸肉餅</span><span class="dish-en">Steamed pork patty with cuttlefish and dried squid</span></li><li><span class="dish-zh" lang="zh-Hant-HK">京蔥豉油皇大蝦炒腸粉</span><span class="dish-en">Wok-fried rice rolls with king prawns and Peking leek in supreme soy</span></li></ul></div>
+<section class="wine-card" id="wine-orte-escalada-do-bibei-2018" aria-labelledby="name-orte-escalada-do-bibei-2018">
+<p class="producer">Alberto Orte</p>
+<h3 class="wine" id="name-orte-escalada-do-bibei-2018">Escalada do Bibei</h3>
+<p class="meta"><span class="vintage">2018</span><span class="where">Galicia, Spain</span></p>
+<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“A mountain red reviving grapes Valdeorras nearly lost.”</p></div>
+<p class="story taste"><span class="runin">What to taste for</span> Smoky dark fruit, warm baking spices and dried violets, with fine-grained tannin. Think clove and cinnamon, not jam.</p>
+<p class="story"><span class="runin">The place</span> Valdeorras is a mountain valley in eastern Galicia, cut by the River Sil and its tributary, the Bibei. The Romans came here for gold, which they mined from the Sil. Wine here turns up in records from over 1,000 years ago. In the 1880s a vine-killing louse called phylloxera ruined most of the vineyards. Growers replanted with heavy-cropping grapes. Local reds such as Merenzao grew rare. This wine sets out to bring them back.</p>
+<p class="story"><span class="runin">The maker</span> Alberto Orte co-founded a US importer of Spanish wine at 24, in 1999. Now he makes his own. In Valdeorras he works with a few farmers on tiny plots of 80 to 100-year-old vines. The slopes are too steep for tractors. When a vine dies, he replants with a cutting from the same plot.</p>
+<div class="sayit"><p class="label">Say it</p><dl><div><dt>Alberto Orte</dt><dd>al-BAIR-toh OR-teh</dd></div><div><dt>Escalada do Bibei</dt><dd>es-kah-LAH-dah doh bee-BAY</dd></div></dl></div>
+<details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Mencia 60%<br>Merenzao, Brancellao 20%<br>Grau Negro 10%<br>Garnacha Tintorera 10%</dd><dt>Appellation</dt><dd>Valdeorras DO</dd><dt>Vineyard</dt><dd>Granite banks of the Bibei River</dd><dt>Soils</dt><dd>The soil is composed of slate and granite topsoil with a thin clay subsoil. This soil profile is poor in organic matter.</dd><dt>Picked</dt><dd>Hand harvested</dd><dt>Made</dt><dd>Macerated for 28 days. Aged in French oak barrels for 18 months. After one month of natural racking and sediment settling, the wine is gently filtered then bottled.</dd><dt>Alcohol</dt><dd>13%</dd></dl><p class="nerd-source">From the producer’s tech sheet.</p></div></details>
+<a class="to-map" href="#map">↑ map</a>
+</section>
+</article>
+
+<section class="finale" aria-labelledby="finale-title">
+<div class="finale-head">
+<div><h2 class="finale-title" id="finale-title">The kitchen’s encore</h2><p class="finale-intro">No wine on these three. The kitchen has the last word.</p></div>
+<svg class="illo" viewBox="0 0 124 112" role="img" aria-label="A steaming bowl with chopsticks resting on its rim"><g filter="url(#wobble-ink)"><path class="wine-fill pale" d="M17 60c30 3.2 60 3.2 90 0-1.6 10-6 17.6-13 22.6-8.4 6-19 8.6-32 8.6s-23.6-2.6-32-8.6c-7-5-11.4-12.6-13-22.6Z"/><path class="draw" pathLength="1" style="--i:0" d="M14 58c1.4 15.6 7.8 26.4 18.6 33 8.2 5 18.4 7.2 29.4 7.2s21.2-2.2 29.4-7.2C102.2 84.4 108.6 73.6 110 58"/><path class="draw" pathLength="1" style="--i:1" d="M12.5 58c32.6 3.4 66.4 3.4 99 0"/><path class="draw" pathLength="1" style="--i:2" d="M46 98.6c-.6 3.4.2 5.6 2.4 6.6h27.4c2.2-1 3-3.2 2.4-6.6"/><path class="draw" pathLength="1" style="--i:3" d="M70 54.5 106.5 17M79.5 55.5 113 21.5"/><path class="draw" pathLength="1" style="--i:4" d="M41 46c-4.6-5.2 4.4-9.4 0-15.2s4.6-9.6.4-15"/><path class="draw" pathLength="1" style="--i:5" d="M55 43c-4.4-4.8 4.2-8.8 0-14.2s4.4-8.8.4-13.6"/></g></svg>
+</div>
+<div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">蝦膏海蝦煲仔炒飯</span><span class="dish-en">Claypot fried rice with sea prawns and shrimp roe</span></li><li><span class="dish-zh" lang="zh-Hant-HK">蜑家叉燒燒鵝魚湯艇仔粉</span><span class="dish-en">Tanka boat noodles: char siu and roast goose in fish broth</span></li><li><span class="dish-zh" lang="zh-Hant-HK">蝦醬吊桶炒時蔬</span><span class="dish-en">Seasonal greens with baby squid and shrimp paste</span></li></ul></div>
+</section>
+
+<footer class="closing">
+<p class="closing-text">Bryan is here all evening. Ask him anything about tonight’s wines. No question is too small.</p>
+<p class="closing-line">Thank you for joining us.</p>
+<picture class="signoff"><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture>
+<div class="signoff-meta">
+<p>Your sommelier tonight: Bryan, DipWSET</p>
+<p>In the kitchen: Kam Tung Kitchen <span lang="zh-Hant-HK">金東大</span></p>
+<p class="sc-label">Tipsy Table · tipsytablehk.com</p>
+</div>
+</footer>
+</main>
+<script>
+// Light the pins of the course being read, and draw each line drawing and the
+// map route once, when it first scrolls into view.
+(() => {
+  const root = document.documentElement;
+  const drawables = document.querySelectorAll('.illo, .map-svg');
+  if (!('IntersectionObserver' in window)) {
+    drawables.forEach((el) => el.classList.add('is-drawn'));
+    return;
+  }
+  const reading = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) root.dataset.course = e.target.dataset.n; });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+  document.querySelectorAll('.course').forEach((c) => reading.observe(c));
+  const draw = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-drawn');
+      draw.unobserve(e.target);
+    });
+  }, { threshold: 0.45 });
+  drawables.forEach((el) => draw.observe(el));
+})();
+</script>
+</body>
+</html>

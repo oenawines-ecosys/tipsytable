@@ -1,4 +1,83 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tipsy Table</title>
-<style>:root{--paper:#F3E9D7;--ink:#4C2819}@media(prefers-color-scheme:dark){:root{--paper:#2A1810;--ink:#F4EBDD}}body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--paper);color:var(--ink);font:400 1.1rem/1.5 Georgia,serif;text-align:center;padding:16px}</style></head>
-<body><p>Tipsy Table · Volume I · 30 October 2026<br>The table is still being set.</p></body></html>
+<html lang="en">
+<head>
+<meta http-equiv="refresh" content="0; url=./vol-1/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tipsy Table · Volume I · 30 October 2026</title>
+<meta name="description" content="Four wines, three courses and a map for the table at Tipsy Table Volume I, Friday 30 October 2026, Hong Kong.">
+<link rel="canonical" href="https://tipsytablehk.com/vol-1/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F3E9D7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2A1810" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tipsy Table">
+<meta property="og:title" content="Tipsy Table · Volume I · 30 October 2026">
+<meta property="og:description" content="Four wines, three courses and a map for the table at Tipsy Table Volume I, Friday 30 October 2026, Hong Kong.">
+<meta property="og:url" content="https://tipsytablehk.com/vol-1/">
+<meta property="og:image" content="https://tipsytablehk.com/vol-1/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tipsy Table · Volume I · 30 October 2026">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* Colour, type and motion tokens shared by the guest page, the redirect and the 404. */
+:root {
+  /* Light: comp A's menu card, one ink on paper. */
+  --bg: #F3E9D7;          /* paper */
+  --insert: #E8D9C0;      /* the "For the nerds" insert */
+  --table: #DCCAAC;       /* what the sheet lies on, wide screens */
+  --text: #4C2819;        /* ink */
+  --heading: #4C2819;
+  --muted: #6F5040;       /* tint */
+  --accent: #9F3B26;      /* brick */
+  --line: #4C2819;        /* line drawings, coast */
+  --rule: rgba(76, 40, 25, 0.3);
+  --land: rgba(76, 40, 25, 0.075);
+  --halo: #F3E9D7;        /* knock-out behind map labels */
+  --shade: rgba(76, 40, 25, 0.22);
+  --grain-opacity: 0.5;
+  --grain-blend: multiply;
+  --font-display: "Young Serif", Georgia, "Times New Roman", serif;
+  --font-text: "Vollkorn", Georgia, "Times New Roman", serif;
+  --font-sc: "Vollkorn SC", "Vollkorn", Georgia, serif;
+  --font-zh: "LXGW WenKai TC", "Kaiti TC", "STKaiti", "BiauKai", "PingFang HK", "Noto Serif TC", serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  color-scheme: light;
+}
+/* Dark: comp B's room at nine. The ink becomes the room, cream becomes the light, amber marks where you are. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #2A1810;
+    --insert: #4C2819;
+    --table: #20120B;
+    --text: #DED1BE;
+    --heading: #F4EBDD;
+    --muted: #A8977F;
+    --accent: #E0A458;
+    --line: #DED1BE;
+    --rule: rgba(222, 209, 190, 0.22);
+    --land: #4C2819;
+    --halo: #4C2819;
+    --shade: rgba(10, 5, 2, 0.5);
+    --grain-opacity: 0.35;
+    --grain-blend: screen;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; background: var(--bg); color: var(--text); font-family: var(--font-text); font-size: 19px; line-height: 1.45; text-align: center; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main { display: grid; gap: 10px; justify-items: center; }
+p { margin: 0; }
+.big { font-family: var(--font-display); font-size: 27px; line-height: 1.15; color: var(--heading); transform: rotate(-2deg); }
+a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-sc); letter-spacing: 0.06em; color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+</style>
+<script>location.replace('./vol-1/' + location.hash);</script>
+</head>
+<body>
+<main><p>Taking you to Volume I.</p><a href="./vol-1/">Open Volume I</a></main>
+</body>
+</html>
