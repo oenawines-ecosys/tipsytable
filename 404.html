@@ -54,10 +54,12 @@ p { margin: 0; }
 .big { font-family: var(--font-display); font-size: 27px; line-height: 1.15; color: var(--heading); transform: rotate(-2deg); }
 a { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-sc); letter-spacing: 0.06em; color: var(--accent); }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.pages { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 20px; margin-top: 10px; padding-top: 6px; border-top: 1px solid var(--rule); }
+.pages a { color: var(--muted); }
 </style>
 </head>
 <body>
-<main><p class="big">This glass is empty.</p><a id="home" href="/">All the dinners</a><a id="latest" href="/vol-1/" data-slug="vol-1">Latest: Volume I</a></main>
+<main><p class="big">This glass is empty.</p><a id="home" href="/">All the dinners</a><a id="latest" href="/vol-1/" data-slug="vol-1">Latest: Volume I</a><nav class="pages" aria-label="Tipsy Table pages"><a href="/about/" data-path="about/">About Us</a><a href="/images/" data-path="images/">Images</a><a href="/contact/" data-path="contact/">Contact Us</a><a href="/pairing-notes/" data-path="pairing-notes/">Pairing notes</a></nav></main>
 <script>(() => {
   const seg = location.pathname.split('/').filter(Boolean)[0];
   const custom = /(^|\.)tipsytablehk\.com$/.test(location.hostname);
@@ -65,6 +67,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   const latest = document.getElementById('latest');
   document.getElementById('home').href = base;
   latest.href = base + latest.dataset.slug + '/';
+  document.querySelectorAll('a[data-path]').forEach((a) => { a.href = base + a.dataset.path; });
 })();</script>
 </body>
 </html>
