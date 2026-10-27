@@ -117,6 +117,10 @@ h1, h2, h3 { color: var(--heading); }
     box-shadow: 0 1px 2px var(--shade), 0 28px 50px -30px var(--shade);
   }
 }
+/* Laptops and up: every sheet opens as wide as a volume's spread, a main column and a rail beside it. */
+@media (min-width: 1120px) {
+  .sheet { --rail: 288px; --spread-gap: 56px; max-width: 1040px; }
+}
 
 .vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 
@@ -138,7 +142,7 @@ h1, h2, h3 { color: var(--heading); }
 .hero-word { margin: 0 0 24px; line-height: 0; }
 .hero-word img { width: min(100%, 268px); }
 .hero-host { width: min(36vw, 172px); margin-bottom: -4px; }
-.about { margin: 22px 0 0; max-width: 34ch; font-size: 19px; line-height: 1.45; text-wrap: pretty; hanging-punctuation: first; }
+.about { margin: 22px 0 0; max-width: 34ch; font-size: 19px; line-height: 1.45; text-align: justify; -webkit-hyphens: auto; hyphens: auto; text-wrap: pretty; hanging-punctuation: first; }
 
 /* The volumes: one grid for every year, so the columns line up down the whole page.
    Narrow (phones): the numeral leads the weekday line and the first column holds only the route,
@@ -249,6 +253,13 @@ h1, h2, h3 { color: var(--heading); }
   .hero-host { width: 210px; }
   .journal { column-gap: 22px; grid-template-columns: minmax(64px, max-content) minmax(0, 1fr); }
   .vol-num { font-size: 34px; }
+  .about { max-width: none; }
+}
+/* Laptops and up: the sheet's spread (base.css); the about keeps to the main column's measure. */
+@media (min-width: 1120px) {
+  .hero-word img { width: 320px; }
+  .hero-host { width: 236px; }
+  .about { max-width: calc(100% - var(--rail) - var(--spread-gap)); }
 }
 /* The site's own pages (About Us, Images, Contact Us, Pairing notes), on top of tokens, base and
    home.css, whose dateline, mast and footer they share. The nav comes first because, once pages.json
@@ -291,6 +302,8 @@ h1, h2, h3 { color: var(--heading); }
 .leaf-title { margin: 34px 0 0; font-family: var(--font-display); font-weight: 400; font-size: 36px; line-height: 1.08; text-wrap: balance; }
 .leaf-lead { margin: 12px 0 0; max-width: 34ch; font-size: 19px; line-height: 1.45; text-wrap: pretty; }
 .leaf-text { margin: 18px 0 0; max-width: 40em; text-wrap: pretty; }
+/* Running text set justified, as on the volume pages. */
+.leaf-lead, .leaf-text { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
 .leaf-empty { margin: 14px 0 0; font-style: italic; color: var(--muted); text-wrap: pretty; }
 
 /* Contact: one row per channel, the label in small caps, the address in the accent. */
@@ -351,10 +364,15 @@ h1, h2, h3 { color: var(--heading); }
   .leaf-word img { width: 220px; }
   .leaf .hero-host { width: 150px; }
   .leaf-title { font-size: 44px; }
-  .leaf-lead { font-size: 21px; }
+  .leaf-lead { font-size: 21px; max-width: none; }
   .leaf-vol-date { font-size: 30px; }
   .pn-cuvee { font-size: 28px; }
   .gallery .photo:not(.is-wide) { max-width: 70%; }
+}
+/* Laptops and up: the sheet's spread (base.css). The title and lead span it; the rest keeps to the main
+   column, the rail empty until the pages carry marginalia. */
+@media (min-width: 1120px) {
+  .leaf-body > :not(.leaf-title, .leaf-lead) { max-width: calc(100% - var(--rail) - var(--spread-gap)); }
 }
 </style>
 </head>

@@ -118,6 +118,10 @@ h1, h2, h3 { color: var(--heading); }
     box-shadow: 0 1px 2px var(--shade), 0 28px 50px -30px var(--shade);
   }
 }
+/* Laptops and up: every sheet opens as wide as a volume's spread, a main column and a rail beside it. */
+@media (min-width: 1120px) {
+  .sheet { --rail: 288px; --spread-gap: 56px; max-width: 1040px; }
+}
 
 .vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 
@@ -276,6 +280,8 @@ h1, h2, h3 { color: var(--heading); }
 .label { margin: 0 0 4px; font-size: 15px; color: var(--muted); }
 .tell-line { margin: 0; font-style: italic; font-size: 23px; line-height: 1.3; hanging-punctuation: first; text-wrap: pretty; color: var(--heading); }
 .story { margin: 18px 0 0; text-wrap: pretty; }
+/* Running text set justified, as on the printed card; one-liners, italics and labels stay ragged. */
+.welcome-text, .story, .compare-body { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
 @supports not (hanging-punctuation: first) { .tell-line { text-indent: -0.4em; } }
 .runin { font-size: 16px; margin-right: 0.3em; color: var(--heading); }
 .sayit { margin-top: 22px; }
@@ -297,12 +303,14 @@ h1, h2, h3 { color: var(--heading); }
 .pair .where { border-left: 0; padding-left: 0; }
 .pair .tell { margin-top: 14px; }
 .pair .tell-line { font-size: 18px; }
-.pair .taste { margin-top: 14px; font-size: 16px; }
+/* Side by side the two columns are too narrow to justify; stacked, they read like the rest. */
+.pair .taste { margin-top: 14px; font-size: 16px; text-align: start; -webkit-hyphens: manual; hyphens: manual; }
 .pair .runin { display: block; margin-bottom: 2px; font-size: 15px; letter-spacing: 0.05em; white-space: nowrap; }
 @container (max-width: 20em) {
   .pair { grid-template-columns: minmax(0, 1fr); }
   .pair-wine { padding-right: 0; }
   .pair-wine + .pair-wine { margin-top: 24px; padding: 22px 0 0; border-left: 0; border-top: 1px dashed var(--rule); }
+  .pair .taste { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
 }
 .compare { margin-top: 30px; padding-top: 18px; border-top: 1px dashed var(--rule); }
 .compare-lead { margin: 0; font-style: italic; font-size: 21px; line-height: 1.32; text-wrap: pretty; color: var(--heading); }
@@ -459,13 +467,35 @@ h1, h2, h3 { color: var(--heading); }
   .sheet { --gutter: 64px; }
   .mast-word img { width: 268px; }
   .mast-host { width: 210px; }
-  .welcome-text { font-size: 21px; }
+  .welcome-text { font-size: 21px; max-width: none; }
   .wine { font-size: 38px; }
   .pair .wine { font-size: 28px; }
   .numeral { font-size: 66px; }
   .illo { height: 118px; max-width: 134px; }
   .dish-zh { font-size: 21px; }
   .photo:not(.is-wide) { max-width: 70%; }
+}
+
+/* Laptops and up: the sheet opens like a menu spread. A main column carries the reading (the welcome,
+   the map, each wine) and a rail beside it what you glance at: how to read, the map's key, and the
+   course's dishes, which stay in view while you read its wine and pick a favourite. */
+@media (min-width: 1120px) {
+  .mast-word img { width: 300px; }
+  .mast-host { width: 236px; }
+  .credits { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) var(--rail); column-gap: var(--spread-gap); }
+  .credit-kitchen { grid-column: 3; grid-row: 1; }
+  .welcome, .map-sec, .course { display: grid; grid-template-columns: minmax(0, 1fr) var(--rail); column-gap: var(--spread-gap); align-items: start; }
+  .welcome > *, .map-sec > *, .course > * { grid-column: 1; }
+  /* The note sits on the welcome's first baseline, beside a welcome of up to four paragraphs (copy.json splits it on blank lines). */
+  .how-to { grid-column: 2; grid-row: 1 / span 4; margin: 5px 0 0; max-width: none; }
+  .legend { grid-column: 2; grid-row: 2; margin: 0; border-top: 1.5px solid var(--line); }
+  .course { --gutter: calc(var(--spread-gap) / 2); }
+  .course-head { grid-column: 1 / -1; }
+  /* The dishes span every row after the head (a course holds at most eight blocks), so they can stay in view. */
+  .course > .dishes { grid-column: 2; grid-row: 2 / span 8; position: sticky; top: 24px; margin: 0; }
+  .finale .dish-list { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); column-gap: var(--spread-gap); }
+  /* The night's photos keep to the main column, about the width their srcset sizes are written for. */
+  .night { max-width: calc(100% - var(--rail) - var(--spread-gap)); }
 }
 
 /* Utilities */
