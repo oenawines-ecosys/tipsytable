@@ -6,9 +6,8 @@
 <title>Contact Us · Tipsy Table</title>
 <meta name="description" content="How to reach Tipsy Table, the wine dinners in Hong Kong.">
 <link rel="canonical" href="https://tipsytablehk.com/contact/">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F3E9D7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#2A1810" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F3E9D7">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tipsy Table">
 <meta property="og:title" content="Contact Us · Tipsy Table">
@@ -26,9 +25,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..700;1,400..600&family=Vollkorn+SC:wght@400;600&family=Young+Serif&display=swap">
 <style>
-/* Colour, type and motion tokens shared by the journal home, every volume page and the 404. */
+/* Colour, type and motion tokens shared by the journal home, every volume page and the 404.
+   Comp A's menu card, one ink on paper, always: the site does not follow the phone's dark mode. */
 :root {
-  /* Light: comp A's menu card, one ink on paper. */
   --bg: #F3E9D7;          /* paper */
   --insert: #E8D9C0;      /* the "For the nerds" insert */
   --table: #DCCAAC;       /* what the sheet lies on, wide screens */
@@ -50,26 +49,6 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --gutter: max(16px, env(safe-area-inset-left, 0px));
   color-scheme: light;
-}
-/* Dark: comp B's room at nine. The ink becomes the room, cream becomes the light, amber marks where you are. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #2A1810;
-    --insert: #4C2819;
-    --table: #20120B;
-    --text: #DED1BE;
-    --heading: #F4EBDD;
-    --muted: #A8977F;
-    --accent: #E0A458;
-    --line: #DED1BE;
-    --rule: rgba(222, 209, 190, 0.22);
-    --land: #4C2819;
-    --halo: #4C2819;
-    --shade: rgba(10, 5, 2, 0.5);
-    --grain-opacity: 0.35;
-    --grain-blend: screen;
-    color-scheme: dark;
-  }
 }
 
 /* Shared by the home and every volume page. Layout: one printed menu column with 16px gutters;
@@ -383,8 +362,8 @@ h1, h2, h3 { color: var(--heading); }
 <header class="hero leaf-head">
 <p class="hero-line"><span>Wine dinners</span><span>Hong Kong</span></p>
 <div class="hero-mast">
-<a class="leaf-word" href="../"><picture><source srcset="../assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="../assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture><span class="vh"> home</span></a>
-<picture class="hero-host"><source srcset="../assets/mark-cream.png" media="(prefers-color-scheme: dark)"><img src="../assets/mark.png" width="420" height="451" alt=""></picture>
+<a class="leaf-word" href="../"><picture><img src="../assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture><span class="vh"> home</span></a>
+<picture class="hero-host"><img src="../assets/mark.png" width="420" height="451" alt=""></picture>
 </div>
 <nav class="site-nav" aria-label="Tipsy Table pages"><ul><li><a href="../">Volumes</a></li><li><a href="../about/">About Us</a></li><li><a href="../images/">Images</a></li><li><a href="../contact/" aria-current="page">Contact Us</a></li><li><a href="../pairing-notes/">Pairing notes</a></li></ul></nav>
 </header>

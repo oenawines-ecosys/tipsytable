@@ -1,5 +1,5 @@
 // The "Save as PDF" keepsake: tonight's menu with each wine's favourite pairing and notes as they
-// stand, all read from the page. Drawn in the light scheme on one canvas, A4 at 2 px per point, one
+// stand, all read from the page. Drawn on the paper on one canvas, A4 at 2 px per point, one
 // JPEG per page (six at most), and wrapped in a small hand-written PDF. notes.js imports this module
 // on the first tap, then shares or downloads the file.
 
@@ -7,7 +7,7 @@
 // DISH_EN, a labelled line's text at VALUE.
 const W = 1190, H = 1684, M = 90, R = W - M, TOP = 72, BOTTOM = H - 112, MAX_PAGES = 6;
 const X = M + 112, DISH_EN = X + 320, VALUE = X + 220;
-// tokens.css, light scheme: the keepsake is paper and ink whatever the phone's scheme.
+// tokens.css: the keepsake is paper and ink, as the site always is.
 const C = { paper: '#F3E9D7', ink: '#4C2819', muted: '#6F5040', accent: '#9F3B26', rule: 'rgba(76, 40, 25, 0.3)' };
 const css = getComputedStyle(document.documentElement);
 const [display, text, sc, zh] = ['display', 'text', 'sc', 'zh'].map((f) => css.getPropertyValue(`--font-${f}`).trim());
@@ -53,7 +53,6 @@ const read = () => {
     place,
     volume: q('.stamp').textContent,
     name: q('.mast-word img').alt,
-    // An <img>'s own src is the light-scheme file; dark mode swaps it only through <source>.
     word: q('.mast-word img').getAttribute('src'),
     mark: q('.mast-host img').getAttribute('src'),
     kitchen: [[S.label, q('dt', credit).textContent], ...runs(q('.credit-name', credit), S.credit, S.creditZh), ...runs(q('.credit-note', credit), S.cuisine, S.cuisineZh)],

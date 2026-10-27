@@ -6,9 +6,8 @@
 <title>Tipsy Table · Volume I · 30 October 2026</title>
 <meta name="description" content="Four wines, three courses and a map for the table at Tipsy Table Volume I, Friday 30 October 2026, Hong Kong.">
 <link rel="canonical" href="https://tipsytablehk.com/vol-1/">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F3E9D7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#2A1810" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F3E9D7">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tipsy Table">
 <meta property="og:title" content="Tipsy Table · Volume I · 30 October 2026">
@@ -28,9 +27,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..700;1,400..600&family=Vollkorn+SC:wght@400;600&family=Young+Serif&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&text=%E4%BA%AC%E4%BB%94%E5%8F%89%E5%90%8A%E5%9C%9F%E5%A2%A8%E5%A4%A7%E5%AD%90%E5%AE%B6%E6%89%8B%E6%89%93%E6%8B%8C%E6%8B%BC%E6%92%95%E6%99%82%E6%9D%B1%E6%9F%9A%E6%A1%B6%E6%B0%B4%E6%B2%99%E6%B2%B9%E6%B4%8B%E6%B5%B7%E6%B6%BC%E6%B9%AF%E6%BD%A4%E7%82%92%E7%85%8E%E7%85%B2%E7%87%92%E7%89%87%E7%9A%87%E7%9B%A4%E7%A0%82%E7%B1%B3%E7%B2%89%E8%82%89%E8%85%90%E8%85%B8%E8%85%BF%E8%86%8F%E8%89%87%E8%8F%9C%E8%92%B8%E8%93%AE%E8%94%A5%E8%94%AC%E8%97%95%E8%9C%86%E8%9C%91%E8%9D%A6%E8%A5%BF%E8%B1%86%E8%B1%89%E8%B1%AC%E9%85%8D%E9%86%AC%E9%87%91%E9%8C%A6%E9%8D%8B%E9%9B%9C%E9%9B%9E%E9%9F%AD%E9%A3%AF%E9%A4%85%E9%A6%99%E9%AA%A8%E9%AD%9A%E9%AD%B7%E9%AE%AE%E9%B4%A8%E9%B5%9D%E9%B9%B9%E9%B9%BD%EF%BC%88%EF%BC%89&display=swap">
 <style>
-/* Colour, type and motion tokens shared by the journal home, every volume page and the 404. */
+/* Colour, type and motion tokens shared by the journal home, every volume page and the 404.
+   Comp A's menu card, one ink on paper, always: the site does not follow the phone's dark mode. */
 :root {
-  /* Light: comp A's menu card, one ink on paper. */
   --bg: #F3E9D7;          /* paper */
   --insert: #E8D9C0;      /* the "For the nerds" insert */
   --table: #DCCAAC;       /* what the sheet lies on, wide screens */
@@ -52,26 +51,6 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --gutter: max(16px, env(safe-area-inset-left, 0px));
   color-scheme: light;
-}
-/* Dark: comp B's room at nine. The ink becomes the room, cream becomes the light, amber marks where you are. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #2A1810;
-    --insert: #4C2819;
-    --table: #20120B;
-    --text: #DED1BE;
-    --heading: #F4EBDD;
-    --muted: #A8977F;
-    --accent: #E0A458;
-    --line: #DED1BE;
-    --rule: rgba(222, 209, 190, 0.22);
-    --land: #4C2819;
-    --halo: #4C2819;
-    --shade: rgba(10, 5, 2, 0.5);
-    --grain-opacity: 0.35;
-    --grain-blend: screen;
-    color-scheme: dark;
-  }
 }
 
 /* Shared by the home and every volume page. Layout: one printed menu column with 16px gutters;
@@ -562,9 +541,9 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <nav class="jump" aria-label="Jump to a course"><a href="#course-1">I</a><a href="#course-2">II</a><a href="#course-3">III</a></nav>
 </div>
 <div class="mast">
-<a class="mast-word" href="../"><h1><picture><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture></h1><span class="vh"> home</span></a>
+<a class="mast-word" href="../"><h1><picture><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture></h1><span class="vh"> home</span></a>
 <p class="stamp">Volume I</p>
-<picture class="mast-host"><source srcset="./assets/mark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/mark.png" width="420" height="451" alt=""></picture>
+<picture class="mast-host"><img src="./assets/mark.png" width="420" height="451" alt=""></picture>
 </div>
 <dl class="credits">
 <div><dt class="sc-label">Your hosts tonight</dt><dd class="credit-name">Jocelyn and Bryan</dd></div>
@@ -742,7 +721,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <footer class="closing">
 
 <p class="closing-line">Thank you for joining us.</p>
-<picture class="signoff"><source srcset="./assets/wordmark-cream.png" media="(prefers-color-scheme: dark)"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture>
+<picture class="signoff"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture>
 <a class="follow" href="https://www.instagram.com/TipsyTableHK/" rel="me">Follow us <span class="foot-handle">@TipsyTableHK</span></a>
 </footer>
 </main>
