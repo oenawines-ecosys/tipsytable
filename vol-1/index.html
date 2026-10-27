@@ -700,7 +700,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="producer">Alberto Orte</p>
 <h3 class="wine" id="name-orte-escalada-do-bibei-2018">Escalada do Bibei</h3>
 <p class="meta"><span class="vintage">2018</span><span class="where">Galicia, Spain</span></p>
-<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“A mountain red reviving grapes Valdeorras nearly lost.”</p></div>
+<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“Mencía-led red from old vines on the granite slopes of Valdeorras.”</p></div>
 <p class="story taste"><span class="runin">What to taste for</span> Smoky dark fruit, warm baking spices and dried violets, with fine-grained tannin. Think clove and cinnamon, not jam. Similar to Pinot Noir in style: light on its feet, perfumed, more lift than weight.</p>
 <p class="story"><span class="runin">The place</span> Valdeorras is a mountain valley in eastern Galicia, cut by the River Sil and its tributary, the Bibei. The Romans came here for gold, which they mined from the Sil. Wine here turns up in records from over 1,000 years ago. In the 1880s a vine-killing louse called phylloxera ruined most of the vineyards. Growers replanted with heavy-cropping grapes. Local reds such as Merenzao grew rare. This wine sets out to bring them back.</p>
 <p class="story"><span class="runin">The maker</span> Alberto Orte co-founded a US importer of Spanish wine at 24, in 1999. Now he makes his own. In Valdeorras he works with a few farmers on tiny plots of 80 to 100-year-old vines. The slopes are too steep for tractors. When a vine dies, he replants with a cutting from the same plot.</p>
@@ -728,7 +728,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="submit-intro" id="submit-intro">Send your favourite pairings and notes to Tipsy Table. They help us plan the next dinners. A random code goes with them so you can update what you sent.</p>
 <div class="submit-name"><label class="label" for="submit-name">Put your name</label>
 <input class="submit-field" id="submit-name" type="text" autocomplete="given-name" autocapitalize="words" autocorrect="off" spellcheck="false" maxlength="40" enterkeyhint="done"></div>
-<label class="consent"><input type="checkbox" id="submit-share"><span>You may quote my notes on tipsytablehk.com</span></label>
+<label class="consent"><input type="checkbox" id="submit-share" checked><span>You may quote my notes on tipsytablehk.com</span></label>
 <button type="button" class="btn btn-primary" id="submit-send" aria-describedby="submit-intro" disabled>Submit</button>
 <p class="submit-status" aria-live="polite">Pick a pairing or write a note first.</p>
 <p class="submit-last"></p>
@@ -974,7 +974,8 @@ h2.course-label { font-size: inherit; font-weight: 400; }
   };
 
   name.value = read(KEYS.name) || '';
-  consent.checked = read(KEYS.shareOk) === '1';
+  // Ticked unless this phone stored an untick ('0'); a tick stores '1'.
+  consent.checked = read(KEYS.shareOk) !== '0';
   name.addEventListener('input', () => write(KEYS.name, name.value.trim()));
   // Enter (the keyboard's Done) moves on to the consent box, which also puts a phone's keyboard away.
   // Nothing is sent except by Submit.
@@ -983,7 +984,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     event.preventDefault();
     consent.focus();
   });
-  consent.addEventListener('change', () => write(KEYS.shareOk, consent.checked ? '1' : ''));
+  consent.addEventListener('change', () => write(KEYS.shareOk, consent.checked ? '1' : '0'));
   // notes.js has handled these by the time they reach the document: values and picks are current.
   document.addEventListener('input', (event) => { if (event.target.matches('.notes-field')) refresh(); });
   document.addEventListener('click', (event) => { if (event.target.closest('.chip')) refresh(); });
