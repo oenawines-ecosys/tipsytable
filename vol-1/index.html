@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..700;1,400..600&family=Vollkorn+SC:wght@400;600&family=Young+Serif&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&text=%E4%BA%AC%E4%BB%94%E5%8F%89%E5%90%8A%E5%9C%9F%E5%A2%A8%E5%A4%A7%E5%AD%90%E5%AE%B6%E6%89%8B%E6%89%93%E6%8B%8C%E6%8B%BC%E6%92%95%E6%99%82%E6%9D%B1%E6%9F%9A%E6%A1%B6%E6%B0%B4%E6%B2%99%E6%B2%B9%E6%B4%8B%E6%B5%B7%E6%B6%BC%E6%B9%AF%E6%BD%A4%E7%82%92%E7%85%8E%E7%85%B2%E7%87%92%E7%89%87%E7%9A%87%E7%9B%A4%E7%A0%82%E7%B1%B3%E7%B2%89%E8%82%89%E8%85%90%E8%85%B8%E8%85%BF%E8%86%8F%E8%89%87%E8%8F%9C%E8%92%B8%E8%93%AE%E8%94%A5%E8%94%AC%E8%97%95%E8%9C%86%E8%9C%91%E8%9D%A6%E8%A5%BF%E8%B1%86%E8%B1%89%E8%B1%AC%E9%85%8D%E9%86%AC%E9%87%91%E9%8C%A6%E9%8D%8B%E9%9B%9C%E9%9B%9E%E9%9F%AD%E9%A3%AF%E9%A4%85%E9%A6%99%E9%AA%A8%E9%AD%9A%E9%AD%B7%E9%AE%AE%E9%B4%A8%E9%B5%9D%E9%B9%B9%E9%B9%BD%EF%BC%88%EF%BC%89&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&text=%E4%BA%AC%E4%BB%94%E5%8F%89%E5%90%8A%E5%9C%9F%E5%A2%A8%E5%A4%A7%E5%AD%90%E5%AE%B6%E6%89%8B%E6%89%93%E6%8B%8C%E6%8B%BC%E6%92%95%E6%99%82%E6%99%AE%E6%9D%B1%E6%9F%9A%E6%A1%B6%E6%B0%B4%E6%B2%99%E6%B2%B9%E6%B4%8B%E6%B5%B7%E6%B6%BC%E6%B9%AF%E6%BD%A4%E7%82%92%E7%85%8E%E7%85%B2%E7%87%92%E7%89%87%E7%9A%87%E7%9B%A4%E7%A0%82%E7%B1%B3%E7%B2%89%E7%B2%B5%E8%82%89%E8%85%90%E8%85%B8%E8%85%BF%E8%86%8F%E8%89%87%E8%8F%9C%E8%92%B8%E8%93%AE%E8%94%A5%E8%94%AC%E8%97%95%E8%9C%86%E8%9C%91%E8%9D%A6%E8%A5%BF%E8%A9%B1%E8%AA%9E%E8%B1%86%E8%B1%89%E8%B1%AC%E9%80%9A%E9%85%8D%E9%86%AC%E9%87%91%E9%8C%A6%E9%8D%8B%E9%9B%9C%E9%9B%9E%E9%9F%AD%E9%A3%AF%E9%A4%85%E9%A6%99%E9%AA%A8%E9%AD%9A%E9%AD%B7%E9%AE%AE%E9%B4%A8%E9%B5%9D%E9%B9%B9%E9%B9%BD%EF%BC%88%EF%BC%89&display=swap">
 <style>
 /* Colour, type and motion tokens shared by the journal home, every volume page and the 404.
    Comp A's menu card, one ink on paper, always: the site does not follow the phone's dark mode. */
@@ -372,6 +372,8 @@ h1, h2, h3 { color: var(--heading); }
   field-sizing: content;
   resize: vertical;
   font: inherit;
+  /* The text face, then Hong Kong glyph forms on iPhones for a note written or dictated in Chinese. */
+  font-family: "Vollkorn", Georgia, "Times New Roman", "PingFang HK", "PingFang TC", serif;
   font-size: 1.0625rem;
   line-height: 1.45;
   font-variant-numeric: lining-nums;
@@ -391,7 +393,7 @@ h1, h2, h3 { color: var(--heading); }
 .pairing { display: none; margin-top: 1rem; }
 .js .pairing { display: block; }
 .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.375rem; }
-.chip {
+.chip, .dictate, .lang-pill {
   display: inline-flex;
   align-items: center;
   min-height: 2.75rem;
@@ -407,15 +409,25 @@ h1, h2, h3 { color: var(--heading); }
   cursor: pointer;
   transition: transform 160ms var(--ease-out);
 }
-.chip[aria-pressed="true"] { padding-inline: 0.625rem; border-color: var(--accent); background: var(--accent); color: var(--bg); }
-.chip[aria-pressed="true"]::before { content: ""; flex: none; width: 0.625rem; height: 0.3125rem; margin: 0 0.375rem 0.1875rem 0; border: solid currentColor; border-width: 0 0 2px 2px; transform: rotate(-45deg); }
-.chip:active { transform: scale(0.97); }
-.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-@media (hover: hover) and (pointer: fine) { .chip:hover { border-color: var(--accent); } }
+.chip[aria-pressed="true"], .lang-pill[aria-pressed="true"] { padding-inline: 0.625rem; border-color: var(--accent); background: var(--accent); color: var(--bg); }
+.chip[aria-pressed="true"]::before, .lang-pill[aria-pressed="true"]::before { content: ""; flex: none; width: 0.625rem; height: 0.3125rem; margin: 0 0.375rem 0.1875rem 0; border: solid currentColor; border-width: 0 0 2px 2px; transform: rotate(-45deg); }
+.chip:active, .dictate:active, .lang-pill:active { transform: scale(0.97); }
+.chip:focus-visible, .dictate:focus-visible, .lang-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .chip:hover, .dictate:hover, .lang-pill:hover { border-color: var(--accent); } }
 @media (prefers-reduced-motion: reduce) {
-  .chip { transition: none; }
-  .chip:active { transform: none; }
+  .chip, .dictate, .lang-pill { transition: none; }
+  .chip:active, .dictate:active, .lang-pill:active { transform: none; }
 }
+
+/* Dictate: the phone's own speech recognition writes into the note. notes.js shows the button at the
+   end of each field's head, and the dictation language above the first field, only where the phone can
+   listen; both wear the chips' pill. While listening the button fills with the accent and says Stop.
+   The mic sits inline beside the word, so the button's baseline is the word's and meets the label's. */
+.dictate { margin-left: auto; padding-inline: 0.875rem 1.125rem; }
+.dictate[data-listening] { border-color: var(--accent); background: var(--accent); color: var(--bg); }
+.dictate .mic { width: 1rem; height: 1rem; margin-right: 0.375rem; vertical-align: -0.1875em; }
+.dictate-lang { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.375rem 0 0.5rem; }
+.dictate[hidden], .dictate-lang[hidden] { display: none; }
 
 /* The kitchen's encore: three closing dishes, no wine. */
 .finale { margin-top: 4.75rem; padding-top: 1.375rem; border-top: 1px dashed var(--rule); }
@@ -772,7 +784,8 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="story"><span class="runin">The maker</span> Konstantin Weiser and Alexandra Künstler started from scratch in 2005, with no family vineyards. They farm a little over 4 hectares of Riesling, by hand. Some of their vines are over 100 years old. When phylloxera wrecked Europe’s vineyards in the late 1800s, most growers replanted on American roots. Their old vines still grow on their own.</p>
 <div class="sayit"><p class="label">Say it</p><dl><div><dt>Weiser-Künstler</dt><dd>VY-zer KEWNST-ler</dd></div><div><dt>Enkircher Zeppwingert</dt><dd>ENK-irsh-er TSEP-ving-ert</dd></div><div><dt>Sekt</dt><dd>zekt</dd></div></dl></div>
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Riesling 100%</dd><dt>Appellation</dt><dd>Mosel</dd><dt>Vineyard</dt><dd>Zeppwingert</dd><dt>Soils</dt><dd>Blue and grey slate</dd><dt>Picked</dt><dd>Harvesting began on September 28, 2022, and finished on October 15, 2022, after several breaks for optimal ripeness.</dd><dt>Made</dt><dd>Made using the traditional Champagne method, including a second fermentation in the bottle. The wine was left on its lees aged for over 24 months en tirage.</dd><dt>Alcohol</dt><dd>10%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
-<div class="notes"><div class="notes-head"><label class="label" for="notes-weiser-kunstler-zeppwingert-sekt-2022">Your notes<span class="vh"> on Enkircher Zeppwingert Sekt Brut Nature</span></label><span class="notes-status" aria-live="polite"></span></div>
+<div class="notes"><div class="notes-head"><label class="label" for="notes-weiser-kunstler-zeppwingert-sekt-2022">Your notes<span class="vh"> on Enkircher Zeppwingert Sekt Brut Nature</span></label><span class="notes-status" aria-live="polite"></span><button type="button" class="dictate" data-lang="en-GB" hidden><span><svg class="mic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="5.25" y="1" width="5.5" height="9" rx="2.75" fill="currentColor"/><path d="M2.75 7.5a5.25 5.25 0 0 0 10.5 0M8 12.75V15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="dictate-word">Dictate</span></span><span class="vh"> for Enkircher Zeppwingert Sekt Brut Nature</span></button></div>
+<div class="dictate-lang" role="group" aria-labelledby="dictate-lang-label" data-stop="Stop" data-listening="Listening…" data-unavailable="Dictation isn’t available on this phone. Type your notes instead." hidden><span class="vh" id="dictate-lang-label">Dictation language</span><button type="button" class="lang-pill" aria-pressed="true" data-lang="en-GB">English</button><button type="button" class="lang-pill" aria-pressed="false" data-lang="zh-HK"><span lang="zh-Hant-HK">粵語</span></button><button type="button" class="lang-pill" aria-pressed="false" data-lang="zh-TW"><span lang="zh-Hant">普通話</span></button></div>
 <textarea class="notes-field" id="notes-weiser-kunstler-zeppwingert-sekt-2022" rows="2" autocapitalize="sentences" aria-describedby="notes-hint" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:weiser-kunstler-zeppwingert-sekt-2022" data-line="I · Weiser-Künstler Enkircher Zeppwingert Sekt Brut Nature 2022"></textarea>
 <p class="notes-hint" id="notes-hint" data-saved="Saved" data-unavailable="This phone can’t save notes right now. Keep this page open and submit before you go."></p>
 <div class="pairing"><p class="label" id="pairing-weiser-kunstler-zeppwingert-sekt-2022">Your favourite pairing<span class="vh"> for Enkircher Zeppwingert Sekt Brut Nature</span></p>
@@ -812,7 +825,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="story"><span class="runin">The maker</span> Élodie Jaume’s family has grown grapes around Châteauneuf-du-Pape since 1826. She started with 5 hectares of her own. Then she took over the family estate. It now carries her name. She farms organically and biodynamically. This white comes from 1.3 hectares, nearly two football pitches. That was enough for about 6,500 bottles.</p>
 <div class="sayit"><p class="label">Say it</p><dl><div><dt>Domaine Élodie Jaume</dt><dd>doh-MEN ay-loh-DEE ZHOHM</dd></div><div><dt>Côtes du Rhône Coudoulet Blanc</dt><dd>koht dew ROHN koo-doo-LAY BLAHN</dd></div></dl></div>
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Clairette 80%<br>Grenache Blanc 20%</dd><dt>Appellation</dt><dd>Côtes du Rhône</dd><dt>Vineyard</dt><dd>Coudoulet Est</dd><dt>Soils</dt><dd>Early Würm (Quaternary) terrace with rolled pebbles composed of clays and limestones.</dd><dt>Picked</dt><dd>Hand-harvested into crates with sorting in the vineyard, followed by a second sorting on a sorting table. Direct pressing of whole bunches.</dd><dt>Made</dt><dd>Fermentation for 20 to 25 days in temperature-controlled stainless-steel tanks. Indigenous yeasts. Malolactic fermentation in tanks. 7 months of aging in concrete or stainless-steel tanks. Clarification of the wines in the cellar during the winter. Bottled without fining or filtration.</dd><dt>Alcohol</dt><dd>13.5%</dd><dt>Production</dt><dd>6,500 bottles</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
-<div class="notes"><div class="notes-head"><label class="label" for="notes-jaume-coudoulet-blanc-2024">Your notes<span class="vh"> on Coudoulet Blanc</span></label><span class="notes-status" aria-live="polite"></span></div>
+<div class="notes"><div class="notes-head"><label class="label" for="notes-jaume-coudoulet-blanc-2024">Your notes<span class="vh"> on Coudoulet Blanc</span></label><span class="notes-status" aria-live="polite"></span><button type="button" class="dictate" data-lang="en-GB" hidden><span><svg class="mic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="5.25" y="1" width="5.5" height="9" rx="2.75" fill="currentColor"/><path d="M2.75 7.5a5.25 5.25 0 0 0 10.5 0M8 12.75V15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="dictate-word">Dictate</span></span><span class="vh"> for Coudoulet Blanc</span></button></div>
 <textarea class="notes-field" id="notes-jaume-coudoulet-blanc-2024" rows="2" autocapitalize="sentences" aria-describedby="notes-hint" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:jaume-coudoulet-blanc-2024" data-line="II · Domaine Élodie Jaume Coudoulet Blanc 2024"></textarea>
 <div class="pairing"><p class="label" id="pairing-jaume-coudoulet-blanc-2024">Your favourite pairing<span class="vh"> for Coudoulet Blanc</span></p>
 <div class="chips" role="group" aria-labelledby="pairing-jaume-coudoulet-blanc-2024" data-key="tipsytable:vol-1:pairing:jaume-coudoulet-blanc-2024"><button type="button" class="chip" aria-pressed="false" data-dish="2-1" data-zh="香煎雜錦鹹鮮魚仔拼盤" data-en="Pan-seared platter of assorted salt-cured small fish">Salt-cured fish</button><button type="button" class="chip" aria-pressed="false" data-dish="2-2" data-zh="手撕雞拼鴨腿" data-en="Hand-shredded chicken with duck leg">Chicken and duck leg</button><button type="button" class="chip" aria-pressed="false" data-dish="2-3" data-zh="砂鍋豬潤炒蜆（配煎米粉）" data-en="Claypot clams and pork liver, with crisp-fried rice vermicelli">Clams and pork liver</button><button type="button" class="chip" aria-pressed="false" data-dish="2-4" data-zh="柚子金沙骨" data-en="Pomelo and salted-egg-yolk pork ribs">Pomelo pork ribs</button></div></div>
@@ -825,7 +838,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="story"><span class="runin">The maker</span> Mia Subotic took over this family estate from her father in 2020. It bears her first name. The wines are made in underground cellars in Nuits-Saint-Georges, with David Duband. Les Plantenays sits in a hollow. One side of the plot catches the morning sun. The other side gets the evening sun.</p>
 <div class="sayit"><p class="label">Say it</p><dl><div><dt>Domaine Mia</dt><dd>doh-MEN MEE-ah</dd></div><div><dt>Rully Les Plantenays</dt><dd>rew-LEE lay plahnt-NAY</dd></div></dl></div>
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Chardonnay 100%</dd><dt>Appellation</dt><dd>Rully AOC</dd><dt>Vineyard</dt><dd>Les Plantenays</dd><dt>Soils</dt><dd>Stony, marly, soft limestone</dd><dt>Picked</dt><dd>By hand</dd><dt>Made</dt><dd>Fermentation is 100% natural, using indigenous yeasts from our terroirs. The wine is aged in underground cellars for between 10 and 12 months, without stirring. It is matured in French oak barrels, 25% of them new, from 4 complementary coopers. The wine is racked by gravity to preserve its quality.</dd><dt>Alcohol</dt><dd>13%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
-<div class="notes"><div class="notes-head"><label class="label" for="notes-mia-les-plantenays-2022">Your notes<span class="vh"> on Les Plantenays</span></label><span class="notes-status" aria-live="polite"></span></div>
+<div class="notes"><div class="notes-head"><label class="label" for="notes-mia-les-plantenays-2022">Your notes<span class="vh"> on Les Plantenays</span></label><span class="notes-status" aria-live="polite"></span><button type="button" class="dictate" data-lang="en-GB" hidden><span><svg class="mic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="5.25" y="1" width="5.5" height="9" rx="2.75" fill="currentColor"/><path d="M2.75 7.5a5.25 5.25 0 0 0 10.5 0M8 12.75V15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="dictate-word">Dictate</span></span><span class="vh"> for Les Plantenays</span></button></div>
 <textarea class="notes-field" id="notes-mia-les-plantenays-2022" rows="2" autocapitalize="sentences" aria-describedby="notes-hint" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:mia-les-plantenays-2022" data-line="II · Domaine Mia Les Plantenays 2022"></textarea>
 <div class="pairing"><p class="label" id="pairing-mia-les-plantenays-2022">Your favourite pairing<span class="vh"> for Les Plantenays</span></p>
 <div class="chips" role="group" aria-labelledby="pairing-mia-les-plantenays-2022" data-key="tipsytable:vol-1:pairing:mia-les-plantenays-2022"><button type="button" class="chip" aria-pressed="false" data-dish="2-1" data-zh="香煎雜錦鹹鮮魚仔拼盤" data-en="Pan-seared platter of assorted salt-cured small fish">Salt-cured fish</button><button type="button" class="chip" aria-pressed="false" data-dish="2-2" data-zh="手撕雞拼鴨腿" data-en="Hand-shredded chicken with duck leg">Chicken and duck leg</button><button type="button" class="chip" aria-pressed="false" data-dish="2-3" data-zh="砂鍋豬潤炒蜆（配煎米粉）" data-en="Claypot clams and pork liver, with crisp-fried rice vermicelli">Clams and pork liver</button><button type="button" class="chip" aria-pressed="false" data-dish="2-4" data-zh="柚子金沙骨" data-en="Pomelo and salted-egg-yolk pork ribs">Pomelo pork ribs</button></div></div>
@@ -851,7 +864,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="story"><span class="runin">The maker</span> Alberto Orte co-founded a US importer of Spanish wine at 24, in 1999. Now he makes his own. In Valdeorras he works with a few farmers on tiny plots of 80 to 100-year-old vines. The slopes are too steep for tractors. When a vine dies, he replants with a cutting from the same plot.</p>
 <div class="sayit"><p class="label">Say it</p><dl><div><dt>Alberto Orte</dt><dd>al-BAIR-toh OR-teh</dd></div><div><dt>Escalada do Bibei</dt><dd>es-kah-LAH-dah doh bee-BAY</dd></div></dl></div>
 <details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Mencía 60%<br>Merenzao and Brancellao 20%<br>Grau Negro 10%<br>Garnacha Tintorera 10%</dd><dt>Appellation</dt><dd>Valdeorras DO</dd><dt>Vineyard</dt><dd>Granite banks of the Bibei River</dd><dt>Soils</dt><dd>The soil is composed of slate and granite topsoil with a thin clay subsoil. This soil profile is poor in organic matter.</dd><dt>Picked</dt><dd>Hand harvested</dd><dt>Made</dt><dd>Macerated for 28 days. Aged in French oak barrels for 18 months. After one month of natural racking and sediment settling, the wine is gently filtered then bottled.</dd><dt>Alcohol</dt><dd>13%</dd></dl><p class="nerd-source">From the importer’s tech sheet.</p></div></details>
-<div class="notes"><div class="notes-head"><label class="label" for="notes-orte-escalada-do-bibei-2018">Your notes<span class="vh"> on Escalada do Bibei</span></label><span class="notes-status" aria-live="polite"></span></div>
+<div class="notes"><div class="notes-head"><label class="label" for="notes-orte-escalada-do-bibei-2018">Your notes<span class="vh"> on Escalada do Bibei</span></label><span class="notes-status" aria-live="polite"></span><button type="button" class="dictate" data-lang="en-GB" hidden><span><svg class="mic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="5.25" y="1" width="5.5" height="9" rx="2.75" fill="currentColor"/><path d="M2.75 7.5a5.25 5.25 0 0 0 10.5 0M8 12.75V15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="dictate-word">Dictate</span></span><span class="vh"> for Escalada do Bibei</span></button></div>
 <textarea class="notes-field" id="notes-orte-escalada-do-bibei-2018" rows="2" autocapitalize="sentences" aria-describedby="notes-hint" placeholder="What do you taste? Anything goes." data-key="tipsytable:vol-1:notes:orte-escalada-do-bibei-2018" data-line="III · Alberto Orte Escalada do Bibei 2018"></textarea>
 <div class="pairing"><p class="label" id="pairing-orte-escalada-do-bibei-2018">Your favourite pairing<span class="vh"> for Escalada do Bibei</span></p>
 <div class="chips" role="group" aria-labelledby="pairing-orte-escalada-do-bibei-2018" data-key="tipsytable:vol-1:pairing:orte-escalada-do-bibei-2018"><button type="button" class="chip" aria-pressed="false" data-dish="3-1" data-zh="墨魚土魷蒸肉餅" data-en="Steamed pork patty with cuttlefish and dried squid">Steamed pork patty</button><button type="button" class="chip" aria-pressed="false" data-dish="3-2" data-zh="京蔥豉油皇大蝦炒腸粉" data-en="Wok-fried rice rolls with king prawns and Peking leek in supreme soy">Prawn rice rolls</button></div></div>
@@ -1013,6 +1026,126 @@ h2.course-label { font-size: inherit; font-weight: 400; }
       save(group, picked ? picked.dataset.dish : '');
     });
   });
+
+  // Dictate: where the phone can listen (Safari, Chrome; not Firefox), a wine's Dictate button adds
+  // what the guest says to the end of that wine's note, which then saves as if typed. The phone or its
+  // vendor's service does the listening. One language for the page, picked above the first field and
+  // kept on this phone; one wine listens at a time. Without the API both stay hidden. Words still being
+  // recognised are never shown, but kept: Safari finishes them only after a stop and drops them when
+  // another wine starts or the phone locks, so whatever is pending when listening ends is added too.
+  const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const langs = document.querySelector('.dictate-lang');
+  const buttons = [...document.querySelectorAll('.dictate')];
+  if (!Recognition || !isSecureContext || !langs || !buttons.length) return;
+  const words = langs.dataset;
+  const label = buttons[0].querySelector('.dictate-word').textContent;
+  const pills = [...langs.querySelectorAll('.lang-pill')];
+  const langKey = 'tipsytable:dictate-lang';
+  const useLang = (lang) => {
+    pills.forEach((pill) => pill.setAttribute('aria-pressed', pill.dataset.lang === lang));
+    buttons.forEach((button) => { button.dataset.lang = lang; });
+  };
+  if (store) {
+    try {
+      const kept = store.getItem(langKey);
+      if (pills.some((pill) => pill.dataset.lang === kept)) useLang(kept);
+    } catch {
+      cannotSave();
+    }
+  }
+  langs.addEventListener('click', (event) => {
+    const pill = event.target.closest('.lang-pill');
+    if (!pill) return;
+    stop();
+    useLang(pill.dataset.lang);
+    if (!store) return;
+    try {
+      store.setItem(langKey, pill.dataset.lang);
+    } catch {
+      cannotSave();
+    }
+  });
+
+  const statusOf = (button) => button.closest('.notes').querySelector('.notes-status');
+  const fieldOf = (button) => button.closest('.notes').querySelector('.notes-field');
+  let listening = null; // { button, recogniser }
+  const rest = (button) => {
+    delete button.dataset.listening;
+    button.querySelector('.dictate-word').textContent = label;
+    const status = statusOf(button);
+    if (status.textContent === words.listening) status.textContent = '';
+  };
+  const stop = () => {
+    if (!listening) return;
+    const { button, recogniser } = listening;
+    listening = null;
+    recogniser.stop();
+    rest(button);
+  };
+  // A space between the note and the new words, unless the note is empty or already ends in one.
+  const append = (field, said) => {
+    const text = said.trim();
+    if (!text) return;
+    field.value += !field.value || /\s$/.test(field.value) ? text : ` ${text}`;
+    field.dispatchEvent(new Event('input', { bubbles: true }));
+  };
+  const listen = (button) => {
+    const recogniser = new Recognition();
+    recogniser.lang = button.dataset.lang;
+    recogniser.continuous = true;
+    recogniser.interimResults = true;
+    const field = fieldOf(button);
+    // The latest event's unfinished words; a final result replaces them. Results from resultIndex on
+    // are the new ones (Chrome repeats the earlier ones in every event).
+    let pending = '';
+    const keepPending = () => {
+      append(field, pending);
+      pending = '';
+    };
+    recogniser.onresult = (event) => {
+      const unfinished = [];
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const said = event.results[i][0].transcript.trim();
+        if (event.results[i].isFinal) append(field, said);
+        else if (said) unfinished.push(said);
+      }
+      pending = unfinished.join(' ');
+    };
+    // A refused microphone ends Dictate for the visit; a failed microphone or network may recover.
+    recogniser.onerror = (event) => {
+      if (event.error === 'aborted') keepPending();
+      if (!['not-allowed', 'service-not-allowed', 'audio-capture', 'network'].includes(event.error)) return;
+      setText(statusOf(button), words.unavailable);
+      if (event.error === 'audio-capture' || event.error === 'network') return;
+      buttons.forEach((b) => { b.hidden = true; });
+      langs.hidden = true;
+    };
+    // The phone may stop by itself after a silence; a tap already set the button to rest.
+    recogniser.onend = () => {
+      keepPending();
+      if (!listening || listening.recogniser !== recogniser) return;
+      listening = null;
+      rest(button);
+    };
+    try {
+      recogniser.start();
+    } catch {
+      return;
+    }
+    listening = { button, recogniser };
+    button.dataset.listening = '';
+    button.querySelector('.dictate-word').textContent = words.stop;
+    setText(statusOf(button), words.listening);
+  };
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const again = listening && listening.button === button;
+      stop();
+      if (!again) listen(button);
+    });
+    button.hidden = false;
+  });
+  langs.hidden = false;
 })();
 
 // Tell us your favourites (only on a page built with volumes.json site.submit.key): on a tap of
