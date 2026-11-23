@@ -385,11 +385,69 @@ h1, h2, h3 { color: var(--heading); }
 .finale-intro { margin: 0.375rem 0 0; font-style: italic; font-size: 1.0625rem; color: var(--muted); }
 .finale .dishes { margin-bottom: 0; }
 
-/* The night: photos from the dinner, one column, captions in the menu's italic. */
-.night { margin-top: 4.75rem; padding-top: 1.375rem; border-top: 1px dashed var(--rule); }
+/* The night: photos from the dinner, captions in the menu's italic. A lone photo stands in the column. More
+   make a strip scrolled sideways, snapping photo by photo: every photo uncropped at one height, 58% of the
+   column (build.js STRIP_HEIGHT; .night is the container the cqi unit reads), so on a phone a landscape photo
+   nearly fills the column and the next one shows at the edge; on phones the strip runs to the screen's edges.
+   The buttons and the count beside the title appear with script, and only when the photos do not all fit; a
+   button at its end of the strip keeps its place, hidden, so the count never moves. */
+.night, .pairing-notes { margin-top: 4.75rem; padding-top: 1.375rem; border-top: 1px dashed var(--rule); }
+.night { container-type: inline-size; }
 .photo { margin: 1.625rem 0 0; }
 .photo img { width: 100%; height: auto; background: var(--insert); }
-.photo figcaption { margin-top: 0.5rem; max-width: 46ch; font-style: italic; font-size: 0.96875rem; line-height: 1.4; color: var(--muted); text-wrap: pretty; }
+.photo figcaption { margin-top: 0.5rem; max-width: 46ch; font-style: italic; font-size: 0.96875rem; line-height: 1.4; color: var(--muted); text-wrap: pretty; overflow-wrap: anywhere; }
+.night-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; }
+.strip-controls { display: flex; align-items: center; gap: 0.5rem; }
+.strip-controls[hidden] { display: none; }
+.strip-controls .btn { justify-content: center; width: 2.75rem; padding: 0; }
+.strip-controls .btn[hidden] { display: inline-flex; visibility: hidden; }
+.strip-btn svg { width: 1.25rem; height: 1.25rem; }
+.strip-count { margin: 0; min-width: 5.5em; text-align: center; font-family: var(--font-sc); font-size: 0.9375rem; letter-spacing: 0.05em; font-variant-numeric: lining-nums tabular-nums; color: var(--muted); }
+.strip {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 1.375rem calc(-1 * var(--gutter)) 0;
+  padding: 0.25rem var(--gutter) 0.75rem;
+  scroll-padding-inline: var(--gutter);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+.strip:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.strip .photo { flex: none; width: min-content; margin: 0; scroll-snap-align: start; }
+/* No max-width: a percentage there would let the figure's min-content shrink the photo to nothing. */
+.strip .photo img { width: auto; max-width: none; height: min(58cqi, 24rem); }
+
+/* Pairing notes (the public page, after the night): per wine, the vote as a tally (dish, count, then a bar for
+   its share of the wine's picks, on the map's land tint), then the quoted notes, each on an accent rule with
+   the guest's name. The lead is the section's one-line intro, set like the encore's: italic, ragged. */
+.pairing-notes-lead { margin: 0.375rem 0 0; font-style: italic; font-size: 1.0625rem; color: var(--muted); text-wrap: pretty; }
+.pn-wine-sec { margin-top: 1.875rem; }
+.pn-wine-sec + .pn-wine-sec { padding-top: 1.625rem; border-top: 1px dashed var(--rule); }
+.pn-wine { margin: 0; display: grid; gap: 0.125rem; font-weight: 400; }
+.pn-kicker { display: flex; align-items: baseline; gap: 0.5em; font-family: var(--font-sc); font-size: 1rem; letter-spacing: 0.05em; color: var(--muted); }
+.pn-num { font-family: var(--font-display); font-size: 1.375rem; line-height: 1; letter-spacing: 0; color: var(--accent); transform: rotate(-2deg); }
+.pn-cuvee { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.12; font-variant-numeric: lining-nums; text-wrap: balance; overflow-wrap: anywhere; }
+.pn-block { margin-top: 1.125rem; }
+.pn-block > .sc-label { margin: 0; }
+.tally { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.75rem; }
+.tally li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 0.3125rem 0.75rem; }
+.tally-dish { min-width: 0; line-height: 1.3; }
+.tally-count { font-family: var(--font-sc); font-size: 0.875rem; letter-spacing: 0.05em; font-variant-numeric: lining-nums tabular-nums; color: var(--muted); white-space: nowrap; }
+.tally-bar { grid-column: 1 / -1; height: 0.3125rem; border-radius: 3px; background: var(--land); overflow: hidden; }
+.tally-bar span { display: block; height: 100%; width: calc(var(--share) * 100%); border-radius: inherit; background: var(--accent); }
+.quotes { display: grid; gap: 1.25rem; margin-top: 0.5rem; }
+.quote { margin: 0; padding-left: 1rem; border-left: 1.5px solid var(--accent); }
+.quote blockquote { margin: 0; }
+.quote p { margin: 0; font-style: italic; font-size: 1.125rem; line-height: 1.45; color: var(--heading); text-wrap: pretty; overflow-wrap: anywhere; }
+.quote p + p { margin-top: 0.5rem; }
+.quote figcaption { margin-top: 0.375rem; font-family: var(--font-sc); font-size: 0.9375rem; letter-spacing: 0.06em; color: var(--muted); overflow-wrap: anywhere; }
+.quote figcaption::before { content: "— "; }
+.quote cite { font-style: normal; }
 
 /* Buttons: the quiet outline, and .btn-primary filled in the accent for the one action that leads. */
 .btn {
@@ -439,7 +497,11 @@ h1, h2, h3 { color: var(--heading); }
   .numeral { font-size: 4.125rem; }
   .illo { height: 7.375rem; max-width: 8.375rem; }
   .dish-zh { font-size: 1.3125rem; }
-  .photo:not(.is-wide) { max-width: 70%; }
+  .night > .photo:not(.is-wide) { max-width: 70%; }
+  .pn-cuvee { font-size: 1.75rem; }
+  /* On the sheet the strip keeps to the column. */
+  .strip { margin-inline: 0; padding-inline: 0; scroll-padding-inline: 0; }
+  .strip:focus-visible { outline-offset: 3px; }
 }
 
 /* Laptops and up: the sheet opens like a menu spread. A main column carries the reading (the welcome,
@@ -460,8 +522,9 @@ h1, h2, h3 { color: var(--heading); }
   /* The dishes span every row after the head (a course holds at most eight blocks), so they can stay in view. */
   .course > .dishes { grid-column: 2; grid-row: 2 / span 8; position: sticky; top: 1.5rem; margin: 0; }
   .finale .dish-list { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); column-gap: var(--spread-gap); }
-  /* The night's photos keep to the main column, about the width their srcset sizes are written for. */
-  .night { max-width: calc(100% - var(--rail) - var(--spread-gap)); }
+  /* The night's photos and the pairing notes keep to the main column, the width the photos' srcset sizes are
+     written for. */
+  .night, .pairing-notes { max-width: calc(100% - var(--rail) - var(--spread-gap)); }
 }
 
 /* Utilities */
@@ -688,7 +751,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 @media (prefers-reduced-motion: reduce) {
   .step:active:not(:disabled) { transform: none; }
 }
-/* The site's own pages (About Us, Gallery, Contact Us, Pairing notes), on top of tokens, base and
+/* The site's own pages (About Us, Contact Us), on top of tokens, base and
    home.css, whose dateline, mast and footer they share. The nav comes first because, once pages.json
    live is true, this file is also inlined on the home and on every volume page; everything after it is
    scoped to the pages' own classes. */
@@ -731,7 +794,6 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 .leaf-text { margin: 1.125rem 0 0; max-width: 40em; text-wrap: pretty; }
 /* Running text set justified, as on the volume pages. */
 .leaf-lead, .leaf-text { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
-.leaf-empty { margin: 0.875rem 0 0; font-style: italic; color: var(--muted); text-wrap: pretty; }
 /* The rail: the dinner /tonight/ forwards to, under its own name, as the home's row names it. Below
    1120 px it follows the text, a quiet block ruled above. */
 .leaf-rail { margin-top: 2.5rem; padding-top: 0.875rem; border-top: 1px solid var(--rule); }
@@ -749,48 +811,8 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 .channel-link:focus-visible { text-decoration: underline; }
 @media (hover: hover) and (pointer: fine) { .channel-link:hover { text-decoration: underline; } }
 
-/* A volume's section on Gallery and Pairing notes: headed as the home's row, ruled like a course. */
-.leaf-sec { margin-top: 3rem; }
-.leaf-vol-head { padding-bottom: 0.625rem; border-bottom: 1.5px solid var(--line); }
-.leaf-vol { margin: 0; font-weight: 400; }
-.leaf-vol a { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.75rem; min-height: 2.75rem; padding-top: 0.375rem; text-decoration: none; }
-.leaf-vol-date { font-family: var(--font-display); font-size: 1.625rem; line-height: 1.1; font-variant-numeric: lining-nums; color: var(--heading); text-wrap: balance; transition: color 160ms ease; }
-@media (hover: hover) and (pointer: fine) { .leaf-vol a:hover .leaf-vol-date { color: var(--accent); } }
-.leaf-vol-with { margin: 0.125rem 0 0; font-style: italic; line-height: 1.35; }
-.leaf-vol-with [lang|="zh"] { margin-left: 0.15em; }
-
-/* Gallery: the night's photos as the volume page shows them, one column, captions in the menu's italic. */
-.gallery .photo { margin: 1.375rem 0 0; }
-.gallery .photo img { width: 100%; height: auto; background: var(--insert); }
-.gallery figcaption { margin-top: 0.5rem; max-width: 46ch; font-style: italic; font-size: 0.96875rem; line-height: 1.4; color: var(--muted); text-wrap: pretty; }
-
-/* Pairing notes: per wine, the vote as a tally (dish, count, then a bar for its share of the wine's
-   picks, on the map's land tint), then the quoted notes, each on an accent rule with the guest's name. */
-.pn-wine-sec { margin-top: 1.875rem; }
-.pn-wine-sec + .pn-wine-sec { padding-top: 1.625rem; border-top: 1px dashed var(--rule); }
-.pn-wine { margin: 0; display: grid; gap: 0.125rem; font-weight: 400; }
-.pn-kicker { display: flex; align-items: baseline; gap: 0.5em; font-family: var(--font-sc); font-size: 1rem; letter-spacing: 0.05em; color: var(--muted); }
-.pn-num { font-family: var(--font-display); font-size: 1.375rem; line-height: 1; letter-spacing: 0; color: var(--accent); transform: rotate(-2deg); }
-.pn-cuvee { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.12; font-variant-numeric: lining-nums; text-wrap: balance; overflow-wrap: anywhere; }
-.pn-block { margin-top: 1.125rem; }
-.pn-block > .sc-label { margin: 0; }
-.tally { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.75rem; }
-.tally li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 0.3125rem 0.75rem; }
-.tally-dish { min-width: 0; line-height: 1.3; }
-.tally-count { font-family: var(--font-sc); font-size: 0.875rem; letter-spacing: 0.05em; font-variant-numeric: lining-nums tabular-nums; color: var(--muted); white-space: nowrap; }
-.tally-bar { grid-column: 1 / -1; height: 0.3125rem; border-radius: 3px; background: var(--land); overflow: hidden; }
-.tally-bar span { display: block; height: 100%; width: calc(var(--share) * 100%); border-radius: inherit; background: var(--accent); }
-.quotes { display: grid; gap: 1.25rem; margin-top: 0.5rem; }
-.quote { margin: 0; padding-left: 1rem; border-left: 1.5px solid var(--accent); }
-.quote blockquote { margin: 0; }
-.quote p { margin: 0; font-style: italic; font-size: 1.125rem; line-height: 1.45; color: var(--heading); text-wrap: pretty; overflow-wrap: anywhere; }
-.quote p + p { margin-top: 0.5rem; }
-.quote figcaption { margin-top: 0.375rem; font-family: var(--font-sc); font-size: 0.9375rem; letter-spacing: 0.06em; color: var(--muted); overflow-wrap: anywhere; }
-.quote figcaption::before { content: "— "; }
-.quote cite { font-style: normal; }
-
 @media (prefers-reduced-motion: reduce) {
-  .site-nav a, .leaf-vol-date, .rail-date a { transition: none; }
+  .site-nav a, .rail-date a { transition: none; }
 }
 
 /* Wide screens: a sheet on the table, like the home. */
@@ -800,14 +822,11 @@ h2.course-label { font-size: inherit; font-weight: 400; }
   .leaf .hero-host { width: 9.375rem; }
   .leaf-title { font-size: 2.75rem; }
   .leaf-lead { font-size: 1.3125rem; max-width: none; }
-  .leaf-vol-date { font-size: 1.875rem; }
-  .pn-cuvee { font-size: 1.75rem; }
-  .gallery .photo:not(.is-wide) { max-width: 70%; }
 }
 /* Laptops and up: the sheet's spread (base.css), as on a volume page. The title spans it; the lead and
    the rest keep to the main column, and the rail sits beside them from the lead down, staying in view
    like a course's dishes, its label ruled out to the edge like theirs and level with the lead's first
-   line. It spans every row after the title: one per paragraph or volume section. */
+   line. It spans every row after the title: one per paragraph. */
 @media (min-width: 1120px) {
   .leaf-word img { width: 16.25rem; }
   .leaf .hero-host { width: 10.5rem; }
@@ -868,7 +887,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <p class="stamp">Volume II</p>
 <picture class="mast-host"><img src="../assets/mark.png" width="420" height="451" alt=""></picture>
 </div>
-<nav class="site-nav" aria-label="Tipsy Table pages"><ul><li><a href="../../">Volumes</a></li><li><a href="../../about/">About Us</a></li><li><a href="../../gallery/">Gallery</a></li><li><a href="../../contact/">Contact Us</a></li><li><a href="../../pairing-notes/">Pairing notes</a></li></ul></nav>
+<nav class="site-nav" aria-label="Tipsy Table pages"><ul><li><a href="../../">Volumes</a></li><li><a href="../../about/">About Us</a></li><li><a href="../../contact/">Contact Us</a></li></ul></nav>
 <dl class="credits">
 <div><dt class="sc-label">Your hosts tonight</dt><dd class="credit-name">Jocelyn and Bryan</dd></div>
 <div><dt class="sc-label">Follow us</dt><dd class="credit-name"><a class="follow-link" href="https://www.instagram.com/TipsyTableHK/"><span class="foot-handle">@TipsyTableHK</span></a></dd></div>
@@ -1107,6 +1126,57 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     });
   }, { threshold: 0.45 });
   drawables.forEach((el) => draw.observe(el));
+})();
+
+// The night's photo strip. Touch, trackpad and the arrow keys scroll it without script; here the previous and
+// next buttons (each hidden at its end of the strip, both with the count when every photo fits) and "2 of 7":
+// the photo at the strip's start, the last once the strip is scrolled to its end. The buttons glide to the
+// photo before or after the one at the start, at once when the phone asks for reduced motion.
+(() => {
+  const strip = document.querySelector('.strip');
+  if (!strip) return;
+  const controls = document.querySelector('.strip-controls');
+  const [prev, next] = controls.querySelectorAll('.strip-btn');
+  const count = controls.querySelector('.strip-count');
+  const photos = [...strip.children];
+  const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  const SLACK = 2;
+  // Where the strip's scroll rests with each photo at its start, clamped to the farthest it can go.
+  const stops = () => {
+    const pad = parseFloat(getComputedStyle(strip).scrollPaddingInlineStart) || 0;
+    const max = strip.scrollWidth - strip.clientWidth;
+    return photos.map((p) => Math.min(max, Math.max(0, p.offsetLeft - pad)));
+  };
+  const update = () => {
+    const fits = strip.scrollWidth - strip.clientWidth <= SLACK;
+    controls.hidden = fits;
+    if (fits) return;
+    const x = strip.scrollLeft;
+    const atStart = x <= SLACK;
+    const atEnd = x >= strip.scrollWidth - strip.clientWidth - SLACK;
+    const at = stops().map((s) => Math.abs(s - x));
+    const n = atEnd ? photos.length : at.indexOf(Math.min(...at)) + 1;
+    count.textContent = count.dataset.count.replace('{n}', n).replace('{total}', photos.length);
+    // A button that hides under the finger or the keyboard hands its focus to the other one.
+    if (atStart && document.activeElement === prev) next.focus();
+    if (atEnd && document.activeElement === next) prev.focus();
+    prev.hidden = atStart;
+    next.hidden = atEnd;
+  };
+  const go = (step) => {
+    const x = strip.scrollLeft;
+    const list = stops();
+    const to = step > 0 ? list.find((s) => s > x + SLACK) : list.reverse().find((s) => s < x - SLACK);
+    if (to !== undefined) strip.scrollTo({ left: to, behavior: calm.matches ? 'auto' : 'smooth' });
+  };
+  prev.addEventListener('click', () => go(-1));
+  next.addEventListener('click', () => go(1));
+  let frame = 0;
+  strip.addEventListener('scroll', () => {
+    if (!frame) frame = requestAnimationFrame(() => { frame = 0; update(); });
+  }, { passive: true });
+  if ('ResizeObserver' in window) new ResizeObserver(update).observe(strip);
+  update();
 })();
 
 // Your notes and favourite pairings: each wine's note and pick are kept in this phone's localStorage
