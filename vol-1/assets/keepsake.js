@@ -12,6 +12,11 @@ const C = { paper: '#F3E9D7', ink: '#4C2819', muted: '#6F5040', accent: '#9F3B26
 const css = getComputedStyle(document.documentElement);
 const [display, text, sc, zh] = ['display', 'text', 'sc', 'zh'].map((f) => css.getPropertyValue(`--font-${f}`).trim());
 const mixed = `${text.replace(/,\s*serif$/, '')}, ${zh}`; // Latin in the text face, Chinese in the Chinese face
+// What the guest typed: the text face, then the phone's own Chinese font (guest.css --font-typed), never WenKai,
+// which holds only the characters the page prints.
+const typed = css.getPropertyValue('--font-typed').trim();
+// On the Chinese page (its font stacks fall through to WenKai) the course's style line is Chinese: never slanted.
+const slant = document.documentElement.lang.startsWith('zh') ? '' : 'italic ';
 // Each style: font, colour, line height, tracking.
 const S = {
   date: { font: `21px ${sc}`, color: C.ink, lh: 30, track: '1.5px' },
@@ -25,11 +30,12 @@ const S = {
   cuisineZh: { font: `22px ${zh}`, color: C.muted },
   numeral: { font: `66px ${display}`, color: C.accent, lh: 70 },
   title: { font: `30px ${display}`, color: C.ink, lh: 40 },
-  style: { font: `italic 20px ${text}`, color: C.muted, lh: 30 },
+  style: { font: `${slant}20px ${text}`, color: C.muted, lh: 30 },
   dishZh: { font: `24px ${zh}`, color: C.ink, lh: 34 },
   dishEn: { font: `italic 19px ${text}`, color: C.muted, lh: 26 },
   wine: { font: `24px ${display}`, color: C.ink, lh: 36 },
   body: { font: `22px ${mixed}`, color: C.ink, lh: 32 },
+  typed: { font: `22px ${typed}`, color: C.ink, lh: 32 },
   foot: { font: `16px ${sc}`, color: C.muted, lh: 24, track: '1.2px' },
 };
 
@@ -37,7 +43,8 @@ const S = {
 const read = () => {
   const q = (sel, el = document) => el.querySelector(sel);
   const button = q('#keep-pdf');
-  const dishes = (el) => [...el.querySelectorAll('.dish-list li')].map((li) => [q('.dish-zh', li).textContent, q('.dish-en', li).textContent]);
+  // A dish's Chinese and English; the Chinese page shows the Chinese alone.
+  const dishes = (el) => [...el.querySelectorAll('.dish-list li')].map((li) => [q('.dish-zh', li).textContent, (q('.dish-en', li) || { textContent: '' }).textContent]);
   // The credit's English and Chinese, each in its own face as on the page (Chinese is never slanted).
   const runs = (el, latin, chinese) => [...el.childNodes].map((n) => [n.nodeType === 1 ? chinese : latin, n.textContent.trim()]).filter(([, t]) => t);
   const credit = q('.credit-kitchen');
@@ -64,7 +71,7 @@ const read = () => {
       dishes: dishes(c),
       wines: [...c.querySelectorAll('.notes')].map((n) => {
         const chip = q('.chip[aria-pressed="true"]', n);
-        return { line: q('.notes-field', n).dataset.line, pick: chip ? `${chip.dataset.zh} · ${chip.dataset.en}` : '', note: q('.notes-field', n).value.trim() };
+        return { line: q('.notes-field', n).dataset.line, pick: chip ? [chip.dataset.zh, chip.dataset.en].filter(Boolean).join(' · ') : '', note: q('.notes-field', n).value.trim() };
       }),
     })),
     finale: { title: q('.finale-title').textContent, dishes: dishes(q('.finale')) },
@@ -86,9 +93,11 @@ const put = (s, str, x, y, h = s.lh) => {
   ctx.fillText(str, x, y + h * 0.7);
 };
 
-// Greedy wrap by measured width: at spaces, and anywhere in Chinese or in a word too long for the line.
+// Greedy wrap by measured width: at spaces, and anywhere in Chinese or in a word too long for the line. A
+// Chinese closing mark stays with the character before it, so no line starts with 。 or 」.
+const CLOSING = '，。、；：！？）」』》〉…';
 const CJK = '⺀-鿿豈-﫿＀-￯';
-const TOKENS = new RegExp(`\\s+|[${CJK}]|[^\\s${CJK}]+`, 'g');
+const TOKENS = new RegExp(`\\s+|[${CJK}][${CLOSING}]*|[^\\s${CJK}]+`, 'g');
 const wrap = (s, str, max) => str.split('\n').flatMap((para) => {
   const lines = [];
   let line = '';
@@ -185,7 +194,7 @@ const layout = (page, word, mark) => [
     { items: [...(i ? [space(8), rule(26)] : [space(16)]), head(c), space(6), ...dishes(c.dishes)] },
     ...c.wines.map((w) => {
       const top = [space(14), ...lines(S.wine, w.line, X), ...(w.pick ? labelled(page.pairing, S.body, w.pick) : [])];
-      const notes = w.note ? labelled(page.notes, S.body, w.note) : [];
+      const notes = w.note ? labelled(page.notes, S.typed, w.note) : [];
       return { items: [...top, ...notes], keep: top.length + Math.min(notes.length, 2) };
     }),
   ]),

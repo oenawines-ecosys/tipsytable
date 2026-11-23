@@ -468,6 +468,10 @@ h1, h2, h3 { color: var(--heading); }
 h2.course-label { font-size: inherit; font-weight: 400; }
 
 /* The guest page only (the one /tonight/ forwards to): each wine's notes and favourite pairing, kept by notes.js. */
+/* What a guest types (notes, and the name in Tell us your favourites and the order) and its copy in the PDF
+   keepsake: the text face for Latin, then the phone's own Chinese font (Hong Kong forms on iPhones), never
+   the page's WenKai, which holds only the characters the page itself prints. */
+:root { --font-typed: "Vollkorn", Georgia, "Times New Roman", "PingFang HK", "PingFang TC", serif; }
 /* Your notes: a quiet field at the foot of each wine, on the insert's paper. 17px text keeps iOS from zooming in. */
 .notes { margin-top: 1.125rem; }
 .notes-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 0.75rem; }
@@ -482,8 +486,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
   field-sizing: content;
   resize: vertical;
   font: inherit;
-  /* The text face, then Hong Kong glyph forms on iPhones for a note written or dictated in Chinese. */
-  font-family: "Vollkorn", Georgia, "Times New Roman", "PingFang HK", "PingFang TC", serif;
+  font-family: var(--font-typed);
   font-size: 1.0625rem;
   line-height: 1.45;
   font-variant-numeric: lining-nums;
@@ -559,6 +562,7 @@ h2.course-label { font-size: inherit; font-weight: 400; }
   margin: 0;
   padding: 0.5rem 0.75rem;
   font: inherit;
+  font-family: var(--font-typed);
   font-size: 1.0625rem;
   line-height: 1.45;
   color: var(--text);
