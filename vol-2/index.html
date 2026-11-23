@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en" data-course="1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tipsy Table · Volume II · 28 November 2026</title>
+<meta name="description" content="Four wines, four courses and a map for the table at Tipsy Table Volume II, Saturday 28 November 2026, Hong Kong.">
+<link rel="canonical" href="https://tipsytablehk.com/vol-2/">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F3E9D7">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tipsy Table">
+<meta property="og:title" content="Tipsy Table · Volume II · 28 November 2026">
+<meta property="og:description" content="Four wines, four courses and a map for the table at Tipsy Table Volume II, Saturday 28 November 2026, Hong Kong.">
+<meta property="og:url" content="https://tipsytablehk.com/vol-2/">
+<meta property="og:image" content="https://tipsytablehk.com/vol-2/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tipsy Table · Volume II · 28 November 2026">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="192x192" href="./assets/favicon.png">
+<link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..700;1,400..600&family=Vollkorn+SC:wght@400;600&family=Young+Serif&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&text=%E4%BA%AC%E5%86%B0%E5%8D%9C%E5%90%8A%E5%92%95%E5%9A%95%E5%A3%AB%E5%A4%9A%E5%AD%90%E5%BA%95%E5%BA%97%E6%99%AE%E6%9F%B3%E6%A4%92%E6%B1%81%E6%B5%B7%E7%82%92%E7%84%97%E7%85%8E%E7%87%92%E7%89%87%E7%89%9B%E7%94%9F%E7%9A%AE%E7%B1%B3%E7%B2%89%E7%B2%92%E7%B2%B5%E7%B4%AB%E8%82%89%E8%84%86%E8%8A%A5%E8%8B%97%E8%8F%A0%E8%92%9C%E8%94%A5%E8%96%91%E8%98%AD%E8%98%BF%E8%9D%A6%E8%9F%B6%E8%A0%94%E8%A9%B1%E8%AA%9E%E8%B1%86%E8%B1%89%E9%80%9A%E9%87%80%E9%8E%AE%E9%9B%9E%E9%A3%AF%E9%AD%9A%E9%AE%91%E9%AE%AE%E9%AF%AA%EF%BC%88%EF%BC%89&display=swap">
+<style>
+/* Colour, type and motion tokens shared by the journal home, every volume page and the 404.
+   Comp A's menu card, one ink on paper, always: the site does not follow the phone's dark mode. */
+:root {
+  --bg: #F3E9D7;          /* paper */
+  --insert: #E8D9C0;      /* the "For the nerds" insert */
+  --table: #DCCAAC;       /* what the sheet lies on, wide screens */
+  --text: #4C2819;        /* ink */
+  --heading: #4C2819;
+  --muted: #6F5040;       /* tint */
+  --accent: #9F3B26;      /* brick */
+  --line: #4C2819;        /* line drawings, coast */
+  --rule: rgba(76, 40, 25, 0.3);
+  --land: rgba(76, 40, 25, 0.075);
+  --halo: #F3E9D7;        /* knock-out behind map labels */
+  --shade: rgba(76, 40, 25, 0.22);
+  --grain-opacity: 0.5;
+  --grain-blend: multiply;
+  --font-display: "Young Serif", Georgia, "Times New Roman", serif;
+  --font-text: "Vollkorn", Georgia, "Times New Roman", serif;
+  --font-sc: "Vollkorn SC", "Vollkorn", Georgia, serif;
+  --font-zh: "LXGW WenKai TC", "Kaiti TC", "STKaiti", "BiauKai", "PingFang HK", "Noto Serif TC", serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  color-scheme: light;
+}
+
+/* Shared by the home and every volume page. Layout: one printed menu column with 16px gutters;
+   from 880px it becomes a sheet lying on the table. Every length is in rem except the hairlines,
+   strokes, shadows and the safe-area gutters, so the root size scales the whole sheet. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+/* From 1280px up the sheet and everything on it grow with the screen, 1.5x at 1920px, like holding
+   the menu closer: the type, the drawings and the spacing together, so a line keeps its length. The
+   bounds are the browser's text size (16px by default) and 1.5 times it, so a larger setting holds. */
+html { font-size: clamp(1rem, 1.25vw, 1.5rem); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  font-variant-numeric: oldstyle-nums;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+/* Paper tooth: a fixed, non-interactive grain layer. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .16 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+img { max-width: 100%; height: auto; display: block; }
+picture { display: block; }
+a { color: inherit; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+h1, h2, h3 { color: var(--heading); }
+[lang|="zh"] { font-family: var(--font-zh); font-style: normal; letter-spacing: 0.04em; }
+
+.sheet {
+  max-width: 42.5rem;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0.875rem 3rem;
+}
+
+/* Small-caps labels, the menu card's quiet voice. */
+.sc-label, .label, .runin {
+  font-family: var(--font-sc);
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  font-variant-numeric: lining-nums;
+}
+.sc-label { font-size: 0.9375rem; color: var(--muted); }
+/* An Instagram handle as written, lowercase in the text face, inside a small-caps link. */
+.foot-handle { font-family: var(--font-text); letter-spacing: 0; }
+/* Leader dots between a name and its value, as on a printed menu. */
+.lead { flex: 1 1 0; min-width: 1em; overflow: hidden; white-space: nowrap; font-size: 0.8125rem; letter-spacing: 0.3em; color: var(--muted); }
+.lead::before { content: "........................................................................................"; }
+
+@media (min-width: 880px) {
+  body { background: var(--table); }
+  .sheet {
+    margin-block: 2.75rem;
+    padding: 2.125rem 4rem 3.75rem;
+    background: var(--bg);
+    box-shadow: 0 1px 2px var(--shade), 0 28px 50px -30px var(--shade);
+  }
+}
+/* Laptops and up: every sheet opens as wide as a volume's spread, a main column and a rail beside it. */
+@media (min-width: 1120px) {
+  .sheet { --rail: 18rem; --spread-gap: 3.5rem; max-width: 65rem; }
+}
+
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+.defs { position: absolute; }
+
+/* Masthead */
+.dateline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.dateline p { margin: 0; display: grid; font-family: var(--font-sc); font-size: 0.9375rem; line-height: 1.3; letter-spacing: 0.06em; font-variant-numeric: lining-nums; }
+.dateline p span + span { color: var(--muted); }
+.jump { display: flex; }
+.jump a {
+  display: grid;
+  place-items: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--heading);
+}
+.mast {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: 0.25rem;
+  padding-top: 1.625rem;
+  border-bottom: 1.5px solid var(--line);
+}
+/* The wordmark is the page's h1, wrapped in the link home so the heading reads "Tipsy Table". */
+.mast-word { grid-column: 1; grid-row: 1; justify-self: start; line-height: 0; }
+.mast-word h1 { margin: 0; }
+.mast-word img { width: min(55vw, 13.875rem); }
+.stamp {
+  grid-column: 1; grid-row: 2;
+  justify-self: start;
+  margin: 0.875rem 0 1rem 0.125rem;
+  padding: 0.3125rem 0.625rem 0.25rem;
+  border: 1.5px solid var(--accent);
+  border-radius: 3px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1.3125rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  transform: rotate(-2deg);
+}
+.mast-host { grid-column: 2; grid-row: 1 / span 2; width: min(41vw, 10.75rem); margin-bottom: -0.25rem; }
+.credits { display: grid; gap: 0.875rem; margin: 0; padding-block: 1rem 1.125rem; border-bottom: 1px solid var(--rule); }
+.credits div { display: grid; align-content: start; }
+.credits dd { margin: 0; }
+.credit-name { font-style: italic; font-size: 1.25rem; line-height: 1.3; color: var(--heading); }
+.credit-name [lang|="zh"] { font-size: 1.1875rem; margin-left: 0.2em; }
+.credit-name .zh-first { margin-left: 0; }
+.credit-note { font-size: 0.9375rem; font-style: italic; color: var(--muted); }
+.credit-note [lang|="zh"] { font-size: 1.125rem; margin-right: 0.3em; }
+/* Follow us, under the hosts: the handle as written, in the accent; a 44px target that keeps the row's
+   rhythm. Its focus ring hugs the handle, clear of the label above. */
+.follow-link { display: inline-flex; align-items: center; min-height: 2.75rem; margin-block: -0.5625rem; color: var(--accent); text-decoration: none; text-underline-offset: 0.18em; }
+.follow-link:focus-visible { outline: none; text-decoration: underline; }
+.follow-link:focus-visible .foot-handle { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+@media (hover: hover) and (pointer: fine) { .follow-link:hover { text-decoration: underline; } }
+@media (min-width: 560px) {
+  .credits { grid-template-columns: 1fr 1.25fr; gap: 1.5rem; }
+  /* The hosts and Follow us stack in the first column, the kitchen keeps the second. */
+  .credit-kitchen { grid-column: 2; grid-row: 1 / span 2; }
+}
+.welcome { padding-top: 1.375rem; }
+.welcome-text { margin: 0; font-size: 1.1875rem; line-height: 1.45; max-width: 34ch; text-wrap: pretty; }
+.how-to { margin: 1.125rem 0 0; max-width: 40ch; font-style: italic; font-size: 1rem; color: var(--muted); text-wrap: pretty; }
+
+/* Map */
+.map-sec { margin-top: 2.875rem; scroll-margin-top: 0.625rem; }
+.sec-head { display: grid; gap: 0.25rem; margin-bottom: 0.75rem; }
+.sec-title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 1.5625rem; line-height: 1.1; text-wrap: balance; }
+.map-note { margin: 0; font-style: italic; font-size: 0.9375rem; color: var(--muted); transform: rotate(-2deg); transform-origin: left center; }
+.map { margin: 0; padding-block: 0.25rem; border-top: 1.5px solid var(--line); border-bottom: 1px solid var(--rule); }
+.map-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.map-svg .land { fill: var(--land); }
+.map-svg .coast { fill: none; stroke: var(--line); stroke-width: 1.05; stroke-linejoin: round; stroke-linecap: round; }
+.map-svg .borders { fill: none; stroke: var(--line); stroke-opacity: 0.5; stroke-width: 0.75; stroke-dasharray: 0.1 2.6; stroke-linecap: round; }
+.map-svg .rivers { fill: none; stroke: var(--line); stroke-opacity: 0.55; stroke-width: 0.85; stroke-linecap: round; stroke-linejoin: round; }
+.map-svg text { font-family: var(--font-text); fill: var(--heading); }
+.map-svg .labels text, .map-svg .pin-label { paint-order: stroke; stroke: var(--halo); stroke-width: 3px; stroke-linejoin: round; }
+.map-svg .labels .water { stroke: var(--bg); }
+.map-svg .country { font-family: var(--font-sc); font-size: 10.5px; letter-spacing: 0.32em; text-transform: lowercase; fill: var(--muted); }
+.map-svg .country-sm { font-size: 10.2px; letter-spacing: 0.2em; }
+.map-svg .water { font-style: italic; font-size: 10.5px; letter-spacing: 0.03em; fill: var(--muted); }
+/* The route, in service order: dashed, drawn on once through a mask. */
+.map-svg .route { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 4 4; stroke-linecap: round; }
+.map-svg .route-mask { fill: none; stroke: #fff; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .map-svg .route-mask { stroke-dashoffset: 1; transition: stroke-dashoffset 860ms cubic-bezier(0.77, 0, 0.175, 1); }
+  .js .map-svg.is-drawn .route-mask { stroke-dashoffset: 0; }
+}
+.pin { cursor: pointer; }
+.pin-hit, .pin-hit-label { fill: transparent; }
+/* Only the hit shapes take taps (build-map.js draws and splits them), never the glass or the label's letters. */
+.pin .glass-line, .pin .glass-wine, .pin-label { pointer-events: none; }
+.pin .glass-line { fill: none; stroke: var(--heading); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.pin .glass-wine { fill: var(--heading); }
+.pin-num { font-family: var(--font-display); font-size: 13px; }
+.pin-place { font-family: var(--font-sc); font-size: 13px; letter-spacing: 0.04em; }
+/* The pins of the course being read; build.js MAX_COURSES matches the count here. */
+:root[data-course="1"] .pin[data-course="1"] .glass-wine,
+:root[data-course="2"] .pin[data-course="2"] .glass-wine,
+:root[data-course="3"] .pin[data-course="3"] .glass-wine,
+:root[data-course="4"] .pin[data-course="4"] .glass-wine,
+:root[data-course="5"] .pin[data-course="5"] .glass-wine,
+:root[data-course="6"] .pin[data-course="6"] .glass-wine { fill: var(--accent); }
+.pin:focus-visible { outline: none; }
+.pin:focus-visible .glass-line { stroke: var(--accent); }
+.pin:focus-visible .pin-hit { stroke: var(--accent); stroke-width: 1.5; }
+
+.legend { list-style: none; margin: 0.625rem 0 0; padding: 0; }
+.legend a { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45em; min-height: 2.75rem; text-decoration: none; }
+.lg-num { flex: none; width: 2.25rem; font-family: var(--font-display); font-size: 1rem; color: var(--heading); }
+.lg-name { flex: 0 1 auto; min-width: 0; }
+/* A place that wraps under a long producer name keeps to the right, under the leader's end. */
+.lg-where { flex: 0 1 auto; min-width: 0; margin-left: auto; font-style: italic; }
+
+/* Courses */
+.course { margin-top: 4.75rem; scroll-margin-top: 0.625rem; }
+.course-head { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 0.75rem; margin-bottom: 1.125rem; }
+.numeral { margin: 0; min-width: 1.05em; font-family: var(--font-display); font-size: 3.625rem; line-height: 0.9; color: var(--accent); transform: rotate(-2deg); }
+.course-label { margin: 0; display: grid; min-width: 0; }
+.pour { display: flex; align-items: center; gap: 0.625rem; font-family: var(--font-sc); font-size: 1rem; letter-spacing: 0.07em; color: var(--heading); }
+.pour::after { content: ""; flex: 1; height: 1.5px; background: var(--line); }
+.style { font-style: italic; font-size: 0.9375rem; color: var(--muted); }
+.illo { display: block; width: auto; height: 5.75rem; max-width: min(6.5rem, 28vw); overflow: visible; }
+.illo .draw { fill: none; stroke: var(--line); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.illo .wine-fill { fill: var(--line); }
+.illo .wine-fill.pale { fill-opacity: 0.14; }
+@media (prefers-reduced-motion: no-preference) {
+  .js .illo .draw { stroke-dasharray: 1 2; stroke-dashoffset: 1; transition: stroke-dashoffset 680ms var(--ease-out) calc(var(--i, 0) * 30ms); }
+  .js .illo .wine-fill { opacity: 0; transition: opacity 240ms ease-out 560ms; }
+  .js .illo.is-drawn .draw { stroke-dashoffset: 0; }
+  .js .illo.is-drawn .wine-fill { opacity: 1; }
+}
+
+/* On the table: the kitchen's dishes for the course, Chinese first, English gloss under. */
+.dishes { margin: 0 0 1.875rem; }
+.dishes .label { display: flex; align-items: center; gap: 0.625rem; }
+.dishes .label::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.dish-list { list-style: none; margin: 0.375rem 0 0; padding: 0; display: grid; gap: 0.75rem; }
+.dish-list li { display: grid; gap: 0.0625rem; }
+.dish-zh { font-size: 1.25rem; line-height: 1.35; color: var(--heading); }
+.dish-en { font-style: italic; font-size: 0.96875rem; line-height: 1.35; color: var(--muted); text-wrap: pretty; }
+
+.wine-card { scroll-margin-top: 0.75rem; }
+.producer { margin: 0; font-family: var(--font-sc); font-size: 1.125rem; letter-spacing: 0.04em; }
+.wine { margin: 0.125rem 0 0.625rem; font-family: var(--font-display); font-weight: 400; font-size: 1.9375rem; line-height: 1.08; text-wrap: balance; overflow-wrap: anywhere; hyphens: auto; }
+.meta { margin: 0; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.25rem 0.75rem; }
+.vintage { font-weight: 600; font-variant-numeric: lining-nums tabular-nums; color: var(--heading); }
+.where { font-style: italic; padding-left: 0.75rem; border-left: 1px solid var(--rule); }
+.tell { margin-top: 1.375rem; }
+.label { margin: 0 0 0.25rem; font-size: 0.9375rem; color: var(--muted); }
+.tell-line { margin: 0; font-style: italic; font-size: 1.4375rem; line-height: 1.3; hanging-punctuation: first; text-wrap: pretty; color: var(--heading); }
+.story { margin: 1.125rem 0 0; text-wrap: pretty; }
+/* Running text set justified, as on the printed card; one-liners, italics and labels stay ragged. */
+.welcome-text, .story, .compare-body { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+@supports not (hanging-punctuation: first) { .tell-line { text-indent: -0.4em; } }
+.runin { font-size: 1rem; margin-right: 0.3em; color: var(--heading); }
+.sayit { margin-top: 1.375rem; }
+.sayit dl { display: grid; gap: 0.5rem; margin: 0; }
+.sayit dl div { display: grid; }
+.sayit dt { font-style: italic; font-size: 0.9375rem; color: var(--muted); }
+.sayit dd { margin: 0; font-size: 1.125rem; letter-spacing: 0.02em; overflow-wrap: anywhere; }
+.to-map { display: inline-flex; align-items: center; min-height: 2.75rem; padding-inline: 0.125rem; font-family: var(--font-sc); font-size: 0.9375rem; letter-spacing: 0.06em; color: var(--muted); text-decoration: none; }
+.to-map:hover { color: var(--accent); }
+
+/* Course II: two whites in one course */
+.course-pair { container-type: inline-size; }
+.pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: repeat(5, auto); }
+.pair-wine { display: grid; grid-row: span 5; grid-template-rows: subgrid; align-content: start; min-width: 0; padding-right: 0.875rem; }
+.pair-wine + .pair-wine { padding: 0 0 0 0.875rem; border-left: 1px solid var(--rule); }
+.pair .producer { font-size: 0.9375rem; text-wrap: balance; }
+.pair .wine { font-size: 1.4375rem; margin-bottom: 0.375rem; }
+.pair .meta { display: grid; gap: 0; }
+.pair .where { border-left: 0; padding-left: 0; }
+.pair .tell { margin-top: 0.875rem; }
+.pair .tell-line { font-size: 1.125rem; }
+/* Side by side the two columns are too narrow to justify; stacked, they read like the rest. */
+.pair .taste { margin-top: 0.875rem; font-size: 1rem; text-align: start; -webkit-hyphens: manual; hyphens: manual; }
+.pair .runin { display: block; margin-bottom: 0.125rem; font-size: 0.9375rem; letter-spacing: 0.05em; white-space: nowrap; }
+@container (max-width: 20em) {
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  .pair-wine { padding-right: 0; }
+  .pair-wine + .pair-wine { margin-top: 1.5rem; padding: 1.375rem 0 0; border-left: 0; border-top: 1px dashed var(--rule); }
+  .pair .taste { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+}
+.compare { margin-top: 1.875rem; padding-top: 1.125rem; border-top: 1px dashed var(--rule); }
+.compare-lead { margin: 0; font-style: italic; font-size: 1.3125rem; line-height: 1.32; text-wrap: pretty; color: var(--heading); }
+.compare-body { margin: 0.5rem 0 0; text-wrap: pretty; }
+.pair-detail { margin-top: 2.5rem; scroll-margin-top: 0.75rem; }
+.pair-sub { margin: 0; display: flex; align-items: center; gap: 0.625rem; font-family: var(--font-display); font-weight: 400; font-size: 1.3125rem; line-height: 1.15; }
+.pair-sub::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+.pair-detail .story:first-of-type { margin-top: 0.625rem; }
+
+/* For the nerds: a small insert that unfolds from the fold line */
+.nerd { margin-top: 1.375rem; border-top: 1px dashed var(--rule); }
+.nerd summary { list-style: none; display: flex; align-items: center; gap: 0.625rem; min-height: 3rem; padding-block: 0.5rem; cursor: pointer; }
+.nerd summary::-webkit-details-marker { display: none; }
+.nerd-title { font-family: var(--font-sc); font-size: 1.0625rem; letter-spacing: 0.06em; color: var(--heading); }
+.nerd-hint { flex: 1; font-style: italic; font-size: 1.0625rem; color: var(--muted); }
+.plus { position: relative; flex: none; width: 0.9375rem; height: 0.9375rem; transition: transform 180ms var(--ease-out); }
+.plus::before, .plus::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; margin-top: -0.75px; border-radius: 1px; background: var(--heading); }
+.plus::after { transform: rotate(90deg); }
+.nerd[open] .plus { transform: rotate(45deg); }
+.nerd-body {
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 1rem var(--gutter) 1.125rem;
+  background: var(--insert);
+  box-shadow: inset 0 10px 9px -10px var(--shade);
+  transform-origin: top center;
+}
+.nerd[open] .nerd-body { animation: unfold 190ms var(--ease-out); }
+@keyframes unfold { from { opacity: 0; transform: perspective(50rem) rotateX(-18deg) translateY(-0.375rem); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .nerd[open] .nerd-body { animation-name: fade-in; }
+  .plus { transition: none; }
+}
+@keyframes fade-in { from { opacity: 0; } }
+.nerd dl { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.5rem 1rem; font-size: 1.125rem; line-height: 1.45; }
+.nerd dt { font-family: var(--font-sc); letter-spacing: 0.06em; color: var(--muted); }
+.nerd dd { margin: 0; font-variant-numeric: lining-nums; text-wrap: pretty; min-width: 0; }
+.nerd-source { margin: 0.75rem 0 0; font-style: italic; font-size: 0.9375rem; color: var(--muted); }
+@media (max-width: 400px) {
+  .nerd dl { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .nerd dd + dt { margin-top: 0.5rem; }
+}
+
+/* The kitchen's encore: three closing dishes, no wine. */
+.finale { margin-top: 4.75rem; padding-top: 1.375rem; border-top: 1px dashed var(--rule); }
+.finale-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.75rem; margin-bottom: 0.875rem; }
+.finale-title { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 1.6875rem; line-height: 1.1; text-wrap: balance; }
+.finale-intro { margin: 0.375rem 0 0; font-style: italic; font-size: 1.0625rem; color: var(--muted); }
+.finale .dishes { margin-bottom: 0; }
+
+/* The night: photos from the dinner, one column, captions in the menu's italic. */
+.night { margin-top: 4.75rem; padding-top: 1.375rem; border-top: 1px dashed var(--rule); }
+.photo { margin: 1.625rem 0 0; }
+.photo img { width: 100%; height: auto; background: var(--insert); }
+.photo figcaption { margin-top: 0.5rem; max-width: 46ch; font-style: italic; font-size: 0.96875rem; line-height: 1.4; color: var(--muted); text-wrap: pretty; }
+
+/* Buttons: the quiet outline, and .btn-primary filled in the accent for the one action that leads. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 1.125rem;
+  border: 1.5px solid var(--accent);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-sc);
+  font-size: 1.0625rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out);
+}
+.btn[hidden] { display: none; }
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn:active:not(:disabled) { transform: scale(0.97); }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn[aria-busy="true"] { cursor: progress; }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+  .btn:active:not(:disabled) { transform: none; }
+}
+
+/* Closing */
+.closing { margin-top: 4.75rem; padding-top: 1.875rem; border-top: 1.5px solid var(--line); display: grid; justify-items: start; gap: 1.125rem; }
+.closing-text { margin: 0; max-width: 30ch; font-style: italic; font-size: 1.1875rem; line-height: 1.42; text-wrap: pretty; }
+.closing-line { margin: 0; max-width: 14em; font-family: var(--font-display); font-size: 1.5625rem; line-height: 1.2; color: var(--heading); transform: rotate(-2deg); transform-origin: left center; text-wrap: balance; }
+.signoff { width: 7rem; }
+/* Follow us: the closing's one link, in the menu's small caps. */
+.follow { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0 0.35em; min-height: 2.75rem; margin-top: -0.5rem; font-family: var(--font-sc); font-size: 1.0625rem; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; text-underline-offset: 0.18em; }
+.follow:focus-visible { text-decoration: underline; }
+@media (hover: hover) and (pointer: fine) { .follow:hover { text-decoration: underline; } }
+
+/* Wide screens: the menu is a sheet on the table. */
+@media (min-width: 880px) {
+  .sheet { --gutter: 4rem; }
+  .mast-word img { width: 16.75rem; }
+  .mast-host { width: 13.125rem; }
+  .welcome-text { font-size: 1.3125rem; max-width: none; }
+  .wine { font-size: 2.375rem; }
+  .pair .wine { font-size: 1.75rem; }
+  .numeral { font-size: 4.125rem; }
+  .illo { height: 7.375rem; max-width: 8.375rem; }
+  .dish-zh { font-size: 1.3125rem; }
+  .photo:not(.is-wide) { max-width: 70%; }
+}
+
+/* Laptops and up: the sheet opens like a menu spread. A main column carries the reading (the welcome,
+   the map, each wine) and a rail beside it what you glance at: how to read, the map's key, and the
+   course's dishes, which stay in view while you read its wine and pick a favourite. */
+@media (min-width: 1120px) {
+  .mast-word img { width: 18.75rem; }
+  .mast-host { width: 14.75rem; }
+  .credits { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) var(--rail); column-gap: var(--spread-gap); }
+  .credit-kitchen { grid-column: 3; grid-row: 1; }
+  .welcome, .map-sec, .course { display: grid; grid-template-columns: minmax(0, 1fr) var(--rail); column-gap: var(--spread-gap); align-items: start; }
+  .welcome > *, .map-sec > *, .course > * { grid-column: 1; }
+  /* The note sits on the welcome's first baseline, beside a welcome of up to four paragraphs (copy.json splits it on blank lines). */
+  .how-to { grid-column: 2; grid-row: 1 / span 4; margin: 0.3125rem 0 0; max-width: none; }
+  .legend { grid-column: 2; grid-row: 2; margin: 0; border-top: 1.5px solid var(--line); }
+  .course { --gutter: calc(var(--spread-gap) / 2); }
+  .course-head { grid-column: 1 / -1; }
+  /* The dishes span every row after the head (a course holds at most eight blocks), so they can stay in view. */
+  .course > .dishes { grid-column: 2; grid-row: 2 / span 8; position: sticky; top: 1.5rem; margin: 0; }
+  .finale .dish-list { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); column-gap: var(--spread-gap); }
+  /* The night's photos keep to the main column, about the width their srcset sizes are written for. */
+  .night { max-width: calc(100% - var(--rail) - var(--spread-gap)); }
+}
+
+/* Utilities */
+h2.course-label { font-size: inherit; font-weight: 400; }
+/* The site's own pages (About Us, Gallery, Contact Us, Pairing notes), on top of tokens, base and
+   home.css, whose dateline, mast and footer they share. The nav comes first because, once pages.json
+   live is true, this file is also inlined on the home and on every volume page; everything after it is
+   scoped to the pages' own classes. */
+
+/* The nav: the pages as small-caps links in one row that wraps, each a 44px target. The page you are
+   on is in the ink, ruled under in the accent like a ticked line on the menu. */
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; column-gap: 0.875rem; }
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  font-family: var(--font-sc);
+  font-size: 0.875rem;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  text-decoration: none;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.42em;
+  transition: color 160ms ease;
+}
+.site-nav a[aria-current="page"] { color: var(--heading); text-decoration-line: underline; }
+@media (hover: hover) and (pointer: fine) { .site-nav a:hover { color: var(--accent); } }
+/* Under the mast on every page: the home's hero, a page's head, a volume's masthead. Where a page's
+   title or a volume's credits follow, a hairline closes the row. */
+.hero .site-nav, .masthead .site-nav { padding-top: 0.25rem; }
+.leaf-head .site-nav, .masthead .site-nav { border-bottom: 1px solid var(--rule); }
+
+/* A page: a sheet at least a screen tall, so a short page still rests its footer at the bottom.
+   The mast is the home's at a smaller size: the wordmark leads home, the page's title is the h1. */
+.leaf { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+.leaf .hero-mast { padding-top: 1.375rem; }
+.leaf-word { justify-self: start; margin-bottom: 1.125rem; line-height: 0; }
+.leaf-word img { width: min(100%, 11.75rem); }
+.leaf .hero-host { width: min(30vw, 7.75rem); }
+.leaf-body { padding-bottom: 3.5rem; }
+.leaf-title { margin: 2.125rem 0 0; font-family: var(--font-display); font-weight: 400; font-size: 2.25rem; line-height: 1.08; text-wrap: balance; }
+.leaf-lead { margin: 0.75rem 0 0; max-width: 34ch; font-size: 1.1875rem; line-height: 1.45; text-wrap: pretty; }
+.leaf-text { margin: 1.125rem 0 0; max-width: 40em; text-wrap: pretty; }
+/* Running text set justified, as on the volume pages. */
+.leaf-lead, .leaf-text { text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+.leaf-empty { margin: 0.875rem 0 0; font-style: italic; color: var(--muted); text-wrap: pretty; }
+/* The rail: the dinner /tonight/ forwards to, under its own name, as the home's row names it. Below
+   1120 px it follows the text, a quiet block ruled above. */
+.leaf-rail { margin-top: 2.5rem; padding-top: 0.875rem; border-top: 1px solid var(--rule); }
+.leaf-rail p { margin: 0; }
+.rail-date a { display: inline-flex; align-items: center; min-height: 2.75rem; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.1; font-variant-numeric: lining-nums; color: var(--heading); text-decoration: none; text-wrap: balance; transition: color 160ms ease; }
+@media (hover: hover) and (pointer: fine) { .rail-date a:hover { color: var(--accent); } }
+.rail-with { font-style: italic; line-height: 1.35; text-wrap: pretty; }
+.rail-with [lang|="zh"] { margin-left: 0.15em; }
+
+/* Contact: one row per channel, the label in small caps, the address in the accent. */
+.channels { display: grid; gap: 0.625rem; margin: 1.75rem 0 0; padding-top: 0.875rem; border-top: 1px solid var(--rule); }
+.channels div { display: grid; }
+.channels dd { margin: 0; }
+.channel-link { display: inline-flex; align-items: center; min-height: 2.75rem; font-style: italic; font-size: 1.25rem; color: var(--accent); text-decoration: none; text-underline-offset: 0.18em; overflow-wrap: anywhere; }
+.channel-link:focus-visible { text-decoration: underline; }
+@media (hover: hover) and (pointer: fine) { .channel-link:hover { text-decoration: underline; } }
+
+/* A volume's section on Gallery and Pairing notes: headed as the home's row, ruled like a course. */
+.leaf-sec { margin-top: 3rem; }
+.leaf-vol-head { padding-bottom: 0.625rem; border-bottom: 1.5px solid var(--line); }
+.leaf-vol { margin: 0; font-weight: 400; }
+.leaf-vol a { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.75rem; min-height: 2.75rem; padding-top: 0.375rem; text-decoration: none; }
+.leaf-vol-date { font-family: var(--font-display); font-size: 1.625rem; line-height: 1.1; font-variant-numeric: lining-nums; color: var(--heading); text-wrap: balance; transition: color 160ms ease; }
+@media (hover: hover) and (pointer: fine) { .leaf-vol a:hover .leaf-vol-date { color: var(--accent); } }
+.leaf-vol-with { margin: 0.125rem 0 0; font-style: italic; line-height: 1.35; }
+.leaf-vol-with [lang|="zh"] { margin-left: 0.15em; }
+
+/* Gallery: the night's photos as the volume page shows them, one column, captions in the menu's italic. */
+.gallery .photo { margin: 1.375rem 0 0; }
+.gallery .photo img { width: 100%; height: auto; background: var(--insert); }
+.gallery figcaption { margin-top: 0.5rem; max-width: 46ch; font-style: italic; font-size: 0.96875rem; line-height: 1.4; color: var(--muted); text-wrap: pretty; }
+
+/* Pairing notes: per wine, the vote as a tally (dish, count, then a bar for its share of the wine's
+   picks, on the map's land tint), then the quoted notes, each on an accent rule with the guest's name. */
+.pn-wine-sec { margin-top: 1.875rem; }
+.pn-wine-sec + .pn-wine-sec { padding-top: 1.625rem; border-top: 1px dashed var(--rule); }
+.pn-wine { margin: 0; display: grid; gap: 0.125rem; font-weight: 400; }
+.pn-kicker { display: flex; align-items: baseline; gap: 0.5em; font-family: var(--font-sc); font-size: 1rem; letter-spacing: 0.05em; color: var(--muted); }
+.pn-num { font-family: var(--font-display); font-size: 1.375rem; line-height: 1; letter-spacing: 0; color: var(--accent); transform: rotate(-2deg); }
+.pn-cuvee { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.12; font-variant-numeric: lining-nums; text-wrap: balance; overflow-wrap: anywhere; }
+.pn-block { margin-top: 1.125rem; }
+.pn-block > .sc-label { margin: 0; }
+.tally { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.75rem; }
+.tally li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 0.3125rem 0.75rem; }
+.tally-dish { min-width: 0; line-height: 1.3; }
+.tally-count { font-family: var(--font-sc); font-size: 0.875rem; letter-spacing: 0.05em; font-variant-numeric: lining-nums tabular-nums; color: var(--muted); white-space: nowrap; }
+.tally-bar { grid-column: 1 / -1; height: 0.3125rem; border-radius: 3px; background: var(--land); overflow: hidden; }
+.tally-bar span { display: block; height: 100%; width: calc(var(--share) * 100%); border-radius: inherit; background: var(--accent); }
+.quotes { display: grid; gap: 1.25rem; margin-top: 0.5rem; }
+.quote { margin: 0; padding-left: 1rem; border-left: 1.5px solid var(--accent); }
+.quote blockquote { margin: 0; }
+.quote p { margin: 0; font-style: italic; font-size: 1.125rem; line-height: 1.45; color: var(--heading); text-wrap: pretty; overflow-wrap: anywhere; }
+.quote p + p { margin-top: 0.5rem; }
+.quote figcaption { margin-top: 0.375rem; font-family: var(--font-sc); font-size: 0.9375rem; letter-spacing: 0.06em; color: var(--muted); overflow-wrap: anywhere; }
+.quote figcaption::before { content: "— "; }
+.quote cite { font-style: normal; }
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav a, .leaf-vol-date, .rail-date a { transition: none; }
+}
+
+/* Wide screens: a sheet on the table, like the home. */
+@media (min-width: 880px) {
+  .leaf { min-height: calc(100vh - 5.5rem); min-height: calc(100dvh - 5.5rem); }
+  .leaf-word img { width: 13.75rem; }
+  .leaf .hero-host { width: 9.375rem; }
+  .leaf-title { font-size: 2.75rem; }
+  .leaf-lead { font-size: 1.3125rem; max-width: none; }
+  .leaf-vol-date { font-size: 1.875rem; }
+  .pn-cuvee { font-size: 1.75rem; }
+  .gallery .photo:not(.is-wide) { max-width: 70%; }
+}
+/* Laptops and up: the sheet's spread (base.css), as on a volume page. The title spans it; the lead and
+   the rest keep to the main column, and the rail sits beside them from the lead down, staying in view
+   like a course's dishes, its label ruled out to the edge like theirs and level with the lead's first
+   line. It spans every row after the title: one per paragraph or volume section. */
+@media (min-width: 1120px) {
+  .leaf-word img { width: 16.25rem; }
+  .leaf .hero-host { width: 10.5rem; }
+  .leaf-body { display: grid; grid-template-columns: minmax(0, 1fr) var(--rail); column-gap: var(--spread-gap); }
+  .leaf-body > * { grid-column: 1; }
+  .leaf-body > .leaf-title { grid-column: 1 / -1; }
+  .leaf-body > .leaf-rail { grid-column: 2; grid-row: 2 / span 99; align-self: start; position: sticky; top: 1.5rem; margin-top: 1rem; padding-top: 0; border-top: 0; }
+  .leaf-rail .sc-label { display: flex; align-items: center; gap: 0.625rem; }
+  .leaf-rail .sc-label::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+}
+</style>
+</head>
+<body>
+<svg class="defs" width="0" height="0" aria-hidden="true" focusable="false"><filter id="wobble-ink" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<main class="sheet">
+<header class="masthead">
+<div class="dateline">
+<p><span>Saturday 28 November 2026</span><span>Hong Kong</span></p>
+<nav class="jump" aria-label="Jump to a course"><a href="#course-1">I</a><a href="#course-2">II</a><a href="#course-3">III</a><a href="#course-4">IV</a></nav>
+</div>
+<div class="mast">
+<a class="mast-word" href="../"><h1><picture><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture></h1><span class="vh"> home</span></a>
+<p class="stamp">Volume II</p>
+<picture class="mast-host"><img src="./assets/mark.png" width="420" height="451" alt=""></picture>
+</div>
+<nav class="site-nav" aria-label="Tipsy Table pages"><ul><li><a href="../">Volumes</a></li><li><a href="../about/">About Us</a></li><li><a href="../gallery/">Gallery</a></li><li><a href="../contact/">Contact Us</a></li><li><a href="../pairing-notes/">Pairing notes</a></li></ul></nav>
+<dl class="credits">
+<div><dt class="sc-label">Your hosts tonight</dt><dd class="credit-name">Jocelyn and Bryan</dd></div>
+<div><dt class="sc-label">Follow us</dt><dd class="credit-name"><a class="follow-link" href="https://www.instagram.com/TipsyTableHK/"><span class="foot-handle">@TipsyTableHK</span></a></dd></div>
+<div class="credit-kitchen"><dt class="sc-label">In the kitchen</dt><dd class="credit-name"><span class="zh-first" lang="zh-Hant-HK">紫京海鮮飯店</span> Daisy’s</dd></div>
+</dl>
+</header>
+
+<section class="welcome" aria-label="Welcome">
+<p class="welcome-text">Welcome to Tipsy Table. Tonight: four courses, each with its own wine, two whites then two reds, and a last dish from the kitchen.</p>
+<p class="how-to">“For the nerds”, under each wine, covers grapes, soil and how it was made. Skipping it is allowed.</p>
+</section>
+
+<section class="map-sec" id="map" aria-labelledby="map-title">
+<div class="sec-head">
+<h2 class="sec-title" id="map-title">Where tonight’s wines come from</h2>
+<p class="map-note">Tap a glass and we’ll walk you there.</p>
+</div>
+<figure class="map">
+<svg class="map-svg" viewBox="0 0 360 300" role="img" aria-labelledby="map-title">
+<defs>
+<filter id="wobble" x="-2%" y="-2%" width="104%" height="104%"><feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+<mask id="route-reveal" maskUnits="userSpaceOnUse" x="-10" y="-10" width="380" height="320"><path class="route-mask" pathLength="1" d="M115.2 140.1Q181.9 166.5 252.6 154.4Q260.9 147.1 258.4 136.3Q237.3 172.3 257 209"/></mask>
+</defs>
+<g filter="url(#wobble)">
+<path class="land" d="M362,228L356.3,226L352.3,225.9L347.4,228.8L341.7,236.3L337.1,244L335.4,245.6L329.1,248.5L323.3,250.1L322,250.7L320.6,251.4L317.9,252.8L315.9,254.1L308.7,262L305.2,264.4L304.6,265.7L304,268.2L302,270.4L300.1,271.5L295.6,272.8L291,275.2L288.9,274.4L283.5,274.7L280,272.2L273.4,270.7L271.1,266.9L268.2,266.8L266.3,267L265.1,266.4L264.7,265.1L264.7,263.8L262.7,264.4L261.1,264.5L260.2,265.1L259.5,265.7L258.6,265.3L258.1,265.5L258.2,266.2L256.2,266.5L254.2,266L248.8,264.2L248,263.9L244.3,263.2L242.8,262.4L241.5,260.4L240.5,259.9L240,259.5L236.6,260.5L235.4,262.1L233.6,264L220.9,273.2L218.5,277L215.8,282.6L215.7,285.2L216.9,293.5L219.6,297.8L220,298.9L220.6,301L221.9,301.8L222,302L-2,302L-2,248L-0.4,247.7L3.8,250.2L12.2,252L17.1,254.3L31,258.4L36.2,258.9L43.5,257.9L46.6,256.9L49.4,257.9L53.6,256.8L55.6,257.2L58,259.4L66.9,262.8L69.4,260.7L71.2,260.2L77.6,262.1L84,265.3L87.4,265.7L92.5,265.2L96.6,263.6L97.4,263.4L101.4,262.6L105.2,258.5L109.4,243.4L112.6,225.4L114.5,222.1L116.8,221.2L115.1,218.7L113.9,219.8L113.4,221.2L112.8,221.8L114.9,205.3L116.1,199.2L118,192.9L121.2,195.6L123.8,198.3L125.1,200.6L126.6,208.1L127.8,209.7L129.8,211.3L129.1,209.6L127.7,208.2L126,198.2L124.7,195.4L122.7,193L116.2,187.7L115.5,186.7L115.3,184.8L117.6,185L119.4,186L119.2,185L118.7,183.8L118,179.8L117.7,170.4L117.9,168.7L117.6,166.7L115.5,166.2L113.8,166L112,165.2L103.1,159.2L100.4,153.3L97.4,149L96.7,147.1L96.9,145.2L98.8,141.4L97.5,138.8L96.1,138.3L94.9,137L96.2,135L97.2,133.7L99,133.5L101.4,134.1L103.7,135.4L105.4,135.8L100.3,132.3L91.6,132.9L89.8,132.4L88.3,131.6L87.8,129.2L89.1,128.2L90.3,126.3L89.2,124.9L87.6,124.3L85.1,124.2L82.7,124.4L82.2,123.6L83.7,121.5L82.5,120.6L80.9,120.9L78.5,121.2L76.2,120.4L74.3,117.8L72.9,117.7L71.9,117.9L70.5,116.9L69,116.5L67.9,116.7L66.6,115.2L58,111.7L54.2,111.1L50.6,112L48.7,111.5L47.4,109.5L46.6,106.4L41.1,103.5L42.4,102L45,101.9L48.1,101.1L49.3,99.8L47.1,98L45.4,97.4L44.7,96.8L44.1,95.3L45.2,94.7L45.9,95.1L48,95.6L51.6,95.5L50.4,94L49,93.5L48.4,93.1L45.6,92.7L44.2,93.1L41.2,92.6L40.6,90.9L40.5,89.6L41.7,86.7L46.1,84.4L56.8,82.3L61.2,83.1L64.4,82.8L68.3,81.3L70,79.8L75.4,79.2L80.3,81.3L84.6,87.9L86.7,90.2L92.3,86.9L100.5,87.4L102,89.6L102.8,87.9L104.4,85.9L105.5,86.9L106.1,88.2L114.7,88.3L116,88L113.8,86.4L112.1,82.7L112.4,69.3L110.2,65.5L107.9,59.4L106.8,55.8L106.8,54.6L107.3,52.9L110.6,53.1L113,53.7L118,52.6L120.3,53.7L120,56.4L120.5,59.9L121.3,61.6L122.4,63.6L126.3,63.6L130.6,64.9L135.9,65.2L143.6,67.5L147,66.4L150.3,64.1L156.5,62.7L157,61.9L153.5,62.2L150.2,60.6L149.9,58.9L150.3,57.4L151.7,54.1L161.2,48.9L167.8,47.4L174.8,44.6L178.4,41.7L180.7,37.7L181.5,36.9L182.4,36.2L181.5,34.7L182.3,19.8L183,17.1L184.3,14.9L186.4,13.2L189.5,11.4L200.8,8.8L202.5,7.8L211.6,2.1L217.1,-0.8L219.8,-1.7L220.5,-2L226.3,-2L226.3,-2L227.5,-1.6L231,-1.2L232.6,-2L234.8,-2L234.8,-2L235.8,-1.4L237.3,-2L362,-2ZM102.9,67.8L103,69.5L102,69.9L101.3,69.3L99.6,69.2L98,69.4L98.6,66.4L101.5,67ZM92.7,58.4L91.7,60.6L89.8,59.7L89.6,59.1L92,58L92.5,58ZM165.1,-2L168.1,-1.3L170.6,-1.3L175.8,-1.7L178.2,-1.6L179.1,-1.3L179.1,0.5L178.7,4.8L178,5.7L171.1,9.2L169.6,11.8L169.2,13.3L165.3,13L163.4,14.5L160.1,15.6L157.6,16.7L155.1,18.1L153,18.4L144.4,16.4L139.2,16.4L132,17.6L130.2,17.3L127.5,15.8L124.8,14.6L121.6,14.1L118.8,12.6L120.4,15.3L116.4,17.5L114.6,17.9L112.8,17.8L108.9,18.2L105.4,17.7L105.9,19.5L106.7,21.1L106,21.7L105.1,21.8L98.5,20.2L97.5,20.4L96.7,21.4L94.2,20.7L92,18.8L89.5,17.4L87,16.6L84.8,16.7L76,18.9L74.1,21.6L72.9,25.6L71.4,29L69.1,31.6L66.7,31.8L64.5,29.7L60.4,27.3L59,25.7L58.5,25.6L58,26.1L56.3,26.6L54.5,26.4L51.7,26.8L46.8,28L44.8,29L40.4,31.9L39.5,32.6L37.7,35.7L35.3,36.1L33.4,33.8L31.1,32.8L28.6,33.3L26.9,34.2L26.3,33.3L26.4,31.5L28.5,29.5L33.6,28.3L38.2,24.4L40.6,22L41.5,20.6L42.7,19.8L44,19.6L44.9,18L51.3,12L52,10.6L52.5,8L53.2,5.5L58.2,4.2L60.9,-1L61.5,-1.4L68.3,-1.9L73.2,-1.4L78,0L80.5,0.3L83.1,0.1L85.1,-1.3L85.7,-2L165.1,-2ZM126,19.9L124.1,21L123.5,22.3L123,22.8L121.8,23.1L120.7,23.1L116.4,20.2L115.3,20.2L116.3,19L119.2,18.1L120.8,16.9L124.4,18.3ZM354,302L354,302L353.3,300.1L354.3,298.7L355.8,297.7L354.5,295.8L353.6,295.8L353,295.5L353.4,294.5L354.6,293L356.1,288.7L358.4,286.6L362,285.2L362,302ZM116.2,180.4L115.3,183.3L113.9,180.5L111.9,178L111.6,175.9L111.6,175.3L114,177Z"/>
+<path class="rivers" d="M337.6,154.4L337.4,154.9L337.1,155.2L337,155.7L336.5,156.2L335.8,156.9L335.1,157.6L334.9,157.9L331.8,161.1L330.3,162.2L330.1,162.7L329.6,163.1L328.6,163.6L327.8,163.9L324.8,163.9L320.8,163.9L320.3,164.1L319.5,164.8L317.5,165.5L316.4,166.6L315.6,166.9L314.9,167.5L311.2,169.6L309.1,171.4L308.4,171.5L308.2,171.4L307.9,171L307.7,170.6L307.5,170.3L307.5,169.6L307.4,169.2L307.2,168.9L306.6,168.2L305,165.7L304.9,165.4L304.7,164.8L304.5,164.6L304.2,164.6L303.9,164.4L303.8,164.2L303.8,163.9L303.8,163.7L303.8,163.5L303.7,163.2L303.3,162.9L303.1,162.6M286.5,170.1L286.2,170.1L285.9,170.1L285.7,170L285.6,169.9L285.5,169.9L285.3,170L285.1,170.1L284.8,170.1L284.6,170.2L283.9,171L283.5,171.3L282.7,172.5L282.5,172.9L282.2,172.9L281.7,172.9L281.5,172.9L281.3,173.1L281.1,173.7L280.9,173.9L280.6,174.2L280.4,174L280.2,173.8L280,173.6L279.5,174.1L279.5,175.6L280,178.3L280.1,179.6L279.9,180.7L279.3,183L279.1,183.7L279.1,184.2L278.8,184.2L278.4,184.3L277.8,184.4L277.5,184.9L277.2,185.6L277.3,186.4L277.4,187.1L277.4,187.5L277,188L276.3,189L275.8,189.4L275.3,189.5L274.9,189.1L274,187.6L273.5,187L271.9,185.6L271.2,184.6L270.7,183.4L270.7,183.3L270.8,183.3L270.9,183.3L270.8,183.1L270.6,182.9L269.5,182L269.2,181.8L269,181.8L268.9,181.9L268.7,182L268.3,182.2L268,182.7L267,184.6L266.7,184.9L266.2,185.1L265.8,185L265.1,184.5L264.5,184.3L263.7,183.9L263.4,183.8L263,183.8L262.2,184L261.8,184.1L260.4,183.9L260,184L259.4,184.3L258.7,184.5L257.8,184.9L257.5,185.1L257.4,185.6L257.4,186.2L257.3,186.6L256.9,186.3L256.7,186.5L256.6,186.8L257.1,187.7L257,188.8L256.7,190L256.1,191L256.2,191.9L257.1,192.5L257.9,193.3L257.5,194.4L256,195.9L255.4,196.9L255.3,198.3L255.8,199.8L255.9,200.5L256,200.9L256.4,201.2L256.7,201.7L256.7,202.4L256.9,202.4L256.8,203L256.8,204.1L256.9,205.1L257.3,206.4L257.2,207.3L257.2,208L257.7,208.3L257.7,208.8L257.8,209L258,209.2L258.1,209.5L258.1,209.9L258,210.6L258,211L258.1,211.6L258.8,212.8L259,213.4L258.9,214L258.5,215.6L258.4,215.9L258.3,216L257.8,216.6L257.7,216.7L257.6,217.2L257.5,217.4L257.3,217.6L257,217.8L256.7,218.2L256.4,218.6L256.3,219.2L256.3,220L256.4,220.5L256.9,221.4L257,222L256.9,223.2L256.3,224.2L255.7,225L255.3,226.1L255,229.5L254.9,229.8L254.4,230.7L254.3,231L254.3,231.3L254.3,231.5L254.2,232.3L254.1,236.2L254.2,236.6L254.3,236.8L254.5,236.9L254.7,237.1L255,238.1L255.3,238.4L255.6,238.9L255.7,239.7L255.7,241.3L255.7,241.9L256,242.5L256.2,242.5L256.6,242.1L257,242.4L257.4,242.9L257.7,243.1L259,244.4L259,244.8L258.9,245L258.7,245.1L258.4,245.2L258.2,245.3L258.2,245.6L258.4,245.9L258.3,246.2L257.1,247.5L256.9,247.6L256.7,247.7L255.7,248.5L254.4,249.2L254.2,249.3L254.3,251.8L254.2,252.5L253.5,254.3L253.6,255.1L253.6,255.2M253.7,255.2L253.6,255.2M253.6,255.2L253.3,255.5L253,255.3L252.6,255.2L251.1,255.3L250.3,255.6L249.9,256.4L249.6,257.3L249.1,257.9L249.1,258.1L249.4,258.3L249.8,258.3L250,258.4L250,258.8L249.7,259.1L249,259.4L248.6,259.7L248.6,260L248.2,260.3L247.3,260.9L247.5,261.2L248.6,264M253.6,255.2L253.5,256.9L253.8,257.3L254.3,257.6L255.2,259L255.7,259.5M213.7,139.6L213.3,138.6L213.2,138L213.2,137.4L213,136.9L212.8,136.4L212.6,136.1L211.9,135.4L211.3,135L211.1,134.8L210.7,134.3L210.7,133.9L210.9,133.4L211.8,131.4L211.9,130.9L211.8,130.2L211.6,129.8L210.6,128L209.9,127.2L209.7,126.9L208.8,125.7L208.1,125.3L207.8,125L207.5,124.6L207.5,124.5L207.5,124.3L207.5,124.2L207.4,124.1L207.3,124.1L207.1,123.9L207,123.8L206.8,123.5L206.7,123.4L201.1,119.8L200.4,119.6L199.1,119.6L198.7,119.6L198.6,119.4L198.4,119.2L198.3,119L198,118.9L197.6,118.8L197.4,118.8L197.3,118.6L197.3,118.4L197.5,118L196.4,117.4L196.4,116.8L196,116.6L194,116.4L193,116.1L192.5,116.1L192.3,116.2L192.1,116.4L191.9,116.5L191.7,116.5L191.6,116.3L191.5,115.7L191.4,115.6L190.9,115.5L190.3,115.2L188.2,115.1L187.8,115.2L187.5,115.6L187.1,115.9L184.7,116.8L184.5,117.1L184.4,117.4L183.4,118.8L183.2,118.9L183,118.9L182.8,119L182.6,119.2L182.1,120.5L182,120.6L181.5,120.8L181.4,121L181.3,121.4L181.3,121.6L180,122.7L179.6,123L178.5,123.2L178.1,123.5L175.1,126.1L174.5,127L173.9,128.1L173.6,128.6L173.1,128.8L172.6,128.9L165.9,131.7L164,131.6L163.1,131.4L161.4,131.4L157.7,132.2L156.8,132.6L156.5,132.8L156.1,133.2L155.6,133.8L155.3,134L154.5,134.1L154.2,134.3L153.7,134.7L149.9,136.7L147.9,136.8L147.3,137L146.8,137.4L145.4,136.4L144.9,136.2L144.4,136.1L143.9,136L143.5,135.7L143.1,135.4L141.9,134L141.5,133.8L141.1,133.7L139.6,132.3L139.2,131.6L139,131.4L138.7,131L138.5,130.8L138.2,130.6L136.7,130.2L136.2,130.1L135,130.3L133.7,130.1L133.2,130L131.5,130.3L131.3,130.7L130.8,131L130,131.5L129.6,131.6L129,131.7L128.6,131.6L126.3,130.7L125.3,130.5L122.5,131L119.6,130.9L118.8,131.1L117.4,131.8L117,131.9L116,131.9L115.6,132.1L111.9,134.8L111.2,135.7L110.9,136L110.7,136L110.2,135.9L110,135.9L109.8,136L109.3,136.4L108.9,136.5L107.9,136.6L107.4,136.5L106.1,136L105.6,136M215.3,145.9L215.2,145.5L215.2,144.9L215.2,144.3L215.1,143.6L214.9,143.3L214.7,143.2L214.4,143L214.2,142.5L214.2,142L214.2,141.5L214.2,141L214,140.4L213.8,139.8L213.7,139.6M242.4,217.9L242.3,218.9L242,219.4L241.5,219.5L240.5,219.1L239.5,218.4L238.2,217.2L236.4,216.4L236,215.8L235.9,215.2L235.7,214.1L235.8,213.4L235.6,213.1L235.3,212.8L235.2,212.4L235.3,212.2L235.9,211.8L236.1,211.3L236.1,210.7L235.5,209.7L235.5,209.3L235.5,208.9L235.4,208.1L235.7,207.6L235.9,207.1L236,206.4L236,205.9L236.2,205.4L236.8,205.1L237.5,205L238.1,205.1L238.8,204.9L239.8,204.2L240.5,203.3L240.7,202.6L240.6,202L240.8,201.4L241.2,200.9L241.8,200.5L242.3,199.4L242.7,198.7L243.2,197.9L243.3,197L243.3,196.1L243.4,195.1L243.3,194.5L243.2,193.8L243.6,193L243,192L242.9,191.6L242.9,191.2L242.8,190.7L242.5,190.2L241.9,189.6L242,189.3L242.1,188.8L242,187.7L242.1,186.8L241.7,185.8L241.6,184.8L241.1,184.4L240.3,183.1L239.8,182.7L239.7,182.3L239.4,181.8L238.1,180.6L237.8,180L237.8,179.3L237.9,178.8L238.3,178.1L239.5,176.4L239.5,176L239.3,175.6L239.3,173.9L239.1,172.8L238.8,171.9L237.8,170.6L237.4,169.7L237.3,169.1L237.4,168.7L237.4,168.3L237.3,168L236.9,167.6L236.9,167.5L236.9,167.4L236.9,167.4L236.8,167.3L236.8,167.2L236.7,167.1L236.6,167L236.6,166.9L236.5,166.7L236.5,166.6L236.6,166.4L236.6,166.2L236.5,166.1L236.5,166L236.4,165.9L236.4,165.8L236.4,165.7L236.4,165.4L236.6,164.5L236.6,164.4L236.6,164.2L236.5,164L236.4,163.9L236.4,163.8L236.4,163.7L236.3,163.4L236.3,163.2L236.3,163L236.2,162.9L236.1,162.9L235.8,162.8L235.5,162.6L235.3,162.5L234.6,162.4L234,162.2L233.9,162.1L233.8,162.1L233.7,161.9L233.6,161.9L233.3,161.7L233,161.3L232.9,161.2L232.8,161.2L232.7,161.2L232.4,161.3L232.3,161.2L232.2,161.2L232.1,161.1L232,161L231.9,160.9L231.7,160.9L231.6,160.8L231.4,160.6L231.3,160.6L230.9,160.5L230.8,160.4L230.7,160.2L230.7,160.1L230.8,159.9L230.8,159.7L230.8,158.9L230.8,158.3L230.7,158.1L230.6,158L230.3,157.9L229.9,157.3L229.8,156.9L229.7,156.8L229.6,156.7L229.5,156.6L229.4,156.5L229.1,156.2L229.1,156.1L228.8,155.8L228.7,155.7L228.6,155.3L228.6,155.1L228,154L227.9,153.5L227.6,153.3L227.4,153.3L225.9,152L224.3,150.9L223.5,150.6L222,150.7L221.5,150.5L221.2,150.1L220.7,149.6L220.1,149.1L219.3,147.4L218.8,146.6L218.2,146.1L217.6,145.9L217,145.9L216.3,146.3L215.9,146.5L215.5,146.3L215.3,145.9M284.1,106.9L283.6,107L283,106.9L282.4,106.7L281.8,106.7L281.4,107.3L280.9,108L280.4,108.4L279.9,108.6L279.5,109.2L278.8,109.7L278.5,110.3L278.3,110.9L278.2,111.4L278.5,111.7L279.7,112.5L280.1,113L280.1,113.5L279.3,114.9L279.3,115.4L279.5,115.7L279.9,115.8L280.4,116.2L281,116.9L281.9,118.4L282.1,119L282.1,119.7L282,120.5L281.8,121.1L281.4,121.4L280.7,121.5L280.6,121.9L280.6,122.4L280.4,122.7L280.1,122.6L279.8,122.4L279.4,122.3L278.4,123.2L277.7,123.5L277.5,123.8L277.2,124L275.9,124.5L275.5,124.9L275.3,125.4L274.9,125.7L274.4,125.9L274,126L273.7,126.2L273.7,126.8L273.6,127.5L273.1,128.1L271.4,128.9L270.9,129.5L270.4,130.2L270.1,130.8L270.1,131.4L270.1,132L269.9,132.4L268.9,133.3L268.6,133.9L268.3,134.4L267.9,134.8L268.2,135.6L268.3,136L268.1,136.6L267.7,137.2L267.4,138L267.4,138.7L267.3,139.3L266.8,140L266.1,140.4L264.9,140.8L263.4,141.7L262.5,142L262.2,142.4L262.1,143L262.3,143.7L262.3,144.5L262,145.4L261.4,146.1L260.6,146.5L260.5,147.2L260.3,147.4L259.7,147.7"/>
+<path class="borders" d="M362,120.3L361.6,120.2L361.1,120.6L361.8,121L362,121.2M362,128.9L361.9,129.1L361.2,132.4L361.4,135L361.6,136.2L362,136.1L362,136.1M362,155.7L362,155.7L361.3,155.8L359.1,155.4L358.2,156.2L358.4,159L358.5,162.6L357.6,164.9L354.8,169.1L353.9,170.9L353.5,172.1L353.5,173.2L354.2,175L354.9,176.7L354.5,177.8L352.9,178.4L351.7,177.4L351.1,175.6L348.4,173.2L349.3,171L349.1,170.4L344.9,169.6L343,168.1L340.3,165.4L339.7,164.2L339.5,160.2L339.3,159.2L338.9,158.8L337.8,158.9L336.2,160.4L334.8,162.6L331.8,165.2L331.5,165.7L332.8,168L332.7,168.8L330.5,172.7L330.1,173.9L327,176.4L325.5,177.4L320.9,176L319.6,175.9L317.6,177.2L314.8,178.4L310.3,179.8L308.4,179.1L307.6,178.4L307.2,177.3L305.9,175.4L304.5,174.4L303.5,173.1L302.2,171.8L301.4,170.7L302.2,166.9L301.4,165.7L300.9,163.9L301,162.6L300.6,162.3L296.4,161.8L292.9,162.3L290.6,163.6L288.6,165.7L288.4,166.2L288.6,166.6L289.7,168.4L288.1,170.5L285.5,172.1L283.6,172.4L282.8,172.1L282.7,170L284.2,169.2L285.5,167.7L285.8,165.7L285.9,164.3L284.5,162.7L284.6,161.7L285.4,159.7L285.8,158L286.5,156.5L289.2,153.9L292,151.4L292.2,148.8L292.3,145.6L292.7,144.8L296.5,142.8L297.3,142L297.8,140.9L300.6,137.2L303.5,133.6L304,132.4L304.4,131.6L304.4,131.1L304,130.7L302.5,130.5L302,129.4L303.4,127.3L305.3,126L307.2,125.9L308,126.3L307.9,127L308.8,127.6L310.2,127.8L311.9,127.4L313.7,126.6L314.6,124.8L315.1,123.4L317.8,121.7L319.7,122.3L324.9,122.2L328.6,121.5L330.9,120.3L333.9,120.1L335.8,120.5L336.2,120.4L336.7,120.2L337.2,119.7L339,119.1L339.2,118.6L339.1,118.2L338.8,118L336.5,118.4L335.6,118.1L335.4,117.2L336,115.7L337.5,114.4L338.9,114L339.9,114.2L342.6,116.3L343.2,116.3L343.6,115.9L344,115.6L345,115.9L346,117.3L346.1,117.5L351.7,116.5L352.9,116.4L356.9,118.5L361.1,120.6M97.4,263.4L97.5,264.6L98.2,266.2L99.3,266.9L101.3,267.8L102.9,268L105.1,268.5L106.5,269.5L106.6,270.9L106.1,272.5L105.1,274L104.5,275.1L105,275.8L105.8,276.3L106.6,276.5L107.2,276.3L107.7,275.5L108.5,274.4L109,274.3L108.9,274.9L109.3,275.7L111.9,277.1L117.8,279.8L120.1,279.9L122,280.3L122.5,281.3L126.2,285.2L127.1,285.1L128.7,285.2L130.8,285L132.2,284.4L133.2,284.5L134.2,285.3L135.5,285.9L137.1,287.2L138.5,288.8L139.5,289.3L145.4,288.5L146.8,289.4L148.2,289.5L149.8,289.3L153.2,289.8L156.1,289.8L156.4,289.4L156.7,286.1L157.2,284.9L157.8,284.6L159.5,284.8L165.5,286.9L168,288.2L170.3,289.2L172.5,289.4L173.8,290.1L175.7,293.3L175.4,294.9L175.5,295.4L175.8,296.6L175.7,297.8L176.2,298.6L177.1,298.7L178.3,298.5L179.6,298L181.9,296.7L182.6,296.5L186.4,298.1L188.1,299.1L188.7,300.2L189.5,301.4L190.7,301.5L192.3,300.4L194.9,299.3L199.2,300.3L204,301.8L205.9,302M206.1,302L206.1,301.3L206.5,300.2L207.3,299.7L208.5,299.5L210.2,299L212,298.1L213.9,297.7L216,298.3L218.5,298.9L220,298.9M278.7,-2L277.3,1.7L277.3,2.6L277.5,3.2L278.2,3.4L278.7,3.7L278.6,4.3L275.1,7.5L274.7,8L273.2,7.9L273,8.5L273.2,9.3L273.9,10L275.2,10.3L276.3,11L277.3,12.5L276.3,17.7L274.1,17.8L272.1,17.8L271.1,17.7L269.9,17.2L269.3,16.2L268.6,15L268.8,14.1L270.6,11.9L270.9,11.3L270.6,11L270.8,10L272.1,6.6L272.2,5.3L271.6,4.4L270.5,3.9L267.5,3L266,1.7L265.3,0.5L264.6,0.2L263.6,0.7L261.2,1.2L259.1,0.7L256.6,-1.5L256.5,-2M241.9,-2L242,-1.8L241.3,-1.4L239.8,-1.6L238.9,-2M238.1,-2L237.9,-1.1L237.2,0.4L234.4,2.4L231.5,3.8L230,3.7L228.9,3L228.4,2.3L226.8,1.6L224.7,1.3L223.3,2.1L222.4,2.8L221.6,2.7L221,2.1L220.4,1.2L219.8,-1.7M320.6,251.4L320.6,250.7L321,250.3L321.4,250.1L321.9,250.3L322,250.7M361.9,129.1L362,129.3M323.3,250.1L323.1,248.2L322.8,246.8L323.7,245.2L325.2,243.3L326.5,240.8L327,239.2L326.7,238.1L325.9,236.5L325,236.4L319.6,238.1L318.3,237.9L314.1,236L309.6,233.6L307.8,231.8L307.1,230L307.5,228.8L307.1,227.6L306.1,226.1L306.8,224.2L308,221.9L308.6,220.3L309.7,219.9L310.2,218.9L309.1,215.2L308.6,214.7L307.8,214.3L306.6,214.3L304.5,213.6L302.9,212.4L302.4,210.7L301.6,209.1L300.1,207.6L300,206L301.4,205L303.5,204.9L304.9,205.1L308.1,202.3L309.3,202L310.4,201.3L311,197.6L311.7,196.5L311.8,195.8L311.1,195.1L308.3,192.6L306.9,190L304.9,187.2L303,185.9L302.6,184.9L302.5,183.6L302.8,182.4L305.8,180.5L307.6,178.4M317.8,121.7L316.6,121.3L315.7,119.1L315.7,115.8L316.6,111.3L316.7,108L316,106L316.5,102.8L318.3,98.5L319.3,94.1L319.7,89.5L320.4,86.4L322.1,84.2L326.1,78L326.5,77.6L326.1,74.7L324.9,74.3L323.1,73.6L318.6,72.9L314.5,72.5L312.5,71.8L310.7,69.7L309.7,69.7L307.8,70.6L305.3,71.3L303.5,71L302.3,71.1L301.7,71.6L301.4,71.3L300.8,69.4L299.8,68.9L298.4,68.6L297.4,68.8L296.8,69.8L295.9,70.5L295,70.3L292,66.1L291.2,65.2L290.9,64.3L290.2,62.7L288.4,61.2L286.7,60.8L286,61M279.9,38.8L279.8,39.7L279.9,41.7L280.6,43.7L282.1,45.6L283.3,47L284.8,48.1L287.5,49.1L288.5,49.2L288.7,50.7L288.6,52.3L287.8,53.2L287,54.5L286.4,56L285.9,59L286,61L284.4,60.3L283.6,59.7L282.3,59.6L281,60.1L280.1,61.2L278.7,61.6L277.5,61.3L276.8,60.6L276.2,60.2L274.5,59.8L273.7,58.7L274.3,58.2L274.7,57.3L275,56.1L275.5,55L273.8,52.2L273.3,51.2L271.9,49.7L271.9,48.9L272.2,48L272.1,47.4L272.2,45.9L273,44.5L273.6,42.7L274.6,40.3L276.9,37.4L278.5,37.7L279.3,37.7L279.8,38.7L279.9,38.8L280,38.1L281,35L284.9,31.9L284.4,29.2L284.2,27.4L283.1,26.4L281.2,26L280.6,25.3L280.4,24.4L281.7,22.7L279.9,21.4L279.1,20L276.6,18.4L276.3,17.7M182.6,296.5L182.8,295.7L183.5,294.7L183.5,294L182.7,293.1L179.2,292L177.6,291.7L176.5,292.4L175.7,293.3M202.5,7.8L202.7,9.4L203.5,11.5L204.1,12.6L203.6,14L204,15.3L205.5,17.4L207.5,19.5L209.2,20.8L209.7,20.6L210.9,20.3L213,18.9L214.9,18.5L215.9,19.5L216.4,20L217.6,22.4L217.9,24.8L218.5,26.7L219.4,27.5L222.8,27.8L225.4,28.5L226.1,29.1L227,33.6L227.5,34.2L228.2,33.7L228.8,33L229.6,32.8L231.1,33.1L233.1,33.1L235.1,33.5L238,36L237.9,36.9L237.4,38.3L237.2,39.5L237.7,40L238.5,41.1L238.3,42.5L237.6,43.5L237.4,44.4L237.4,44.9L237.6,45.3L238.3,45.6L242.4,46L246.2,45.4L248.6,44L248.9,42.5L249.6,40.8L250.9,39.3L251.9,38.8L252.9,39.3L251.5,45.3L252.6,46.8L252.9,49.1L253.4,51L254.7,50.9L256.4,51.2L257.6,52L259,53.1L261,54.1L262.4,54.4L262.9,55.3L264.1,56.3L265.9,58.4L267.6,59.8L268.4,59.8L269.8,59.2L272,58.7L273.7,58.7"/>
+<path class="coast" d="M102.9,67.8L103,69.5L102,69.9L101.3,69.3L99.6,69.2L98,69.4L98.6,66.4L101.5,67L102.9,67.8M92.7,58.4L91.7,60.6L89.8,59.7L89.6,59.1L92,58L92.5,58L92.7,58.4M165.1,-2L168.1,-1.3L170.6,-1.3L175.8,-1.7L178.2,-1.6L179.1,-1.3L179.1,0.5L178.7,4.8L178,5.7L171.1,9.2L169.6,11.8L169.2,13.3L165.3,13L163.4,14.5L160.1,15.6L157.6,16.7L155.1,18.1L153,18.4L144.4,16.4L139.2,16.4L132,17.6L130.2,17.3L127.5,15.8L124.8,14.6L121.6,14.1L118.8,12.6L120.4,15.3L116.4,17.5L114.6,17.9L112.8,17.8L108.9,18.2L105.4,17.7L105.9,19.5L106.7,21.1L106,21.7L105.1,21.8L98.5,20.2L97.5,20.4L96.7,21.4L94.2,20.7L92,18.8L89.5,17.4L87,16.6L84.8,16.7L76,18.9L74.1,21.6L72.9,25.6L71.4,29L69.1,31.6L66.7,31.8L64.5,29.7L60.4,27.3L59,25.7L58.5,25.6L58,26.1L56.3,26.6L54.5,26.4L51.7,26.8L46.8,28L44.8,29L40.4,31.9L39.5,32.6L37.7,35.7L35.3,36.1L33.4,33.8L31.1,32.8L28.6,33.3L26.9,34.2L26.3,33.3L26.4,31.5L28.5,29.5L33.6,28.3L38.2,24.4L40.6,22L41.5,20.6L42.7,19.8L44,19.6L44.9,18L51.3,12L52,10.6L52.5,8L53.2,5.5L58.2,4.2L60.9,-1L61.5,-1.4L68.3,-1.9L73.2,-1.4L78,0L80.5,0.3L83.1,0.1L85.1,-1.3L85.7,-2M126,19.9L124.1,21L123.5,22.3L123,22.8L121.8,23.1L120.7,23.1L116.4,20.2L115.3,20.2L116.3,19L119.2,18.1L120.8,16.9L124.4,18.3L126,19.9M354,302L354,302L353.3,300.1L354.3,298.7L355.8,297.7L354.5,295.8L353.6,295.8L353,295.5L353.4,294.5L354.6,293L356.1,288.7L358.4,286.6L362,285.2M116.2,180.4L115.3,183.3L113.9,180.5L111.9,178L111.6,175.9L111.6,175.3L114,177L116.2,180.4M362,228L356.3,226L352.3,225.9L347.4,228.8L341.7,236.3L337.1,244L335.4,245.6L329.1,248.5L323.3,250.1L322,250.7L320.6,251.4L317.9,252.8L315.9,254.1L308.7,262L305.2,264.4L304.6,265.7L304,268.2L302,270.4L300.1,271.5L295.6,272.8L291,275.2L288.9,274.4L283.5,274.7L280,272.2L273.4,270.7L271.1,266.9L268.2,266.8L266.3,267L265.1,266.4L264.7,265.1L264.7,263.8L262.7,264.4L261.1,264.5L260.2,265.1L259.5,265.7L258.6,265.3L258.1,265.5L258.2,266.2L256.2,266.5L254.2,266L248.8,264.2L248,263.9L244.3,263.2L242.8,262.4L241.5,260.4L240.5,259.9L240,259.5L236.6,260.5L235.4,262.1L233.6,264L220.9,273.2L218.5,277L215.8,282.6L215.7,285.2L216.9,293.5L219.6,297.8L220,298.9L220.6,301L221.9,301.8L222,302M-2,248L-0.4,247.7L3.8,250.2L12.2,252L17.1,254.3L31,258.4L36.2,258.9L43.5,257.9L46.6,256.9L49.4,257.9L53.6,256.8L55.6,257.2L58,259.4L66.9,262.8L69.4,260.7L71.2,260.2L77.6,262.1L84,265.3L87.4,265.7L92.5,265.2L96.6,263.6L97.4,263.4L101.4,262.6L105.2,258.5L109.4,243.4L112.6,225.4L114.5,222.1L116.8,221.2L115.1,218.7L113.9,219.8L113.4,221.2L112.8,221.8L114.9,205.3L116.1,199.2L118,192.9L121.2,195.6L123.8,198.3L125.1,200.6L126.6,208.1L127.8,209.7L129.8,211.3L129.1,209.6L127.7,208.2L126,198.2L124.7,195.4L122.7,193L116.2,187.7L115.5,186.7L115.3,184.8L117.6,185L119.4,186L119.2,185L118.7,183.8L118,179.8L117.7,170.4L117.9,168.7L117.6,166.7L115.5,166.2L113.8,166L112,165.2L103.1,159.2L100.4,153.3L97.4,149L96.7,147.1L96.9,145.2L98.8,141.4L97.5,138.8L96.1,138.3L94.9,137L96.2,135L97.2,133.7L99,133.5L101.4,134.1L103.7,135.4L105.4,135.8L100.3,132.3L91.6,132.9L89.8,132.4L88.3,131.6L87.8,129.2L89.1,128.2L90.3,126.3L89.2,124.9L87.6,124.3L85.1,124.2L82.7,124.4L82.2,123.6L83.7,121.5L82.5,120.6L80.9,120.9L78.5,121.2L76.2,120.4L74.3,117.8L72.9,117.7L71.9,117.9L70.5,116.9L69,116.5L67.9,116.7L66.6,115.2L58,111.7L54.2,111.1L50.6,112L48.7,111.5L47.4,109.5L46.6,106.4L41.1,103.5L42.4,102L45,101.9L48.1,101.1L49.3,99.8L47.1,98L45.4,97.4L44.7,96.8L44.1,95.3L45.2,94.7L45.9,95.1L48,95.6L51.6,95.5L50.4,94L49,93.5L48.4,93.1L45.6,92.7L44.2,93.1L41.2,92.6L40.6,90.9L40.5,89.6L41.7,86.7L46.1,84.4L56.8,82.3L61.2,83.1L64.4,82.8L68.3,81.3L70,79.8L75.4,79.2L80.3,81.3L84.6,87.9L86.7,90.2L92.3,86.9L100.5,87.4L102,89.6L102.8,87.9L104.4,85.9L105.5,86.9L106.1,88.2L114.7,88.3L116,88L113.8,86.4L112.1,82.7L112.4,69.3L110.2,65.5L107.9,59.4L106.8,55.8L106.8,54.6L107.3,52.9L110.6,53.1L113,53.7L118,52.6L120.3,53.7L120,56.4L120.5,59.9L121.3,61.6L122.4,63.6L126.3,63.6L130.6,64.9L135.9,65.2L143.6,67.5L147,66.4L150.3,64.1L156.5,62.7L157,61.9L153.5,62.2L150.2,60.6L149.9,58.9L150.3,57.4L151.7,54.1L161.2,48.9L167.8,47.4L174.8,44.6L178.4,41.7L180.7,37.7L181.5,36.9L182.4,36.2L181.5,34.7L182.3,19.8L183,17.1L184.3,14.9L186.4,13.2L189.5,11.4L200.8,8.8L202.5,7.8L211.6,2.1L217.1,-0.8L219.8,-1.7L220.5,-2M226.3,-2L227.5,-1.6L231,-1.2L232.6,-2M234.8,-2L235.8,-1.4L237.3,-2"/>
+</g>
+<g class="labels" aria-hidden="true"><text class="country" x="188.7" y="91.7" text-anchor="middle">France</text><text class="country" x="76.4" y="284.3" text-anchor="middle">Spain</text><text class="country country-sm" x="331.8" y="229.9" text-anchor="end">Italy</text><text class="country country-sm" x="320.5" y="37.1" text-anchor="end">Germany</text><text class="water" x="52" y="186.6" text-anchor="middle">Atlantic</text><text class="water" x="254.1" y="287.5" text-anchor="middle">Mediterranean</text></g>
+<path class="route" d="M115.2 140.1Q181.9 166.5 252.6 154.4Q260.9 147.1 258.4 136.3Q237.3 172.3 257 209" mask="url(#route-reveal)"/>
+<a class="pin" href="#course-1" data-course="1" aria-label="Course I: Muscadet"><g transform="translate(115.2 140.1)"><circle class="pin-hit" r="28" cy="-6"/><rect class="pin-hit-label" x="5" y="-33" width="89" height="19"/><path class="glass-wine" d="M-4.6 -10.6c.3 2.6 1.9 3.9 4.6 3.9s4.3-1.3 4.6-3.9z"/><path class="glass-line" d="M-4.9 -15.2c-.5 4.9.6 8.3 4.9 8.4 4.3-.1 5.4-3.5 4.9-8.4M0 -6.8v5.6M-3.4 -.9c2.2-.7 4.6-.7 6.8 0"/><text class="pin-label" x="7" y="-19"><tspan class="pin-num">I</tspan><tspan class="pin-place" dx="4">Muscadet</tspan></text></g></a>
+<a class="pin" href="#course-2" data-course="2" aria-label="Course II: Montagny"><g transform="translate(252.6 154.4)"><path class="pin-hit" d="M28 -6L27.8 -2.3L27 1.2L25.9 4.7L24.2 8L22.2 11L19.8 13.8L17 16.2L14 18.2L13.9 18.3L-9.7 20.2L-10.7 19.9L-14 18.2L-17 16.2L-19.8 13.8L-22.2 11L-24.2 8L-25.9 4.7L-27 1.2L-27.8 -2.3L-28 -6L-27.8 -9.7L-27 -13.2L-25.9 -16.7L-24.2 -20L-22.2 -23L-20.8 -24.7L27.8 -9.1Z"/><path class="pin-hit-label" d="M-104 -19L-6 -19L-6 0L-104 0Z"/><path class="glass-wine" d="M-4.6 -10.6c.3 2.6 1.9 3.9 4.6 3.9s4.3-1.3 4.6-3.9z"/><path class="glass-line" d="M-4.9 -15.2c-.5 4.9.6 8.3 4.9 8.4 4.3-.1 5.4-3.5 4.9-8.4M0 -6.8v5.6M-3.4 -.9c2.2-.7 4.6-.7 6.8 0"/><text class="pin-label" x="-8" y="-5" text-anchor="end"><tspan class="pin-num">II</tspan><tspan class="pin-place" dx="4">Montagny</tspan></text></g></a>
+<a class="pin" href="#course-3" data-course="3" aria-label="Course III: Fixin"><g transform="translate(258.4 136.3)"><path class="pin-hit" d="M28 -6L27.8 -2.3L27 1.2L25.9 4.7L24.2 8L23.3 9.4L-27.9 -7L-27.8 -9.7L-27 -13.2L-25.9 -16.7L-24.2 -20L-22.2 -23L-19.8 -25.8L-17 -28.2L-14 -30.2L-10.7 -31.9L-7.2 -33L-3.7 -33.8L0 -34L3.7 -33.8L7.2 -33L10.7 -31.9L14 -30.2L17 -28.2L19.8 -25.8L22.2 -23L24.2 -20L25.9 -16.7L27 -13.2L27.8 -9.7Z"/><path class="pin-hit-label" d="M6 -19L86 -19L86 0L6 0Z"/><path class="glass-wine" d="M-4.6 -10.6c.3 2.6 1.9 3.9 4.6 3.9s4.3-1.3 4.6-3.9z"/><path class="glass-line" d="M-4.9 -15.2c-.5 4.9.6 8.3 4.9 8.4 4.3-.1 5.4-3.5 4.9-8.4M0 -6.8v5.6M-3.4 -.9c2.2-.7 4.6-.7 6.8 0"/><text class="pin-label" x="8" y="-5" text-anchor="start"><tspan class="pin-num">III</tspan><tspan class="pin-place" dx="4">Fixin</tspan></text></g></a>
+<a class="pin" href="#course-4" data-course="4" aria-label="Course IV: Saint-Joseph"><g transform="translate(257 209)"><path class="pin-hit" d="M28 -6L27.8 -2.3L27 1.2L25.9 4.7L24.2 8L22.2 11L19.8 13.8L17 16.2L14 18.2L10.7 19.9L7.2 21L3.7 21.8L0 22L-3.7 21.8L-7.2 21L-10.7 19.9L-14 18.2L-17 16.2L-19.8 13.8L-22.2 11L-24.2 8L-25.9 4.7L-27 1.2L-27.8 -2.3L-28 -6L-27.8 -9.7L-27 -13.2L-25.9 -16.7L-24.2 -20L-22.2 -23L-19.8 -25.8L-17 -28.2L-14 -30.2L-10.7 -31.9L-7.2 -33L-3.7 -33.8L0 -34L3.7 -33.8L7.2 -33L10.7 -31.9L14 -30.2L17 -28.2L19.8 -25.8L22.2 -23L24.2 -20L25.9 -16.7L27 -13.2L27.8 -9.7Z"/><path class="pin-hit-label" d="M-140 -19L-6 -19L-6 0L-140 0Z"/><path class="glass-wine" d="M-4.6 -10.6c.3 2.6 1.9 3.9 4.6 3.9s4.3-1.3 4.6-3.9z"/><path class="glass-line" d="M-4.9 -15.2c-.5 4.9.6 8.3 4.9 8.4 4.3-.1 5.4-3.5 4.9-8.4M0 -6.8v5.6M-3.4 -.9c2.2-.7 4.6-.7 6.8 0"/><text class="pin-label" x="-8" y="-5" text-anchor="end"><tspan class="pin-num">IV</tspan><tspan class="pin-place" dx="4">Saint-Joseph</tspan></text></g></a>
+</svg>
+</figure>
+<ol class="legend">
+<li><a href="#course-1"><span class="lg-num">I</span><span class="lg-name">Jérôme Bretaudeau</span><span class="lead" aria-hidden="true"></span><span class="lg-where">Muscadet</span></a></li>
+<li><a href="#course-2"><span class="lg-num">II</span><span class="lg-name">Domaine Cottenceau</span><span class="lead" aria-hidden="true"></span><span class="lg-where">Montagny</span></a></li>
+<li><a href="#course-3"><span class="lg-num">III</span><span class="lg-name">Domaine Gilbert et Christine Felettig</span><span class="lead" aria-hidden="true"></span><span class="lg-where">Fixin</span></a></li>
+<li><a href="#course-4"><span class="lg-num">IV</span><span class="lg-name">Domaine Rouchier</span><span class="lead" aria-hidden="true"></span><span class="lg-where">Saint-Joseph</span></a></li>
+</ol>
+</section>
+
+<article class="course" id="course-1" data-n="1" aria-labelledby="course-1-title">
+<header class="course-head">
+<p class="numeral" aria-hidden="true">I</p>
+<h2 class="course-label" id="course-1-title"><span class="vh">Course I: </span><span class="pour">To begin</span><span class="style">White</span></h2>
+<svg class="illo" viewBox="0 0 130 112" role="img" aria-label="A glass of white wine beside an abalone shell"><g filter="url(#wobble-ink)"><path class="wine-fill pale" d="M19.6 31c7.6 1.6 17.2 1.4 24.8-.3 0 8.6-1.9 15.6-5 19.3-2 2.4-4.6 3.5-7.4 3.5s-5.4-1.1-7.4-3.5c-3.2-3.8-5-10.6-5-19Z"/><path class="draw" pathLength="1" style="--i:0" d="M18 16c-1.8 15 .6 30 5.6 36 2.2 2.6 5 3.8 8.4 3.8s6.2-1.2 8.4-3.8c5-6 7.4-21 5.6-36"/><path class="draw" pathLength="1" style="--i:1" d="M18 16c9.2-1.6 18.8-1.6 28 0"/><path class="draw" pathLength="1" style="--i:1" d="M19.6 31c7.6 1.6 17.2 1.4 24.8-.3"/><path class="draw" pathLength="1" style="--i:2" d="M32 55.8c-.5 12.4.4 24.8-.1 36.4"/><path class="draw" pathLength="1" style="--i:3" d="M21 97.5c4.5-3.6 17.4-3.8 22.4.1 1.1 1-4.7 2.6-11.3 2.6-6.5 0-12.2-1.5-11.1-2.7Z"/><path class="draw" pathLength="1" style="--i:4" d="M58 93c-2.4-10.4 6-19.4 20.4-21.4 15-2.1 32.8.8 40.6 8.8 6 6.2 3 14-6 16.8-14 4.2-35.2 5-47.4 2-4.6-1.2-6.8-3.4-7.6-6.2Z"/><path class="draw" pathLength="1" style="--i:5" d="M112.6 88.4c-2.4-3.6-8.4-3.4-10 .4-1.6 3.6 1.6 7.2 5.4 6.6 3.6-.6 5.2-4.2 2.6-6.8-1.6-1.6-4.2-1-4.6.8"/><path class="draw" pathLength="1" style="--i:6" d="M64 97c9.6-7.6 25.4-11.2 38.6-9.6M62.2 90.4c8.8-6 21.8-9.2 34-8.8"/><circle class="draw" pathLength="1" style="--i:7" cx="67" cy="80.6" r="1.5"/><circle class="draw" pathLength="1" style="--i:7" cx="75.4" cy="77.6" r="1.6"/><circle class="draw" pathLength="1" style="--i:8" cx="84.4" cy="76" r="1.6"/><circle class="draw" pathLength="1" style="--i:8" cx="93.6" cy="75.8" r="1.5"/><circle class="draw" pathLength="1" style="--i:9" cx="102.4" cy="77.4" r="1.4"/></g></svg>
+</header>
+<div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">鯪魚肉釀豆卜</span><span class="dish-en">Fried tofu puffs stuffed with dace fish paste</span></li><li><span class="dish-zh" lang="zh-Hant-HK">冰鎮鮑魚</span><span class="dish-en">Chilled abalone</span></li></ul></div>
+<section class="wine-card" id="wine-bretaudeau-clos-des-bouquinardieres-2023" aria-labelledby="name-bretaudeau-clos-des-bouquinardieres-2023">
+<p class="producer">Jérôme Bretaudeau</p>
+<h3 class="wine" id="name-bretaudeau-clos-des-bouquinardieres-2023">Muscadet “Clos des Bouquinardières”</h3>
+<p class="meta"><span class="vintage">2023</span><span class="where">Muscadet, France</span></p>
+<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“Hillside Muscadet from gabbro-rich soils, certified organic since 2009.”</p></div>
+<p class="story taste"><span class="runin">What to taste for</span> Light and dry, with lemon, a salty edge and a long, stony finish.</p>
+<p class="story taste pairing-reason"><span class="runin">Why this pairing</span> Lean, salty and lemony, it does what a squeeze of lemon does: lifts the fried tofu puffs and keeps the cold abalone tasting of the sea.</p>
+<p class="story"><span class="runin">The place</span> This Muscadet is all Melon de Bourgogne, from hillside parcels near Nantes. Their silty, sandy soils are rich in gabbro, an igneous rock.</p>
+<p class="story"><span class="runin">The maker</span> Jérôme Bretaudeau took over his father’s two hectares in 2001 and now makes wine from eleven grape varieties. He ferments with wild yeasts only and bottles unfined. La Revue du Vin de France named him Winemaker of the Year 2025.</p>
+<div class="sayit"><p class="label">Say it</p><dl><div><dt>Jérôme Bretaudeau</dt><dd>zhay-ROHM bruh-toh-DOH</dd></div><div><dt>Muscadet</dt><dd>mew-skah-DAY</dd></div><div><dt>Clos des Bouquinardières</dt><dd>kloh day boo-kee-nar-DYAIR</dd></div></dl></div>
+<details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Melon de Bourgogne 100%</dd><dt>Appellation</dt><dd>Muscadet Sèvre et Maine</dd><dt>Vineyard</dt><dd>Several hillside parcels, planted in the 1970s and 1990s; certified organic since 2009, now converting to biodynamics</dd><dt>Soils</dt><dd>Silt and sand, rich in gabbro rock</dd><dt>Made</dt><dd>Lightly pressed and settled cool; wild yeasts only; a little sulphur before bottling; unfined and only lightly filtered</dd></dl><p class="nerd-source">From the importer’s tech sheet and website.</p></div></details>
+<a class="to-map" href="#map">↑ map</a>
+</section>
+</article>
+
+<article class="course" id="course-2" data-n="2" aria-labelledby="course-2-title">
+<header class="course-head">
+<p class="numeral" aria-hidden="true">II</p>
+<h2 class="course-label" id="course-2-title"><span class="vh">Course II: </span><span class="pour">Next</span><span class="style">White</span></h2>
+<svg class="illo" viewBox="0 0 130 112" role="img" aria-label="A steaming claypot with its lid on, beside a glass of white wine"><g filter="url(#wobble-ink)"><path class="draw" pathLength="1" style="--i:0" d="M10.4 70.6c1 16.8 13 26.6 29.6 26.6s28.6-9.8 29.6-26.6"/><path class="draw" pathLength="1" style="--i:1" d="M7.6 70.2c21.4-1.4 43.4-1.4 64.8 0"/><path class="draw" pathLength="1" style="--i:2" d="M14.2 66.4c3-10.2 13-16.4 25.8-16.4s22.8 6.2 25.8 16.4c-17-1.2-34.6-1.2-51.6 0Z"/><path class="draw" pathLength="1" style="--i:3" d="M35.6 50.6c-.4-4.4 9.2-4.6 8.8 0"/><path class="draw" pathLength="1" style="--i:3" d="M69.4 77.6c5-.6 8 2 7.6 5.2-.4 3-3.8 4.8-8.6 3.8"/><path class="draw" pathLength="1" style="--i:4" d="M38 96.8c-.4 2.4.4 4 2.2 4.6M24.6 92.6l-2 4.2M55.4 92.6l2 4.2"/><path class="draw" pathLength="1" style="--i:5" d="M28 40c-4.2-4.6 4.2-8.4 0-13.6s4.2-8.6.4-13.4M44.6 38c-4-4.4 4-8 0-13s4-8.2.4-12.6"/><path class="wine-fill pale" d="M87.3 37c8.4 1.8 19 1.5 27.4-.3.4 9-2.3 16.6-6.5 20.2-2.1 1.8-4.6 2.7-7.2 2.7s-5.1-.9-7.2-2.7c-4.3-3.7-7-11.1-6.5-19.9Z"/><path class="draw" pathLength="1" style="--i:6" d="M86 24c-1.4 14 1.6 27.5 7.2 32.6 2.2 2 4.8 3 7.8 3s5.6-1 7.8-3c5.6-5.1 8.6-18.6 7.2-32.6"/><path class="draw" pathLength="1" style="--i:7" d="M86 24c9.6-1.7 20.4-1.7 30 0"/><path class="draw" pathLength="1" style="--i:7" d="M87.3 37c8.4 1.8 19 1.5 27.4-.3"/><path class="draw" pathLength="1" style="--i:8" d="M101 59.6c-.5 12.4.4 24.8-.1 36.4"/><path class="draw" pathLength="1" style="--i:9" d="M90 100.5c4.5-3.6 17.4-3.8 22.4.1 1.1 1-4.7 2.6-11.3 2.6-6.5 0-12.2-1.5-11.1-2.7Z"/></g></svg>
+</header>
+<div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">蝦多士</span><span class="dish-en">Deep-fried shrimp toast</span></li><li><span class="dish-zh" lang="zh-Hant-HK">薑蔥焗生蠔</span><span class="dish-en">Scallion and ginger oysters claypot</span></li></ul></div>
+<section class="wine-card" id="wine-cottenceau-les-vignes-longues-2022" aria-labelledby="name-cottenceau-les-vignes-longues-2022">
+<p class="producer">Domaine Cottenceau</p>
+<h3 class="wine" id="name-cottenceau-les-vignes-longues-2022">Montagny 1er Cru “Les Vignes Longues”</h3>
+<p class="meta"><span class="vintage">2022</span><span class="where">Montagny, France</span></p>
+<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“Premier cru Chardonnay from 15-year-old vines, aged 18 to 20 months.”</p></div>
+<p class="story taste"><span class="runin">What to taste for</span> Ripe lemon and white flowers, a touch of toast from the oak, and a firm, clean finish.</p>
+<p class="story taste pairing-reason"><span class="runin">Why this pairing</span> A rounder white for richer food. Its ripe lemon cuts the fried shrimp toast, and its weight stands up to the oysters, ginger and scallion.</p>
+<p class="story"><span class="runin">The place</span> The monks of Cluny favoured the wines of Buxy, today the heart of Montagny. Les Vignes Longues faces east, on clay and limestone.</p>
+<p class="story"><span class="runin">The maker</span> Maxime Cottenceau’s family grew vines in Buxy for generations and sold the grapes. In 2018 he began bottling from 2.8 hectares of their best plots; he now farms close to four hectares. He worked alongside Vincent Dureuil in Rully.</p>
+<div class="sayit"><p class="label">Say it</p><dl><div><dt>Domaine Cottenceau</dt><dd>doh-MEN koh-tahn-SOH</dd></div><div><dt>Montagny</dt><dd>mohn-tah-NYEE</dd></div><div><dt>Les Vignes Longues</dt><dd>lay veen LOHNG</dd></div></dl></div>
+<details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Chardonnay 100%</dd><dt>Appellation</dt><dd>Montagny Premier Cru</dd><dt>Vineyard</dt><dd>Les Vignes Longues, facing east; 15-year-old vines, in organic conversion since 2020</dd><dt>Soils</dt><dd>Clay and limestone</dd><dt>Made</dt><dd>Sorted, then pressed slowly for over three hours; 18 to 20 months in all, in 228-litre barrels (30% new) and the last 6 in tank; very little sulphur</dd></dl><p class="nerd-source">From the importer’s tech sheet and website.</p></div></details>
+<a class="to-map" href="#map">↑ map</a>
+</section>
+</article>
+
+<article class="course" id="course-3" data-n="3" aria-labelledby="course-3-title">
+<header class="course-head">
+<p class="numeral" aria-hidden="true">III</p>
+<h2 class="course-label" id="course-3-title"><span class="vh">Course III: </span><span class="pour">Into the reds</span><span class="style">Red</span></h2>
+<svg class="illo" viewBox="0 0 124 116" role="img" aria-label="A round glass of red wine beside a pineapple"><g filter="url(#wobble-ink)"><path class="wine-fill" d="M16.4 40c11.2 2 24 2 35-.2.8 7.6-1.4 13.8-5.4 17.4-3.4 3-7.6 4.4-12 4.4s-8.6-1.4-12-4.4c-4.2-3.8-6.2-10-5.6-17.2Z"/><path class="draw" pathLength="1" style="--i:0" d="M22.4 18c-8.4 12.4-9.6 30.4-.4 39.6 3.4 3.2 7.6 4.6 12 4.6s8.6-1.4 12-4.6c9.2-9.2 8-27.2-.4-39.6"/><path class="draw" pathLength="1" style="--i:1" d="M22.4 18c7.8-1.4 15.6-1.4 23.2 0"/><path class="draw" pathLength="1" style="--i:1" d="M16.4 40c11.2 2 24 2 35-.2"/><path class="draw" pathLength="1" style="--i:2" d="M34 62.2c-.5 11 .4 22-.1 32.4"/><path class="draw" pathLength="1" style="--i:3" d="M23 99.5c4.5-3.6 17.4-3.8 22.4.1 1.1 1-4.7 2.6-11.3 2.6-6.5 0-12.2-1.5-11.1-2.7Z"/><path class="draw" pathLength="1" style="--i:4" d="M77.6 81c-.2-14.4 6-25 14.4-25s14.6 10.6 14.4 25c-.2 13.6-6.4 21.6-14.4 21.6s-14.2-8-14.4-21.6Z"/><path class="draw" pathLength="1" style="--i:5" d="M81.4 67.4 103 89M78.4 79.6l18 18M88 59.6l17.6 17.6M100.6 61.6 79.4 82.8M105.6 74.4 86.8 93.2M95.6 57.8 81 72.4"/><path class="draw" pathLength="1" style="--i:6" d="M92 56c-1-8-4.6-13.8-10.2-17.6M92 56c-.4-9 1-17.2 4.2-24M92 56c2.2-7.2 6.2-12 12-15M92 56c-4-5-9.6-7.6-16-7.8M92 56c4-4.2 9.6-6.2 15.4-5.4"/></g></svg>
+</header>
+<div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">脆皮吊燒雞</span><span class="dish-en">Crispy roasted chicken</span></li><li><span class="dish-zh" lang="zh-Hant-HK">菠蘿咕嚕肉</span><span class="dish-en">Sweet and sour pork with pineapple</span></li></ul></div>
+<section class="wine-card" id="wine-felettig-clos-du-chapitre-2022" aria-labelledby="name-felettig-clos-du-chapitre-2022">
+<p class="producer">Domaine Gilbert et Christine Felettig</p>
+<h3 class="wine" id="name-felettig-clos-du-chapitre-2022">Fixin 1er Cru “Clos du Chapitre”</h3>
+<p class="meta"><span class="vintage">2022</span><span class="where">Fixin, France</span></p>
+<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“Pinot Noir from the cool northern end of the Côte de Nuits.”</p></div>
+<p class="story taste"><span class="runin">What to taste for</span> Slender and firm, with a mineral edge, bright acidity and fresh fruit.</p>
+<p class="story taste pairing-reason"><span class="runin">Why this pairing</span> Pinot Noir and roast chicken is a classic: fresh fruit against crisp skin. With the sweet and sour pork, the wine’s acidity keeps pace with the sauce.</p>
+<p class="story"><span class="runin">The place</span> Clos du Chapitre faces east above 300 metres, on stony soil with little clay. In 1920 Camille Rodier classed it as a grand cru.</p>
+<p class="story"><span class="runin">The maker</span> In 1965 Henri Felettig began with two hectares of vines and one of blackcurrants; his first own wine came in 1969. His son Gilbert now runs the domaine with his daughter Pauline, from Chambolle-Musigny.</p>
+<div class="sayit"><p class="label">Say it</p><dl><div><dt>Felettig</dt><dd>fell-uh-TEEG</dd></div><div><dt>Fixin</dt><dd>fee-SAN</dd></div><div><dt>Clos du Chapitre</dt><dd>kloh dew shah-PEETR</dd></div></dl></div>
+<details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Pinot Noir 100%</dd><dt>Appellation</dt><dd>Fixin Premier Cru</dd><dt>Vineyard</dt><dd>Clos du Chapitre, facing east above 300 metres</dd><dt>Soils</dt><dd>Stone rubble, little clay</dd></dl><p class="nerd-source">From the importer’s tech sheet and website.</p></div></details>
+<a class="to-map" href="#map">↑ map</a>
+</section>
+</article>
+
+<article class="course" id="course-4" data-n="4" aria-labelledby="course-4-title">
+<header class="course-head">
+<p class="numeral" aria-hidden="true">IV</p>
+<h2 class="course-label" id="course-4-title"><span class="vh">Course IV: </span><span class="pour">To finish</span><span class="style">Red</span></h2>
+<svg class="illo" viewBox="0 0 130 116" role="img" aria-label="A head of garlic and a clove beside a glass of red wine"><g filter="url(#wobble-ink)"><path class="draw" pathLength="1" style="--i:0" d="M21 98c-8.6-4.2-10.4-16.6-4.2-26.6 4-6.6 9.8-10 13.2-16.4 3.4 6.4 9.2 9.8 13.2 16.4 6.2 10 4.4 22.4-4.2 26.6-5.6 2.8-12.4 2.8-18 0Z"/><path class="draw" pathLength="1" style="--i:1" d="M30 55c-4.4 12.4-5.4 28.4-2 44M30 55c4.8 12.4 5.8 28.4 2.6 44M30 55c-9.2 9.6-13.4 25.6-11.6 40.4M30 55c9.4 9.6 13.4 25.4 11.4 40.6"/><path class="draw" pathLength="1" style="--i:2" d="M30 55.4c-.4-5.2.8-9.6 3.2-13.2M24.6 99.6l-2 4M30.2 100.4v4.8M35.8 99.6l2.2 4"/><path class="draw" pathLength="1" style="--i:3" d="M52.6 102c-2.6-6.2 1.2-12.6 6.4-14.6 3.2 4.2 4 10.2 1.8 14.4-2 2.2-6.2 2.4-8.2.2Z"/><path class="wine-fill" d="M85.3 36c8.6 1.6 19.4 1.4 27.4-.2.2 8-1.6 14.6-5 18-2.4 2.4-5.4 3.6-8.7 3.6s-6.3-1.2-8.7-3.6c-3.4-3.4-5.2-9.8-5-17.8Z"/><path class="draw" pathLength="1" style="--i:4" d="M84 16c-2 16 0 31.4 6 37.4 2.4 2.4 5.4 3.6 9 3.6s6.6-1.2 9-3.6c6-6 8-21.4 6-37.4"/><path class="draw" pathLength="1" style="--i:5" d="M84 16c9.6-1.6 20.4-1.6 30 0"/><path class="draw" pathLength="1" style="--i:5" d="M85.3 36c8.6 1.6 19.4 1.4 27.4-.2"/><path class="draw" pathLength="1" style="--i:6" d="M99 57c-.5 12.4.4 24.8-.1 37.4"/><path class="draw" pathLength="1" style="--i:7" d="M88 99.5c4.5-3.6 17.4-3.8 22.4.1 1.1 1-4.7 2.6-11.3 2.6-6.5 0-12.2-1.5-11.1-2.7Z"/></g></svg>
+</header>
+<div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">豉椒炒蟶子（煎米粉底）</span><span class="dish-en">Stir-fried razor clams with black bean and chilli sauce over a pan-fried crispy rice vermicelli base</span></li><li><span class="dish-zh" lang="zh-Hant-HK">蒜片牛柳粒</span><span class="dish-en">Diced beef tenderloin stir-fried with crispy garlic chips</span></li></ul></div>
+<section class="wine-card" id="wine-rouchier-la-chave-2021" aria-labelledby="name-rouchier-la-chave-2021">
+<p class="producer">Domaine Rouchier</p>
+<h3 class="wine" id="name-rouchier-la-chave-2021">Saint-Joseph “La Chave”</h3>
+<p class="meta"><span class="vintage">2021</span><span class="where">Saint-Joseph, France</span></p>
+<div class="tell"><p class="label">Tell the table</p><p class="tell-line">“Saint-Joseph Syrah from a hectare of granitic gneiss, planted in 1958.”</p></div>
+<p class="story taste"><span class="runin">What to taste for</span> Dark berries, black pepper and a smoky, savoury edge, with firm but fresh tannin.</p>
+<p class="story taste pairing-reason"><span class="runin">Why this pairing</span> Syrah’s black pepper and smoke meet the black bean and chilli on the razor clams. The beef and crisp garlic want its tannin.</p>
+<p class="story"><span class="runin">The place</span> Saint-Joseph runs about 50 km along the Rhône’s right bank, mostly on granite. Its old name, Vin de Mauves, turns up in Les Misérables.</p>
+<p class="story"><span class="runin">The maker</span> Martine and Christian Rouchier started in 2007 with 1.5 hectares and made 300 bottles that year. Certified organic from the 2013 vintage, they worked the vines with a horse until 2020. Now cover crops and mulch replace tilling.</p>
+<div class="sayit"><p class="label">Say it</p><dl><div><dt>Rouchier</dt><dd>roo-SHYAY</dd></div><div><dt>Saint-Joseph</dt><dd>san zhoh-ZEF</dd></div><div><dt>La Chave</dt><dd>lah SHAHV</dd></div></dl></div>
+<details class="nerd"><summary><span class="nerd-title">For the nerds</span><span class="nerd-hint">grapes, soil, how it’s made</span><span class="plus" aria-hidden="true"></span></summary><div class="nerd-body"><dl><dt>Grapes</dt><dd>Syrah 100%</dd><dt>Appellation</dt><dd>Saint-Joseph</dd><dt>Vineyard</dt><dd>One hectare facing west, planted in 1958; certified organic</dd><dt>Soils</dt><dd>Granitic gneiss</dd><dt>Made</dt><dd>Whole bunches and wild yeasts, two weeks in concrete; 16 to 18 months in neutral oak barrels 5 to 9 years old; unfined and unfiltered</dd></dl><p class="nerd-source">From the importer’s tech sheet and website.</p></div></details>
+<a class="to-map" href="#map">↑ map</a>
+</section>
+</article>
+
+<section class="finale" aria-labelledby="finale-title">
+<div class="finale-head">
+<div><h2 class="finale-title" id="finale-title">The kitchen’s encore</h2><p class="finale-intro">No wine with this one. The kitchen has the last word.</p></div>
+<svg class="illo" viewBox="0 0 124 112" role="img" aria-label="Stalks of gai lan in leaf beside a knob of ginger"><g filter="url(#wobble-ink)"><path class="draw" pathLength="1" style="--i:0" d="M38 102c2.4-22 5-43.4 11.4-62M51 102c-.4-24 1.8-46 5-66.4M63 102c-2-20.4-1.6-40.6 3.4-58.6"/><path class="wine-fill pale" d="M49.4 40c-13.6-7-26-3.6-30.4 6.4 10.4 4.4 22.2 2.6 30.4-6.4Z"/><path class="draw" pathLength="1" style="--i:1" d="M49.4 40c-13.6-7-26-3.6-30.4 6.4 10.4 4.4 22.2 2.6 30.4-6.4ZM49.4 40c-9 1.4-17.6 3.2-24 5"/><path class="wine-fill pale" d="M56 36c5.6-12.4 17.6-18.6 30-14.8-2 12.4-14 18.6-30 14.8Z"/><path class="draw" pathLength="1" style="--i:2" d="M56 36c5.6-12.4 17.6-18.6 30-14.8-2 12.4-14 18.6-30 14.8ZM56 36c8.6-5 17-9.4 24.6-12.4"/><path class="draw" pathLength="1" style="--i:3" d="M66.2 44c10.4-4.4 22.2-.4 26.4 9.8-10.4 4.2-22.4.4-26.4-9.8ZM66.2 44c8.4 2 15.4 5 21.4 8.6"/><circle class="draw" pathLength="1" style="--i:4" cx="56.6" cy="31.6" r="2.2"/><circle class="draw" pathLength="1" style="--i:4" cx="60.6" cy="28.4" r="1.8"/><circle class="draw" pathLength="1" style="--i:5" cx="49.6" cy="36.2" r="1.9"/><circle class="draw" pathLength="1" style="--i:5" cx="66.8" cy="40" r="1.8"/><path class="draw" pathLength="1" style="--i:6" d="M76 99.6c-4.4-6.4-.4-12.6 6-12.4 2-6.2 10.4-8.2 14.4-3 6.2-3 12.4 2 10.2 8.2 4.2 4.2 1 10.4-5 10.4-8 2-18.6 1.8-25.6-3.2Z"/><path class="draw" pathLength="1" style="--i:7" d="M88 87.4c1.2 4 .2 8-2 10.4M100.2 89c0 4-1 7.2-3.2 9.4"/></g></svg>
+</div>
+<div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">薑汁炒芥蘭苗</span><span class="dish-en">Stir-fried Chinese broccoli (gai lan) with ginger sauce</span></li></ul></div>
+</section>
+
+<footer class="closing">
+
+<p class="closing-line">Thank you for joining us.</p>
+<picture class="signoff"><img src="./assets/wordmark.png" width="536" height="423" alt="Tipsy Table"></picture>
+<a class="follow" href="https://www.instagram.com/TipsyTableHK/" rel="me">Follow us <span class="foot-handle">@TipsyTableHK</span></a>
+</footer>
+</main>
+<script>
+// Light the pins of the course being read, and draw each line drawing and the
+// map route once, when it first scrolls into view.
+(() => {
+  const root = document.documentElement;
+  const drawables = document.querySelectorAll('.illo, .map-svg');
+  if (!('IntersectionObserver' in window)) {
+    drawables.forEach((el) => el.classList.add('is-drawn'));
+    return;
+  }
+  const reading = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) root.dataset.course = e.target.dataset.n; });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+  document.querySelectorAll('.course').forEach((c) => reading.observe(c));
+  const draw = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-drawn');
+      draw.unobserve(e.target);
+    });
+  }, { threshold: 0.45 });
+  drawables.forEach((el) => draw.observe(el));
+})();
+</script>
+</body>
+</html>

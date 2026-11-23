@@ -40,7 +40,8 @@ const read = () => {
   const dishes = (el) => [...el.querySelectorAll('.dish-list li')].map((li) => [q('.dish-zh', li).textContent, q('.dish-en', li).textContent]);
   // The credit's English and Chinese, each in its own face as on the page (Chinese is never slanted).
   const runs = (el, latin, chinese) => [...el.childNodes].map((n) => [n.nodeType === 1 ? chinese : latin, n.textContent.trim()]).filter(([, t]) => t);
-  const credit = q('.credit-note').parentElement;
+  const credit = q('.credit-kitchen');
+  const note = q('.credit-note', credit);
   const [date, place = ''] = [...document.querySelectorAll('.dateline p span')].map((s) => s.textContent);
   return {
     title: button.dataset.title,
@@ -55,7 +56,7 @@ const read = () => {
     name: q('.mast-word img').alt,
     word: q('.mast-word img').getAttribute('src'),
     mark: q('.mast-host img').getAttribute('src'),
-    kitchen: [[S.label, q('dt', credit).textContent], ...runs(q('.credit-name', credit), S.credit, S.creditZh), ...runs(q('.credit-note', credit), S.cuisine, S.cuisineZh)],
+    kitchen: [[S.label, q('dt', credit).textContent], ...runs(q('.credit-name', credit), S.credit, S.creditZh), ...(note ? runs(note, S.cuisine, S.cuisineZh) : [])],
     courses: [...document.querySelectorAll('.course')].map((c) => ({
       numeral: q('.numeral', c).textContent,
       title: q('.pour', c).textContent,
