@@ -248,11 +248,22 @@ h1, h2, h3 { color: var(--heading); }
 .pin:focus-visible .pin-hit { stroke: var(--accent); stroke-width: 1.5; }
 
 .legend { list-style: none; margin: 0.625rem 0 0; padding: 0; }
-.legend a { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45em; min-height: 2.75rem; text-decoration: none; }
+/* One row per wine: numeral, maker, leader dots, place, on one baseline. A maker's name too long for the row
+   wraps inside its own column, so the numeral and the place stay on the row's first line; the dots keep
+   room for a few of themselves, so every row reads maker, dots, place. */
+.legend a { display: flex; align-items: baseline; gap: 0.45em; min-height: 2.75rem; padding-block: 0.5625rem; text-decoration: none; }
 .lg-num { flex: none; width: 2.25rem; font-family: var(--font-display); font-size: 1rem; color: var(--heading); }
 .lg-name { flex: 0 1 auto; min-width: 0; }
-/* A place that wraps under a long producer name keeps to the right, under the leader's end. */
-.lg-where { flex: 0 1 auto; min-width: 0; margin-left: auto; font-style: italic; }
+.legend .lead { min-width: 2.5em; }
+.lg-where { flex: none; margin-left: auto; font-style: italic; white-space: nowrap; }
+/* A narrow list (phones under 360 px, and the rail beside the map on laptops): the place goes under the maker
+   and the dots go, since a row that narrow has no room to lead the eye across. */
+@media (max-width: 359px), (min-width: 1120px) {
+  .legend a { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); gap: 0.125rem 0.45em; }
+  .legend .lead { display: none; }
+  .lg-name, .lg-where { grid-column: 2; }
+  .lg-where { margin-left: 0; white-space: normal; }
+}
 
 /* Courses */
 .course { margin-top: 4.75rem; scroll-margin-top: 0.625rem; }
