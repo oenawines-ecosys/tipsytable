@@ -723,8 +723,18 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 .order-form { display: none; }
 .js .order-form:not([hidden]) { display: block; }
 .order-total { margin: 1rem 0 0; font-family: var(--font-sc); font-size: 1.0625rem; letter-spacing: 0.05em; color: var(--heading); font-variant-numeric: lining-nums; }
+/* The minimum-order rule (volumes.json site.order.min_order_hkd): its line under the intro, upright where the
+   intro is italic, as a plain fact; under the list the wines and delivery lines step back to the tint so the
+   total, in the display face, carries the weight; the gap to free delivery in the hint's voice. */
+.order-rule { margin: 0.5rem 0 0; max-width: 40ch; font-size: 0.9375rem; color: var(--muted); font-variant-numeric: lining-nums; text-wrap: pretty; }
+.order[data-min] .order-total, .order-fee { color: var(--muted); }
+.order-fee { margin: 0.125rem 0 0; font-family: var(--font-sc); font-size: 1.0625rem; letter-spacing: 0.05em; font-variant-numeric: lining-nums; }
+.order-sum { margin: 0.375rem 0 0; font-family: var(--font-display); font-size: 1.25rem; color: var(--heading); font-variant-numeric: lining-nums; }
+.order-to-free { margin: 0.25rem 0 0; font-style: italic; font-size: 0.9375rem; color: var(--muted); }
 .order-who { margin-top: 1rem; }
 .order-who .label { display: block; }
+/* Two rows to start (17px text, its padding and border), growing with what is typed so no line scrolls out of sight. */
+.order-address { max-width: 24em; min-height: 4.25rem; field-sizing: content; resize: vertical; }
 .order .btn { margin-top: 1rem; text-decoration: none; }
 .order-send[aria-disabled="true"] { opacity: 0.45; cursor: default; }
 .order-hint, .order-status { margin: 0.625rem 0 0; font-style: italic; font-size: 0.9375rem; color: var(--muted); }
@@ -1051,9 +1061,10 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 <div class="dishes"><p class="label">On the table</p><ul class="dish-list"><li><span class="dish-zh" lang="zh-Hant-HK">薑汁炒芥蘭苗</span><span class="dish-en">Stir-fried Chinese broccoli (gai lan) with ginger sauce</span></li></ul></div>
 </section>
 
-<section class="order" id="order" aria-labelledby="order-title" data-slug="vol-2" data-number="85266553960" data-open-until="2026-12-13T00:00:00+08:00" data-total="{bottles} · HK${amount}" data-bottle="{n} bottle" data-bottles="{n} bottles" data-sent="WhatsApp has opened with your order. Press send there." data-message="Tipsy Table · Volume II order" data-total-line="Total: {bottles}, HK${amount}" data-name-line="Name: {name}">
+<section class="order" id="order" aria-labelledby="order-title" data-slug="vol-2" data-number="85266553960" data-open-until="2026-12-13T00:00:00+08:00" data-total="{bottles} · HK${amount}" data-bottle="{n} bottle" data-bottles="{n} bottles" data-sent="WhatsApp has opened with your order. Press send there." data-message="Tipsy Table · Volume II order" data-total-line="Total: {bottles}, HK${amount}" data-name-line="Name: {name}" data-min="1200" data-fee="150" data-delivery="Delivery · HK$150" data-delivery-free="Delivery · free" data-grand-total="Total · HK${total}" data-to-free="HK${amount} more and delivery is free." data-wines-line="Wines: {bottles}, HK${amount}" data-delivery-line="Delivery: HK$150" data-delivery-free-line="Delivery: free" data-grand-total-line="Total: HK${total}" data-address-line="Address: {address}">
 <h2 class="sec-title" id="order-title">Order the wines</h2>
 <p class="order-intro">Liked a bottle? Choose how many and send your order to us on WhatsApp.</p>
+<p class="order-rule">Minimum order HK$1,200. Below that, delivery is HK$150.</p>
 <p class="order-closed" hidden>Orders for this dinner have closed.</p>
 <ul class="order-list">
 <li class="order-row" data-wine="bretaudeau-clos-des-bouquinardieres-2023" data-price="500" data-line="Muscadet “Clos des Bouquinardières” 2023 (Bretaudeau)">
@@ -1071,8 +1082,13 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 </ul>
 <div class="order-form">
 <p class="order-total" aria-live="polite"></p>
+<p class="order-fee" hidden></p>
+<p class="order-sum" aria-live="polite" hidden></p>
+<p class="order-to-free" hidden></p>
 <div class="order-who"><label class="label" for="order-name">Put your name</label>
 <input class="submit-field" id="order-name" type="text" autocomplete="given-name" autocapitalize="words" autocorrect="off" spellcheck="false" maxlength="40" enterkeyhint="done"></div>
+<div class="order-who"><label class="label" for="order-address">Delivery address</label>
+<textarea class="submit-field order-address" id="order-address" rows="2" autocomplete="street-address" autocapitalize="words" autocorrect="off" spellcheck="false" maxlength="200"></textarea></div>
 <a class="btn btn-primary order-send" target="_blank" rel="noopener" aria-disabled="true" aria-describedby="order-hint">Send on WhatsApp</a>
 <p class="order-hint" id="order-hint">Choose at least one bottle.</p>
 <p class="order-status" aria-live="polite"></p>
@@ -1632,11 +1648,15 @@ h2.course-label { font-size: inherit; font-weight: 400; }
 // Submit's (the same key, and the two fields follow each other while both are on the page). Open until the
 // block's data-open-until (exclusive, an ISO instant with the +08:00 offset), checked on load against the
 // phone's clock; after it, only the title and the closed line show, and no link in the section leads anywhere.
+// With the minimum-order rule (data-min and data-fee, from volumes.json site.order): delivery is charged on
+// wines below the minimum and free from it, the delivery and total lines show once a bottle is chosen, and
+// a delivery address, asked but not required, is kept on the phone site-wide like the name and leaves it
+// only inside the WhatsApp link.
 (() => {
   const block = document.querySelector('.order');
   if (!block) return;
   const d = block.dataset;
-  const KEYS = { name: 'tipsytable:name', counts: `tipsytable:${d.slug}:order` };
+  const KEYS = { name: 'tipsytable:name', address: 'tipsytable:address', counts: `tipsytable:${d.slug}:order` };
   const MAX = 24;
 
   if (Date.now() >= Date.parse(d.openUntil)) {
@@ -1674,6 +1694,11 @@ h2.course-label { font-size: inherit; font-weight: 400; }
   const status = block.querySelector('.order-status');
   const name = block.querySelector('#order-name');
   const twin = document.querySelector('#submit-name');
+  const rule = 'min' in d;
+  const feeLine = block.querySelector('.order-fee');
+  const sumLine = block.querySelector('.order-sum');
+  const toFree = block.querySelector('.order-to-free');
+  const address = block.querySelector('#order-address');
 
   let counts = {};
   try {
@@ -1702,8 +1727,23 @@ h2.course-label { font-size: inherit; font-weight: 400; }
     });
     const amounts = { bottles: bottles(n), amount: money(sum) };
     setText(total, fill(d.total, amounts));
+    let sums = [fill(d.totalLine, amounts)];
+    if (rule) {
+      const min = Number(d.min);
+      const charge = sum < min ? Number(d.fee) : 0;
+      const grand = { total: money(sum + charge) };
+      feeLine.hidden = !n;
+      sumLine.hidden = !n;
+      toFree.hidden = !n || !charge;
+      setText(feeLine, charge ? d.delivery : d.deliveryFree);
+      setText(sumLine, fill(d.grandTotal, grand));
+      setText(toFree, fill(d.toFree, { amount: money(min - sum) }));
+      sums = [fill(d.winesLine, amounts), charge ? d.deliveryLine : d.deliveryFreeLine, fill(d.grandTotalLine, grand)];
+    }
     const who = name.value.trim();
-    const message = [d.message, ...lines, fill(d.totalLine, amounts), ...(who ? [fill(d.nameLine, { name: who })] : [])].join('\n');
+    // The address on one line of the message: each line break inside it becomes ", ".
+    const where = address ? address.value.trim().split(/\s*\n\s*/).join(', ') : '';
+    const message = [d.message, ...lines, ...sums, ...(who ? [fill(d.nameLine, { name: who })] : []), ...(where ? [fill(d.addressLine, { address: where })] : [])].join('\n');
     // A message that cannot be encoded (a stored name holding a lone surrogate) leaves the button inert, as
     // at zero bottles, never holding an earlier order.
     let href = null;
@@ -1755,6 +1795,15 @@ h2.course-label { font-size: inherit; font-weight: 400; }
   name.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') name.blur();
   });
+
+  // The address: one site-wide key, so the English and Chinese pages share it.
+  if (address) {
+    address.value = read(KEYS.address) || '';
+    address.addEventListener('input', () => {
+      write(KEYS.address, address.value.trim());
+      update();
+    });
+  }
 
   send.addEventListener('click', (event) => {
     if (!send.hasAttribute('href')) {
